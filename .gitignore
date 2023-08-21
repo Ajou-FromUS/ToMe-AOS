@@ -1,4 +1,5 @@
 ### Intellij ###
+local.properties
 
 # User-specific stuff
 .idea/**/workspace.xml
