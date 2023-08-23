@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.tome_aos.databinding.ActivitySplashBinding
-import presentation.MainActivity
+import presentation.landing.LandingActiviy
 
 class SplashActivity : AppCompatActivity() {
     private val handler = Handler(Looper.getMainLooper())
@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun moveNext(){
         handler.postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LandingActiviy::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
