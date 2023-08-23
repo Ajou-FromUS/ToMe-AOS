@@ -14,14 +14,11 @@
             android:textAllCaps="false"
             android:text="@string/login_kakao"
             android:textAppearance="@style/AOS_h6"
-
             android:background="@drawable/btn_kakao_yellow"
-
-
+            android:layout_marginBottom="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/btn_google"
-
             style="?android:attr/borderlessButtonStyle"/>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -31,29 +28,23 @@
             android:textAllCaps="false"
             android:text="@string/login_google"
             android:textAppearance="@style/AOS_h6"
-
-
-            android:layout_marginBottom="156dp"
-
+            android:background="@drawable/btn_google_transparent"
+            android:layout_marginBottom="13dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-
+            app:layout_constraintBottom_toTopOf="@id/tv_visitor"
             style="?android:attr/borderlessButtonStyle"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_visitor"
+    <TextView
+            android:id="@+id/tv_visitor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_visitor"
-
+            android:textAppearance="@style/AOS_b2"
+            android:textColor="@color/tome_disabled"
             android:layout_marginBottom="62dp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            style="?android:attr/borderlessButtonStyle"
-
-    />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
