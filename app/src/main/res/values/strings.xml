@@ -14,5 +14,9 @@
     <string name="landing_step5">미션을 수행하면\n 티오가 성정할 수 있어요.</string>
     <string name="landing_button">티오와 함께 투미 시작하기</string>
 
+    <string name="login_kakao">카카오톡으로 로그인</string>
+    <string name="login_google">Google로 로그인</string>
+    <string name="login_visitor">회원가입 없이 둘러보기</string>
+
 
 </resources>

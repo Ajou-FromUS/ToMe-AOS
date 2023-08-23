@@ -36,6 +36,7 @@
                 app:layout_constraintTop_toBottomOf="@id/landing_step"/>
 
         <Button
+                android:id="@+id/btn_start_tome"
                 android:layout_width="332dp"
                 android:layout_height="58dp"
                 android:text="@string/landing_button"
@@ -43,9 +44,12 @@
                 android:textAppearance="@style/AOS_h6"
                 android:layout_marginBottom="83dp"
 
+                android:background="@drawable/btn_basic_blue"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="?android:attr/borderlessButtonStyle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

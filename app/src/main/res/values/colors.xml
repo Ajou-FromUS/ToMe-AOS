@@ -15,4 +15,6 @@
     <color name="tome_font_white">#FFFFFF</color>
     <color name="tome_background_white">#FCFCFC</color>
     <color name="tome_kakaotalk_yellow">#FFE600</color>
+    <color name="tome_transparent">#00000000</color>
+
 </resources>
