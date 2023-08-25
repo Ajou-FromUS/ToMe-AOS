@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ToMe-AOS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="landing_step1">당신의 영원한 단짝\n티오를 만나보세요.</string>
+    <string name="landing_slide">옆으로 슬라이드 >>></string>
+    <string name="landing_step2">당신은 누구인가요?</string>
+    <string name="landing_step2_sub">하루에 한 번, 나를 돌아볼 수 있는 질문에 답해 보세요.</string>
+    <string name="landing_step3">오늘 하루는 어땠나요?</string>
+    <string name="landing_step3_sub">날씨, 감정, 일까지 다이어리에 쉽게 담아봐요.</string>
+    <string name="landing_step4">티오랑 대화해보세요!</string>
+    <string name="landing_step4_sub">심리 상담가 티오가 당신의 이야기를 들어줄 거예요.</string>
+    <string name="landing_step5">미션을 수행하면\n 티오가 성정할 수 있어요.</string>
+    <string name="landing_button">티오와 함께 투미 시작하기</string>
+
+    <string name="login_kakao">카카오톡으로 로그인</string>
+    <string name="login_google">Google로 로그인</string>
+    <string name="login_visitor"><u>회원가입 없이 둘러보기</u></string>
+
+
 </resources>
