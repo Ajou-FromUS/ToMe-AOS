@@ -8,13 +8,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="tome_main_blue">#5072EE</color>
-    <color name="tome_sub_blue">#E8EDFF</color>
-    <color name="tome_disabled">#D9D9D9</color>
-    <color name="tome_font_black">#232323</color>
-    <color name="tome_font_white">#FFFFFF</color>
-    <color name="tome_background_white">#FCFCFC</color>
-    <color name="tome_kakaotalk_yellow">#FFE600</color>
-    <color name="tome_transparent">#00000000</color>
+    <color name="color_main">#5072EE</color>
+    <color name="color_sub1">#ABBDFF</color>
+    <color name="color_sub2">#E8EDFF</color>
+    <color name="color_disabled1">#D9D9D9</color>
+    <color name="color_disabled2">#F1F1F1</color>
+    <color name="color_font1">#232323</color>
+    <color name="color_font2">#686868</color>
+    <color name="color_font3">#A9A9A9</color>
+    <color name="color_font4">#FFFFFF</color>
+    <color name="color_back">#FCFCFC</color>
+    <color name="color_kakao">#FFE500</color>
+    <color name="color_alarm">#FF5151</color>
+    <color name="color_transparent">#00000000</color>
+    <color name="color_snack_background">#FFF1DA</color>
+    <color name="color_snack_stroke">#FFC09C</color>
+    <color name="color_snack_text">#FF6454</color>
 
 </resources>
