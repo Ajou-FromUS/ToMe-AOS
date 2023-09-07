@@ -14,10 +14,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Step 5."
-                android:textAppearance="@style/AOS_b3"
-
+                android:textAppearance="@style/text_body2"
+                android:textColor="@color/color_font1"
                 android:layout_marginTop="166dp"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -26,26 +25,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/landing_step5"
-                android:textAppearance="@style/AOS_h4"
+                android:textAppearance="@style/text_subtitle1"
+                android:textColor="@color/color_font1"
                 android:gravity="center"
-
                 android:layout_marginTop="6dp"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/landing_step"/>
 
         <Button
                 android:id="@+id/btn_start_tome"
-                android:layout_width="332dp"
+                android:layout_width="308dp"
                 android:layout_height="58dp"
                 android:text="@string/landing_button"
-                android:textColor="@color/tome_background_white"
-                android:textAppearance="@style/AOS_h6"
-                android:layout_marginBottom="83dp"
-
+                android:textAppearance="@style/text_subtitle2"
+                android:textColor="@color/color_font4"
+                android:layout_marginBottom="47dp"
                 android:background="@drawable/btn_basic_blue"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
