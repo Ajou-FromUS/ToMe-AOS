@@ -16,9 +16,7 @@
 
     <string name="login_kakao">카카오톡으로 로그인</string>
     <string name="login_google">Google로 로그인</string>
-    <string name="login_visitor">
-        <u>회원가입 없이 둘러보기</u>
-    </string>
+    <string name="login_visitor"><u>회원가입 없이 둘러보기</u></string>
 
     <string name="navi_home">홈</string>
     <string name="navi_archive">아카이브</string>

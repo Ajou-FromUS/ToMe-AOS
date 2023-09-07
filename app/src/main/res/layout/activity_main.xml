@@ -28,7 +28,7 @@
 
             android:paddingEnd="10dp"
             android:paddingStart="10dp"
-            android:background="@color/tome_background_white"
+            android:background="@color/color_back"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
