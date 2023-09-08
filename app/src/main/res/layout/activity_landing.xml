@@ -15,7 +15,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/landing_viewpager"
+            android:id="@+id/vp_landing"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +38,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
+            android:id="@+id/tv_slide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/landing_slide"
