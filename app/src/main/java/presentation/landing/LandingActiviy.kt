@@ -28,11 +28,18 @@ class LandingActiviy : AppCompatActivity() {
         binding.dotIndicator.attachTo(viewPager)
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                if (position == 4) {
-                    slideText.visibility = View.GONE
-                } else {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                // 페이지 스크롤 중에 호출됩니다.
+                // 다음 페이지로 슬라이드하는 순간에 텍스트 뷰를 숨깁니다.
+                if (position == 3 && positionOffset > 0.1 || position == 4) {
+                    slideText.visibility = View.INVISIBLE
+                }
+                else{
                     slideText.visibility = View.VISIBLE
                 }
             }

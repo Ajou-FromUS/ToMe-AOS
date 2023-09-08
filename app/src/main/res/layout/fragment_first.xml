@@ -28,7 +28,7 @@
                 android:textAppearance="@style/text_subtitle1"
                 android:textColor="@color/color_font1"
                 android:lineHeight="28sp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_landing_step"/>

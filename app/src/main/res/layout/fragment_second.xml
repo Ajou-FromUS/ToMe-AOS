@@ -27,7 +27,7 @@
                 android:text="@string/landing_step2"
                 android:textAppearance="@style/text_subtitle1"
                 android:textColor="@color/color_font1"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_landing_step"/>
@@ -38,7 +38,7 @@
                 android:text="@string/landing_step2_sub"
                 android:textColor="@color/color_font3"
                 android:textAppearance="@style/text_body2"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="47dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_landing_step"/>
