@@ -2,10 +2,11 @@ package presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import presentation.archive.ArchiveFragment
 import presentation.chat.ChatFragment
 import presentation.diary.DiaryFragment
@@ -18,32 +19,43 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val topBarTextManager = supportFragmentManager.findFragmentById(R.id.naviText);
+
+
+
+        val transaction = supportFragmentManager.beginTransaction()
+            .replace(R.id.top_bar_linear, TopBarFragment())
+        transaction.commit()
+
         binding.bnvMain.itemIconTintList = null
-        replaceFragment(HomeFragment())
+        replaceBnvFragment(HomeFragment())
 
         binding.bnvMain.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navi_home -> {
-                    replaceFragment(HomeFragment())
+                    replaceBnvFragment(HomeFragment())
                 }
                 R.id.navi_archive -> {
-                    replaceFragment(ArchiveFragment())
+                    replaceBnvFragment(ArchiveFragment())
                 }
                 R.id.navi_diary -> {
-                    replaceFragment(DiaryFragment())
+                    replaceBnvFragment(DiaryFragment())
                 }
                 R.id.navi_chat -> {
-                    replaceFragment(ChatFragment())
+                    replaceBnvFragment(ChatFragment())
                 }
             }
             true
         }
     }
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceBnvFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .apply {
                 replace(R.id.main_frameLayout, fragment)
                 commit()
             }
+    }
+
+    private fun replaceTopBarName(){
     }
 }
