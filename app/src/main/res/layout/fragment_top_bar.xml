@@ -7,24 +7,24 @@
                                                    android:background="@drawable/topbar_background">
     <ImageButton
             android:src="@drawable/ic_mypage"
-            android:layout_width="40dp"
-            android:layout_height="40dp" android:id="@+id/myPageBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp" android:id="@+id/myPageBtn"
             android:scaleType="fitCenter"
             android:background="@color/color_transparent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="28dp"
+            android:layout_marginEnd="24dp"
             android:padding="4dp" app:layout_constraintVertical_bias="0.0"
             app:layout_constraintTop_toBottomOf="@+id/toMe_Text" android:layout_marginTop="4dp"/>
     <ImageButton
             android:src="@drawable/ic_mission"
-            android:layout_width="40dp"
-            android:layout_height="40dp" android:id="@+id/missionBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp" android:id="@+id/missionBtn"
             android:scaleType="fitCenter"
             android:background="@color/color_transparent"
             app:layout_constraintTop_toTopOf="@+id/myPageBtn"
             app:layout_constraintBottom_toBottomOf="@+id/myPageBtn"
             app:layout_constraintVertical_bias="0.0" android:padding="4dp"
-            app:layout_constraintEnd_toStartOf="@+id/myPageBtn" android:layout_marginEnd="8dp"/>
+            app:layout_constraintEnd_toStartOf="@+id/myPageBtn" android:layout_marginEnd="16dp"/>
     <TextView
             android:text="@string/toMe"
             android:layout_width="wrap_content"
