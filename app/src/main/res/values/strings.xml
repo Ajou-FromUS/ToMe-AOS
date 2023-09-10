@@ -11,7 +11,7 @@
     <string name="landing_step3_sub">날씨, 감정, 일까지 다이어리에 쉽게 담아봐요.</string>
     <string name="landing_step4">티오랑 대화해보세요!</string>
     <string name="landing_step4_sub">심리 상담가 티오가 당신의 이야기를 들어줄 거예요.</string>
-    <string name="landing_step5">미션을 수행하면\n 티오가 성정할 수 있어요.</string>
+    <string name="landing_step5">미션을 수행하면\n 티오가 성장할 수 있어요.</string>
     <string name="landing_button">티오와 함께 투미 시작하기</string>
 
     <string name="login_kakao">카카오톡으로 로그인</string>
@@ -35,5 +35,12 @@
     <string name="level_0">Lv.응애</string>
     <string name="level_0_description">티오의 가장 어린 모습입니다.\n쑥쓰러움이 많아 혼잣말을 자주 해요.</string>
 
-
+    <string name="write_diary">작성하러 가기</string>
+    <string name="next_stage">다음 단계로 넘어가기</string>
+    <string name="ready_diary">오늘의 일기\n작성할 준비 됐어?!</string>
+    <string name="answer_to">티오에게 힘차게 대답해주세요.</string>
+    <string name="start_write">일의\n일기 작성 시작!</string>
+    <string name="sure">당연하지!</string>
+    <string name="diary_write_start">일기 작성 시작하기</string>
+    <string name="good">굿! 👍</string>
 </resources>

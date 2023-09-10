@@ -7,15 +7,8 @@
         android:layout_height="match_parent"
         tools:context="presentation.landing.LandingActiviy">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
     <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/landing_viewpager"
+            android:id="@+id/vp_landing"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,9 +28,10 @@
             app:selectedDotColor="@color/color_main"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
+            android:id="@+id/tv_slide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/landing_slide"
@@ -47,5 +41,19 @@
             android:layout_marginBottom="45dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+            android:id="@+id/btn_start_tome"
+            android:layout_width="308dp"
+            android:layout_height="58dp"
+            android:text="@string/landing_button"
+            android:textAppearance="@style/text_subtitle2"
+            android:textColor="@color/color_font4"
+            android:layout_marginBottom="47dp"
+            android:background="@drawable/btn_basic_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            style="?android:attr/borderlessButtonStyle"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
