@@ -10,7 +10,7 @@
             android:layout_height="match_parent">
 
         <TextView
-                android:id="@+id/landing_step"
+                android:id="@+id/tv_landing_step"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Step 4."
@@ -27,10 +27,10 @@
                 android:text="@string/landing_step4"
                 android:textAppearance="@style/text_subtitle1"
                 android:textColor="@color/color_font1"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/landing_step"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_landing_step"/>
 
         <TextView
                 android:layout_width="wrap_content"
@@ -38,10 +38,10 @@
                 android:text="@string/landing_step4_sub"
                 android:textAppearance="@style/text_body2"
                 android:textColor="@color/color_font3"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="47dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/landing_step"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_landing_step"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
