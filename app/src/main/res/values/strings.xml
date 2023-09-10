@@ -24,6 +24,13 @@
     <string name="navi_chat">대화</string>
 
     <string name="write_diary">작성하러 가기</string>
+    <string name="next_stage">다음 단계로 넘어가기</string>
+    <string name="ready_diary">오늘의 일기\n작성할 준비 됐어?!</string>
+    <string name="answer_to">티오에게 힘차게 대답해주세요.</string>
+    <string name="start_write">일의\n일기 작성 시작!</string>
+    <string name="sure">당연하지!</string>
+    <string name="diary_write_start">일기 작성 시작하기</string>
+    <string name="good">굿! 👍</string>
 
 
 </resources>
