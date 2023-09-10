@@ -41,22 +41,7 @@
                 android:layout_marginTop="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_landing_step"
-                />
-        <Button
-                android:id="@+id/btn_start_tome"
-                android:layout_width="308dp"
-                android:layout_height="58dp"
-                android:text="@string/landing_button"
-                android:textAppearance="@style/text_subtitle2"
-                android:textColor="@color/color_font4"
-                android:layout_marginBottom="47dp"
-                android:background="@drawable/btn_basic_blue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                style="?android:attr/borderlessButtonStyle"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_landing_step"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

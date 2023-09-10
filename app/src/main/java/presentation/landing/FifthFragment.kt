@@ -16,10 +16,6 @@ class FifthFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFifthBinding.inflate(inflater, container, false)
-        binding.btnStartTome.setOnClickListener{
-            var intent = Intent(activity, LoginActivity::class.java)
-            startActivity(intent)
-        }
         return binding.root
     }
 }
