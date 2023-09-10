@@ -2,9 +2,7 @@ package presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityMainBinding
 import presentation.archive.ArchiveFragment
@@ -18,10 +16,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        val topBarTextManager = supportFragmentManager.findFragmentById(R.id.naviText);
-
-
 
         val transaction = supportFragmentManager.beginTransaction()
             .replace(R.id.top_bar_linear, TopBarFragment())
