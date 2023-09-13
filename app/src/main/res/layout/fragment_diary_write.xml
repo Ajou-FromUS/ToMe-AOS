@@ -9,97 +9,98 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraint_diaryWrite"
+        <FrameLayout
+                android:id="@+id/frame_diaryWrite"
                 android:layout_width="308dp"
                 android:layout_height="478dp"
                 android:background="@drawable/round_box"
+                android:layout_marginBottom="17dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="17dp">
-            <TextView
-                    android:id="@+id/tv_messageBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/img_message"
-                    android:layout_marginTop="45dp"
-                    android:text="@string/ready_diary"
-                    android:textAppearance="@style/text_title3"
-                    android:textColor="@color/color_font1"
-                    android:gravity="center"
-                    android:paddingTop="11dp"
-                    app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite"
-                    app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite"
-                    app:layout_constraintTop_toTopOf="@id/constraint_diaryWrite"/>
+                app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraint_diaryWrite2"
-                    android:layout_width="264dp"
-                    android:layout_height="282dp"
-                    android:background="@drawable/btn_basic_blue"
-                    android:backgroundTint="@color/color_font4"
-                    app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite"
-                    app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite"
-                    app:layout_constraintBottom_toTopOf="@id/ibtn_next">
-
+                    android:id="@+id/constraint_diaryWrite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <TextView
-                        android:id="@+id/tv_subtitle"
+                        android:id="@+id/tv_messageBox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/answer_to"
-                        android:textAppearance="@style/text_body1"
-                        android:textColor="@color/color_font1"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="40dp"
-                        app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite2"
-                        app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite2"
-                        app:layout_constraintTop_toTopOf="@id/constraint_diaryWrite2"/>
-                <ImageView
-                        android:id="@+id/iv_good"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/img_good1"
-                        android:layout_marginBottom="20dp"
-                        app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite2"
-                        app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite2"
-                        app:layout_constraintBottom_toTopOf="@id/btn_sure"/>
-                <Button
-                        android:id="@+id/btn_sure"
-                        android:layout_width="195dp"
-                        android:layout_height="46dp"
-                        android:text="@string/sure"
-                        android:background="@drawable/btn_basic_round"
-                        android:textColor="@color/color_back"
+                        android:background="@drawable/img_message"
+                        android:layout_marginTop="45dp"
+                        android:text="@string/ready_diary"
                         android:textAppearance="@style/text_title3"
-                        android:layout_marginBottom="41dp"
-                        app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite2"
-                        app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite2"
-                        app:layout_constraintBottom_toBottomOf="@id/constraint_diaryWrite2"/>
+                        android:textColor="@color/color_font1"
+                        android:gravity="center"
+                        android:paddingTop="11dp"
+                        app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite"
+                        app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite"
+                        app:layout_constraintTop_toTopOf="@id/constraint_diaryWrite"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraint_diaryWrite2"
+                        android:layout_width="264dp"
+                        android:layout_height="282dp"
+                        android:background="@drawable/btn_basic_blue"
+                        android:backgroundTint="@color/color_font4"
+                        app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite"
+                        app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite"
+                        app:layout_constraintBottom_toTopOf="@id/ibtn_next">
+                    <TextView
+                            android:id="@+id/tv_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/answer_to"
+                            android:textAppearance="@style/text_body1"
+                            android:textColor="@color/color_font1"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="40dp"
+                            app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite2"
+                            app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite2"
+                            app:layout_constraintTop_toTopOf="@id/constraint_diaryWrite2"/>
+                    <ImageView
+                            android:id="@+id/iv_good"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/img_good1"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite2"
+                            app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite2"
+                            app:layout_constraintBottom_toTopOf="@id/btn_sure"/>
+                    <Button
+                            android:id="@+id/btn_sure"
+                            android:layout_width="195dp"
+                            android:layout_height="46dp"
+                            android:text="@string/sure"
+                            android:background="@drawable/btn_basic_round"
+                            android:textColor="@color/color_back"
+                            android:textAppearance="@style/text_title3"
+                            android:layout_marginBottom="41dp"
+                            app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite2"
+                            app:layout_constraintStart_toStartOf="@id/constraint_diaryWrite2"
+                            app:layout_constraintBottom_toBottomOf="@id/constraint_diaryWrite2"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                        android:id="@+id/tv_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/next_stage"
+                        android:textAppearance="@style/text_body2"
+                        android:textColor="@color/color_disabled1"
+                        android:layout_marginBottom="17dp"
+                        app:layout_constraintBottom_toBottomOf="@id/constraint_diaryWrite"
+                        app:layout_constraintEnd_toStartOf="@id/ibtn_next"/>
+                <ImageButton
+                        android:id="@+id/ibtn_next"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:src="@drawable/ic_diary_frontarr_dis"
+                        android:backgroundTint="@color/color_transparent"
+                        app:layout_constraintBottom_toBottomOf="@id/constraint_diaryWrite"
+                        app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                    android:id="@+id/tv_next"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/next_stage"
-                    android:textAppearance="@style/text_body2"
-                    android:textColor="@color/color_disabled1"
-                    android:layout_marginBottom="17dp"
-                    app:layout_constraintBottom_toBottomOf="@id/constraint_diaryWrite"
-                    app:layout_constraintEnd_toStartOf="@id/ibtn_next"/>
-            <ImageButton
-                    android:id="@+id/ibtn_next"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:src="@drawable/ic_diary_frontarr_dis"
-                    android:backgroundTint="@color/color_transparent"
-                    app:layout_constraintBottom_toBottomOf="@id/constraint_diaryWrite"
-                    app:layout_constraintEnd_toEndOf="@id/constraint_diaryWrite"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </FrameLayout>
