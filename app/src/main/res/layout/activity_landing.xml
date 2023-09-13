@@ -50,7 +50,7 @@
             android:textAppearance="@style/text_subtitle2"
             android:textColor="@color/color_font4"
             android:layout_marginBottom="47dp"
-            android:background="@drawable/btn_basic_blue"
+            android:background="@drawable/btn_basic_8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
