@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentHomeBinding
 
 
@@ -54,7 +55,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun toggleFab() {
-        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+        // 플로팅 액션 버튼 닫기
         if (isFabOpen) {
             val animation1 = AlphaAnimation(1f, 0f)
             animation1.duration = 300
@@ -62,20 +63,20 @@ class HomeFragment : Fragment() {
             binding.fabStore.startAnimation(animation1)
             binding.fabBookAlign.startAnimation(animation1)
 
-            ObjectAnimator.ofFloat(binding.fabMain,"translationY",0f).apply { start() }
+            binding.fabMain.isSelected = false
             ObjectAnimator.ofFloat(binding.fabBookAlign, "translationY", 0f).apply { start() }
             ObjectAnimator.ofFloat(binding.fabStore, "translationY", 0f).apply { start() }
 
-        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
+        } else { // 플로팅 액션 버튼 열기
             val animation2 = AlphaAnimation(0f, 1f)
             animation2.duration = 100
             animation2.fillAfter = true
             binding.fabStore.startAnimation(animation2)
             binding.fabBookAlign.startAnimation(animation2)
 
-            ObjectAnimator.ofFloat(binding.fabMain, "translationY", 0f).apply { start() }
-            ObjectAnimator.ofFloat(binding.fabBookAlign, "translationY", 100f).apply { start() }
-            ObjectAnimator.ofFloat(binding.fabStore, "translationY", 200f).apply { start() }
+            binding.fabMain.isSelected = true
+            ObjectAnimator.ofFloat(binding.fabBookAlign, "translationY", 50f).apply { start() }
+            ObjectAnimator.ofFloat(binding.fabStore, "translationY", 100f).apply { start() }
             binding.fabBookAlign.visibility = View.VISIBLE
             binding.fabStore.visibility = View.VISIBLE
         }
