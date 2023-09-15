@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="horizontal"
+        android:layout_marginHorizontal="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:gravity="center_vertical" android:id="@+id/missionBox"
+        tools:showIn="@layout/activity_mission" android:background="@drawable/border_bottom"
+>
+    <TextView
+            android:text="@string/mission1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/missionText1" android:layout_weight="1"
+            android:textColor="@color/color_font1" android:textSize="12sp"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_mission_move"
+            android:id="@+id/missionCompleteBtn" android:layout_weight="0"
+            android:background="@color/color_transparent"/>
+</LinearLayout>
