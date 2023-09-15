@@ -32,13 +32,19 @@
     <string name="welcome">어서오세요!</string>
     <string name="snack">티오의 과자</string>
     <string name="whatToday">오늘은\n무슨 일 있었어?</string>
-    <string name="Todayfeeling">🥱</string>
+    <string name="todayFeeling">🥱</string>
 
 
     <string name="to_level">티오의 레벨</string>
     <string name="lv_">Lv.응애</string>
     <string name="lv_icon">🍼</string>
     <string name="level_0_description">티오의 가장 어린 모습입니다.\n쑥쓰러움이 많아 혼잣말을 자주 해요.</string>
+
+    <string name="todayMission">오늘의 미션</string>
+    <string name="fighting">오늘 하루도 파이팅!</string>
+    <string name="untilGrowth">티오의 성장까지</string>
+    <string name="mission1">앱 접속하기</string>
+
 
     <string name="write_diary">작성하러 가기</string>
     <string name="next_stage">다음 단계로 넘어가기</string>
