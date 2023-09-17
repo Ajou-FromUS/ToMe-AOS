@@ -23,7 +23,6 @@ class DiaryFragment : Fragment() {
             // Fragment 전환을 위한 트랜잭션 시작
             val transaction = parentFragmentManager.beginTransaction()
             transaction.add(R.id.frame_diary, fragment)
-            transaction.addToBackStack(null)
             transaction.commit()
         }
         // Inflate the layout for this fragment

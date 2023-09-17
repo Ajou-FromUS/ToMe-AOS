@@ -35,6 +35,13 @@
     <string name="level_0">Lv.응애</string>
     <string name="level_0_description">티오의 가장 어린 모습입니다.\n쑥쓰러움이 많아 혼잣말을 자주 해요.</string>
 
+    <string name="todays_archive">오늘의 아카이브를 작성해볼까요?</string>
+    <string name="save_archive">저장 완료하기</string>
+    <string name="save_sure">오늘의 아카이브를 저장할까요?</string>
+    <string name="save_warn">저장된 아카이브는 수정이 불가해요.</string>
+    <string name="save_yes">네, 저장할게요.</string>
+    <string name="save_no">아니요, 수정할래요.</string>
+
     <string name="write_diary">작성하러 가기</string>
     <string name="next_stage">다음 단계로 넘어가기</string>
     <string name="ready_diary">오늘의 일기\n작성할 준비 됐어?!</string>
@@ -43,4 +50,6 @@
     <string name="sure">당연하지!</string>
     <string name="diary_write_start">일기 작성 시작하기</string>
     <string name="good">굿! 👍</string>
+
+
 </resources>
