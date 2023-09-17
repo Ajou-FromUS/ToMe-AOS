@@ -2,12 +2,12 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-             tools:context="presentation.archive.ArchiveSave"
-             android:background="#80FCFCFC">
+             tools:context="presentation.archive.ArchiveSave">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
 
         <TextView
                 android:id="@+id/tv_saveSure"
@@ -20,8 +20,7 @@
                 android:layout_marginTop="105dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-        />
+                app:layout_constraintTop_toTopOf="parent"/>
         <TextView
                 android:id="@+id/tv_saveWarn"
                 android:layout_width="wrap_content"
@@ -33,41 +32,83 @@
                 android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_saveSure"
-        />
+                app:layout_constraintTop_toBottomOf="@id/tv_saveSure"/>
 
         <LinearLayout
+                android:id="@+id/linear_archiveSave"
                 android:layout_width="308dp"
                 android:layout_height="328dp"
                 android:orientation="vertical"
+                android:gravity="center"
                 android:background="@drawable/round_box_8dp"
                 android:layout_marginTop="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_saveWarn">
 
-            <Button
-                    android:layout_width="308dp"
-                    android:layout_height="52dp"
-                    android:text="@string/save_yes"
-                    android:textAppearance="@style/text_body1"
-                    android:textColor="@color/color_font4"
-                    android:background="@drawable/btn_basic_8dp"
-                    style="?android:attr/borderlessButtonStyle"/>
-            <Button
-                    android:layout_width="308dp"
-                    android:layout_height="52dp"
-                    android:text="@string/save_no"
-                    android:textAppearance="@style/text_body1"
-                    android:textColor="@color/color_font2"
-                    android:background="@drawable/btn_basic_8dp"
-                    android:backgroundTint="@color/color_disabled1"
-                    android:layout_marginTop="12dp"
-                    style="?android:attr/borderlessButtonStyle"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01."
+                    android:textSize="36sp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textColor="@color/color_main"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나의 별명은??"
+                    android:layout_marginTop="6dp"
+                    android:textAppearance="@style/text_subtitle2"
+                    android:textColor="@color/color_font1"
+                    android:layout_marginBottom="12dp"/>
+            <TextView
+                    android:id="@+id/tv_archive_answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ddddd"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="@style/text_subtitle2"
+                    android:textColor="@color/color_font2"/>
+            <TextView
+                    android:id="@+id/tv_is"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="입니다."
+                    android:textAppearance="@style/text_subtitle2"
+                    android:textColor="@color/color_font1"
+                    android:layout_marginTop="8dp"/>
         </LinearLayout>
 
+        <Button
+                android:id="@+id/btn_save"
+                android:layout_width="308dp"
+                android:layout_height="52dp"
+                android:text="@string/save_yes"
+                android:textAppearance="@style/text_body1"
+                android:textColor="@color/color_font4"
+                android:background="@drawable/btn_basic_8dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintTop_toBottomOf="@id/linear_archiveSave"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/btn_no_save"
+                style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+                android:id="@+id/btn_no_save"
+                android:layout_width="308dp"
+                android:layout_height="52dp"
+                android:text="@string/save_no"
+                android:textAppearance="@style/text_body1"
+                android:textColor="@color/color_font2"
+                android:background="@drawable/btn_basic_8dp"
+                android:backgroundTint="@color/color_disabled1"
+                android:layout_marginBottom="108dp"
+                app:layout_constraintTop_toBottomOf="@+id/btn_save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="?android:attr/borderlessButtonStyle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </FrameLayout>

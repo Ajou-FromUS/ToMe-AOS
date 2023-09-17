@@ -1,5 +1,6 @@
 package presentation.archive
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Bundle
@@ -24,7 +25,7 @@ class ArchiveWrite : Fragment() {
     private lateinit var et: EditText
     private lateinit var tv: TextView
     private lateinit var btn: Button
-
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +35,6 @@ class ArchiveWrite : Fragment() {
             tv = tvWordCount
             btn = btnSaveArchive
         }
-        val fragment = ArchiveSave()
 
         et.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -59,9 +59,11 @@ class ArchiveWrite : Fragment() {
 
         btn.setOnClickListener {
             val transaction = parentFragmentManager.beginTransaction()
+            val textInput = et.text.toString()
+            val fragment = ArchiveSave(textInput)
             transaction.add(R.id.frame_archiveWrite, fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
-
         }
 
         return binding.root
