@@ -25,6 +25,7 @@ class ArchiveWrite : Fragment() {
     private lateinit var et: EditText
     private lateinit var tv: TextView
     private lateinit var btn: Button
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,23 +50,21 @@ class ArchiveWrite : Fragment() {
 
         binding.root.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
-                val imm =
-                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(et.windowToken, 0)
-                et.clearFocus()
+                hideKeyboard()
             }
             false
         }
 
         btn.setOnClickListener {
-            val transaction = parentFragmentManager.beginTransaction()
             val textInput = et.text.toString()
             val fragment = ArchiveSave(textInput)
-            transaction.add(R.id.frame_archiveWrite, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+            parentFragmentManager.beginTransaction()
+                .add(R.id.frame_archiveWrite, fragment)
+                //.hide(this@ArchiveWrite)
 
+                .addToBackStack("archiveWrite")
+                .commit()
+        }
         return binding.root
     }
 
@@ -82,5 +81,12 @@ class ArchiveWrite : Fragment() {
             btn.setTextColor(getColor(requireContext(), R.color.color_font4))
             btn.isEnabled = true
         }
+    }
+
+    private fun hideKeyboard() {
+        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE)
+                as InputMethodManager
+        imm.hideSoftInputFromWindow(et.windowToken, 0)
+        et.clearFocus()
     }
 }

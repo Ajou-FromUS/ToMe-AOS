@@ -22,7 +22,8 @@ class ArchiveFragment : Fragment() {
             val fragment = ArchiveWrite()
 
             val transaction = parentFragmentManager.beginTransaction()
-            transaction.add(R.id.frame_archive, fragment)
+            transaction.replace(R.id.frame_archive, fragment)
+            //transaction.addToBackStack("archiveFrag")
             transaction.commit()
         }
         return binding.root
