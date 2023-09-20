@@ -45,6 +45,12 @@
     <string name="untilGrowth">티오의 성장까지</string>
     <string name="mission1">앱 접속하기</string>
 
+    <string name="todays_archive">오늘의 아카이브를 작성해볼까요?</string>
+    <string name="save_archive">저장 완료하기</string>
+    <string name="save_sure">오늘의 아카이브를 저장할까요?</string>
+    <string name="save_warn">저장된 아카이브는 수정이 불가해요.</string>
+    <string name="save_yes">네, 저장할게요.</string>
+    <string name="save_no">아니요, 수정할래요.</string>
 
     <string name="write_diary">작성하러 가기</string>
     <string name="next_stage">다음 단계로 넘어가기</string>
@@ -54,4 +60,6 @@
     <string name="sure">당연하지!</string>
     <string name="diary_write_start">일기 작성 시작하기</string>
     <string name="good">굿! 👍</string>
+
+
 </resources>

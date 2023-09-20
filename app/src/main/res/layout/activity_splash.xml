@@ -14,9 +14,9 @@
             android:fontFamily="@font/ydestreetl"
             android:textSize="12sp"
             android:textColor="@color/color_font1"
+            android:layout_marginTop="265dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

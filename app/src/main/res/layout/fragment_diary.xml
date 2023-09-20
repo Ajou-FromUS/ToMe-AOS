@@ -9,59 +9,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <RelativeLayout
-                android:id="@+id/relative_diary"
-                android:layout_width="match_parent"
-                android:layout_height="118dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/round_top"
-                android:backgroundTint="@color/color_font2">
-
-            <TextView
-                    android:id="@+id/tv_logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="to Me"
-                    android:fontFamily="@font/ydestreetl"
-                    android:textSize="12sp"
-                    android:textColor="@color/color_font1"
-                    android:layout_marginStart="26dp"
-                    android:layout_marginTop="41dp"/>
-
-            <TextView
-                    android:id="@+id/tv_diary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/navi_diary"
-                    android:textAppearance="@style/text_title2"
-                    android:layout_below="@id/tv_logo"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="26dp"/>
-
-            <ImageButton
-                    android:id="@+id/ibtn_mission"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_mission"
-                    android:backgroundTint="@color/color_transparent"
-                    android:layout_marginLeft="194dp"
-                    android:layout_toLeftOf="@id/ibtn_user"
-                    android:layout_marginTop="63dp"/>
-
-            <ImageButton
-                    android:id="@+id/ibtn_user"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_user"
-                    android:backgroundTint="@color/color_transparent"
-                    android:layout_marginTop="63dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_alignParentRight="true"/>
-        </RelativeLayout>
-
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
