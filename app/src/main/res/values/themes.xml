@@ -28,4 +28,12 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.8</item>
     </style>
+
+    <style name="Theme.LifeteerAOS.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FAB" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/color_main</item>
+        <item name="colorPrimaryVariant">@color/color_sub2</item>
+        <item name="colorOnPrimary">@color/color_sub2</item>
+    </style>
 </resources>

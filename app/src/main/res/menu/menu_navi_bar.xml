@@ -3,14 +3,14 @@
       tools:context="com.example.ToMe-AOS.presentation.MainActivity">
     <item android:id="@+id/navi_home"
           android:title="홈"
-          android:icon="@drawable/navi_home"/>
+          android:icon="@drawable/select_home"/>
     <item android:id="@+id/navi_archive"
           android:title="아카이브"
-          android:icon="@drawable/navi_archive"/>
+          android:icon="@drawable/select_archive"/>
     <item android:id="@+id/navi_diary"
           android:title="일기"
-          android:icon="@drawable/navi_diary"/>
+          android:icon="@drawable/select_diary"/>
     <item android:id="@+id/navi_chat"
           android:title="대화"
-          android:icon="@drawable/navi_chat"/>
+          android:icon="@drawable/select_chat"/>
 </menu>
