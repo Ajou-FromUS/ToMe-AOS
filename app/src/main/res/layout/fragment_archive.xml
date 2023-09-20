@@ -20,6 +20,7 @@
                 android:background="@color/color_main"/>
 
         <TextView
+                android:id="@+id/tv_write_archive"
                 android:layout_width="308dp"
                 android:layout_height="84dp"
                 android:background="@drawable/img_message"
