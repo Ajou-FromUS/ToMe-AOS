@@ -11,6 +11,12 @@ import presentation.diary.DiaryFragment
 import presentation.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
+    private val homeFragment = HomeFragment()
+    private val archiveFragment = ArchiveFragment()
+    private val diaryFragment = DiaryFragment()
+    private val chatFragment = ChatFragment()
+    private lateinit var currentFragment: Fragment
+
 
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,25 +28,50 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
 
         binding.bnvMain.itemIconTintList = null
-        replaceBnvFragment(HomeFragment())
 
+        currentFragment = homeFragment
+        supportFragmentManager.beginTransaction()
+            .add(R.id.main_frameLayout, homeFragment)
+            .commit()
         binding.bnvMain.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navi_home -> {
-                    replaceBnvFragment(HomeFragment())
+                    showFragment(homeFragment)
                 }
+
                 R.id.navi_archive -> {
-                    replaceBnvFragment(ArchiveFragment())
+                    showFragment(archiveFragment)
                 }
+
                 R.id.navi_diary -> {
-                    replaceBnvFragment(DiaryFragment())
+                    showFragment(diaryFragment)
                 }
+
                 R.id.navi_chat -> {
-                    replaceBnvFragment(ChatFragment())
+                    showFragment(chatFragment)
                 }
             }
             true
         }
+//        replaceBnvFragment(HomeFragment())
+//
+//        binding.bnvMain.setOnItemSelectedListener { menuItem ->
+//            when (menuItem.itemId) {
+//                R.id.navi_home -> {
+//                    replaceBnvFragment(HomeFragment())
+//                }
+//                R.id.navi_archive -> {
+//                    replaceBnvFragment(ArchiveFragment())
+//                }
+//                R.id.navi_diary -> {
+//                    replaceBnvFragment(DiaryFragment())
+//                }
+//                R.id.navi_chat -> {
+//                    replaceBnvFragment(ChatFragment())
+//                }
+//            }
+//            true
+//        }
     }
     private fun replaceBnvFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
@@ -51,5 +82,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceTopBarName(){
+    }
+
+    private fun showFragment(fragment: Fragment) {
+        if (fragment != currentFragment) {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.hide(currentFragment)
+            if (!fragment.isAdded) {
+                transaction.add(R.id.main_frameLayout, fragment)
+            } else {
+                transaction.show(fragment)
+            }
+            transaction.commit()
+            currentFragment = fragment
+        }
     }
 }

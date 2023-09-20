@@ -41,6 +41,8 @@
     <string name="save_warn">저장된 아카이브는 수정이 불가해요.</string>
     <string name="save_yes">네, 저장할게요.</string>
     <string name="save_no">아니요, 수정할래요.</string>
+    <string name="already_archive">오늘의 아카이브를 작성했어요.</string>
+    <string name="check_archive">확인하기</string>
 
     <string name="write_diary">작성하러 가기</string>
     <string name="next_stage">다음 단계로 넘어가기</string>
