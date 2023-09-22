@@ -18,8 +18,9 @@
                 android:name="presentation.landing.LandingActiviy"
                 android:exported="false"/>
         <activity
-                android:name="presentation.splash.SplashActivity"
-                android:exported="true">
+                android:name="presentation.MainActivity"
+                android:exported="true"
+                android:theme="@style/Theme.ToMeAOS.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -27,8 +28,11 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="presentation.MainActivity"
+                android:name="presentation.splash.SplashActivity"
                 android:exported="false"/>
+        <activity
+                android:name="presentation.mission.MissionActivity"
+                android:theme="@android:style/Theme.Dialog" />
     </application>
 
 </manifest>
