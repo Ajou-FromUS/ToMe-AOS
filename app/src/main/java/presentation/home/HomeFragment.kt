@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentHomeBinding
+import presentation.dialog.MissionClass
+import presentation.dialog.SnackDialog
 
 
 class HomeFragment : Fragment() {
@@ -27,6 +29,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setFABClickEvent()
+        setSnackClickEvent()
+    }
+
+    private fun setSnackClickEvent(){
+        binding.snackBtn.setOnClickListener {
+            val dialog = SnackDialog()
+            dialog.show(activity?.supportFragmentManager!!, "SnackDialog")
+        }
     }
 
     private fun setFABClickEvent() {

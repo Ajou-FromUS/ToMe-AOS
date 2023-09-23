@@ -9,7 +9,7 @@
     <ImageButton
             android:src="@drawable/ic_snack"
             android:layout_width="43dp"
-            android:layout_height="wrap_content" android:id="@+id/imageButton"
+            android:layout_height="wrap_content" android:id="@+id/snackBtn"
             android:background="@color/color_transparent"
             app:layout_constraintTop_toBottomOf="@+id/snack_text" android:layout_marginTop="4dp"
             android:scaleType="fitCenter" app:layout_constraintStart_toStartOf="@+id/snack_text"
@@ -113,7 +113,7 @@
             android:layout_height="260dp" android:src="@drawable/btn_basic_8dp" android:id="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="300dp" app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginTop="330dp" app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:id="@+id/main_bubble1"
             android:text="@string/whatToday"
