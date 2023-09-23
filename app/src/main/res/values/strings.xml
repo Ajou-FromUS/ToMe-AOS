@@ -20,6 +20,8 @@
         <u>회원가입 없이 둘러보기</u>
     </string>
 
+    <string name="btn_close">닫기</string>
+
     <string name="navi_home">홈</string>
     <string name="navi_archive">아카이브</string>
     <string name="navi_diary">일기</string>
@@ -30,10 +32,11 @@
 
     <string name="toMe">to Me</string>
     <string name="welcome">어서오세요!</string>
-    <string name="snack">티오의 과자</string>
     <string name="whatToday">오늘은\n무슨 일 있었어?</string>
     <string name="todayFeeling">🥱</string>
 
+    <string name="snack">티오의 과자</string>
+    <string name="snack_detail">티오가 제일 좋아하는 새우과자</string>
 
     <string name="to_level">티오의 레벨</string>
     <string name="lv_">Lv.응애</string>
