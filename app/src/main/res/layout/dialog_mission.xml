@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/btn_basic_8dp"
+            android:backgroundTint="@color/color_font4"
+    >
+        <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp" app:srcCompat="@drawable/ic_close_popup"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="38dp"
+                android:id="@+id/missionCloseBtn" android:background="@color/color_transparent"
+                android:layout_gravity="right"/>
+        <TextView
+                android:text="@string/todayMission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/missionTitleText"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/text_title3"
+                android:textColor="@color/color_font1" android:fontFamily="@font/pretendard_bold"
+                android:textSize="16sp"/>
+        <ImageView
+                android:layout_width="123dp"
+                android:layout_height="188dp"
+                android:src="@drawable/btn_basic_8dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/imageView"/>
+        <TextView
+                android:text="@string/untilGrowth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/untilGrowthText"
+                android:layout_marginTop="31dp"
+                android:textAppearance="@style/text_body2"
+                android:textColor="@color/color_font3"/>
+        <ProgressBar
+                android:max="100"
+                android:progress="50"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:progressDrawable="@drawable/progressbar"
+                android:layout_width="232dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="24dp"
+        />
+        <include layout="@layout/item_missionbox"/>
+        <include layout="@layout/item_missionbox"/>
+        <include layout="@layout/item_missionbox"/>
+        <include layout="@layout/item_missionbox"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="17dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

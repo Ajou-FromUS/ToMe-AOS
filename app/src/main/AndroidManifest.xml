@@ -30,9 +30,6 @@
         <activity
                 android:name="presentation.splash.SplashActivity"
                 android:exported="false"/>
-        <activity
-                android:name="presentation.mission.MissionActivity"
-                android:theme="@android:style/Theme.Dialog" />
     </application>
 
 </manifest>
