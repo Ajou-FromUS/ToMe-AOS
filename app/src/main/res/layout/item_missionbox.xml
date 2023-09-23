@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:gravity="center_vertical" android:id="@+id/missionBox"
-        tools:showIn="@layout/activity_mission" android:background="@drawable/border_bottom"
+        tools:showIn="@layout/dialog_mission" android:background="@drawable/border_bottom"
 >
     <TextView
             android:text="@string/mission1"
