@@ -39,7 +39,7 @@
                     android:textAppearance="@style/text_title2"
                     android:layout_marginTop="26dp"
                     android:background="@drawable/btn_dotted_circle" android:textAlignment="center"
-                    android:textColor="@color/color_snack_text"/>
+                    android:textColor="@color/color_snack_text" android:gravity="center"/>
             <ImageView
                     android:layout_width="125dp"
                     android:layout_height="165dp" app:srcCompat="@drawable/ic_snack" android:id="@+id/image_snack"
