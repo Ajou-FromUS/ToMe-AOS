@@ -1,13 +1,36 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
              tools:context="presentation.chat.ChatTalk">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+    >
+        <EditText
+                android:id="@+id/et_chat_talk"
+                android:layout_width="308dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_basic_8dp_noripple"
+                android:backgroundTint="@color/color_disabled2"
+                android:paddingStart="31dp"
+                android:paddingVertical="15dp"
+                android:hint="티오에게 메시지 보내기"
+                android:layout_marginBottom="150dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:src="@drawable/ic_chat_send_dis"
+                android:backgroundTint="@color/color_transparent"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="6dp"
+                app:layout_constraintEnd_toEndOf="@id/et_chat_talk"
+                app:layout_constraintBottom_toBottomOf="@id/et_chat_talk"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>
