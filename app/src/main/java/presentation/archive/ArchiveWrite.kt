@@ -6,12 +6,12 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -47,6 +47,14 @@ class ArchiveWrite : Fragment() {
                 updateButtonUI()
             }
         })
+        et.setOnEditorActionListener { _, actionId, _ ->
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+                imm?.hideSoftInputFromWindow(et.windowToken, 0)
+                return@setOnEditorActionListener true
+            }
+            false
+        }
 
         binding.root.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
@@ -59,10 +67,9 @@ class ArchiveWrite : Fragment() {
             val textInput = et.text.toString()
             val fragment = ArchiveSave(textInput)
             parentFragmentManager.beginTransaction()
-                .add(R.id.frame_archiveWrite, fragment)
                 //.hide(this@ArchiveWrite)
-
-                .addToBackStack("archiveWrite")
+                .add(R.id.frame_archive, fragment, "archiveSave")
+                //.addToBackStack("archiveWrite")
                 .commit()
         }
         return binding.root

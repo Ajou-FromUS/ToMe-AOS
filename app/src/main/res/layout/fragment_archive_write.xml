@@ -5,11 +5,14 @@
              tools:context="presentation.archive.ArchiveWrite"
              android:id="@+id/frame_archiveWrite">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/color_disabled2">
         <TextView
+                android:id="@+id/tv_archive_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="01."
@@ -26,10 +29,10 @@
                 android:text="나의 별명은??"
                 android:textAppearance="@style/text_subtitle2"
                 android:textColor="@color/color_font1"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/et_archive"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_archive_question"/>
 
         <EditText
                 android:id="@+id/et_archive"
@@ -47,10 +50,10 @@
                 android:paddingBottom="31dp"
                 android:paddingEnd="23dp"
                 android:paddingStart="23dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tv_is"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_archive_question"/>
         <TextView
                 android:id="@+id/tv_wordCount"
                 android:layout_width="wrap_content"
@@ -67,10 +70,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="입니다."
-                android:layout_marginBottom="50dp"
+                android:textAppearance="@style/text_subtitle2"
+                android:textColor="@color/color_font1"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/btn_save_archive"/>
+                app:layout_constraintTop_toBottomOf="@id/et_archive"/>
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_save_archive"
                 android:layout_width="308dp"
