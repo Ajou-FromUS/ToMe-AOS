@@ -30,7 +30,7 @@ class ChatFragment : Fragment() {
         btnStartChat.setOnClickListener {
             val fragment = ChatTalk()
             parentFragmentManager.beginTransaction()
-                .replace(R.id.frame_chat, fragment, "chatTalk")
+                .replace(R.id.main_frameLayout, fragment, "chatTalk")
                 .commit()
             //어플리케이션 종료 전까지는 계속 1단계 화면에 남아있어야 하기에 replace
         }
