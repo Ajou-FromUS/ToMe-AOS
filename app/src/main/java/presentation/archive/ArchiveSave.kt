@@ -38,7 +38,7 @@ class ArchiveSave(private val textInput: String) : Fragment() {
                     parentFragmentManager.beginTransaction()
                         .remove(this@ArchiveSave)
                         .show(it)
-                        .replace(R.id.frame_archive, ArchiveFragment())
+                        .replace(R.id.main_frameLayout, ArchiveFragment())
                         .commit()
                 }, 1000)
             }
