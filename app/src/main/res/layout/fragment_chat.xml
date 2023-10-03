@@ -2,8 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-             tools:context="presentation.chat.ChatFragment"
-             android:background="@color/color_font3">
+             tools:context="presentation.chat.ChatFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -14,25 +13,10 @@
                 android:layout_height="32dp"
                 android:src="@drawable/ic_chat_question"
                 android:background="@color/color_transparent"
-                android:layout_marginTop="130dp"
+                android:layout_marginTop="167dp"
                 android:layout_marginStart="26dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
-        <TextView
-                android:id="@+id/tv_chat_inst"
-                android:layout_width="273dp"
-                android:layout_height="76dp"
-                android:text="@string/chat_inst"
-                android:textAppearance="@style/text_body2"
-                android:textColor="@color/color_font2"
-                android:background="@drawable/btn_basic_4dp"
-                android:lineSpacingMultiplier="1.6"
-                android:paddingStart="20dp"
-                android:paddingVertical="10dp"
-                android:layout_marginStart="12dp"
-                app:layout_constraintStart_toEndOf="@id/ibtn_chat_question"
-                app:layout_constraintTop_toTopOf="@id/ibtn_chat_question"
-                android:visibility="invisible"/>
         <TextView
                 android:id="@+id/tv_intro1"
                 android:layout_width="wrap_content"
@@ -65,7 +49,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_intro2"/>
-
+        <TextView
+                android:id="@+id/tv_chat_inst"
+                android:layout_width="273dp"
+                android:layout_height="76dp"
+                android:text="@string/chat_inst"
+                android:textAppearance="@style/text_body2"
+                android:textColor="@color/color_font2"
+                android:background="@drawable/btn_basic_4dp"
+                android:lineSpacingMultiplier="1.6"
+                android:paddingStart="20dp"
+                android:paddingVertical="10dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/ibtn_chat_question"
+                app:layout_constraintTop_toTopOf="@id/ibtn_chat_question"
+                android:visibility="invisible"/>
         <Button
                 android:id="@+id/btn_start_chat"
                 android:layout_width="308dp"

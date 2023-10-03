@@ -14,6 +14,7 @@
             android:textAppearance="@style/text_body2"
             android:textColor="@color/color_font1"
             android:layout_marginTop="14dp"
+            android:layout_marginStart="70dp"
             android:paddingVertical="6dp"
             android:paddingHorizontal="12dp"/>
 </RelativeLayout>
