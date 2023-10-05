@@ -1,13 +1,84 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
              tools:context="presentation.chat.ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="match_parent">
+        <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:id="@+id/ibtn_chat_question"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_chat_question"
+                android:background="@color/color_transparent"
+                android:layout_marginTop="167dp"
+                android:layout_marginStart="26dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+                android:id="@+id/tv_intro1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_intro1"
+                android:textAppearance="@style/text_subtitle2"
+                android:textColor="@color/color_font1"
+                android:layout_marginTop="194dp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+                android:id="@+id/tv_intro2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_intro2"
+                android:textAppearance="@style/text_body2"
+                android:textColor="@color/color_font3"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_intro1"/>
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="142dp"
+                android:layout_height="218dp"
+                android:layout_marginTop="36dp"
+                android:background="@color/color_font1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_intro2"/>
+        <TextView
+                android:id="@+id/tv_chat_inst"
+                android:layout_width="273dp"
+                android:layout_height="76dp"
+                android:text="@string/chat_inst"
+                android:textAppearance="@style/text_body2"
+                android:textColor="@color/color_font2"
+                android:background="@drawable/btn_basic_4dp"
+                android:lineSpacingMultiplier="1.6"
+                android:paddingStart="20dp"
+                android:paddingVertical="10dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/ibtn_chat_question"
+                app:layout_constraintTop_toTopOf="@id/ibtn_chat_question"
+                android:visibility="invisible"/>
+        <Button
+                android:id="@+id/btn_start_chat"
+                android:layout_width="308dp"
+                android:layout_height="52dp"
+                android:text="@string/start_chat"
+                android:textColor="@color/color_back"
+                android:textAppearance="@style/text_body1"
+                android:background="@drawable/btn_basic_8dp"
+                android:layout_marginBottom="105dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="?android:attr/borderlessButtonStyle"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

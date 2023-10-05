@@ -1,60 +1,44 @@
 package presentation.chat
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.example.tome_aos.R
+import com.example.tome_aos.databinding.FragmentChatBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChatFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentChatBinding
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ChatFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ChatFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        binding = FragmentChatBinding.inflate(inflater, container, false)
+        val ibtnChatQuestion = binding.ibtnChatQuestion
+        val btnStartChat = binding.btnStartChat
+        ibtnChatQuestion.setOnClickListener {
+            binding.tvChatInst.visibility = if (binding.tvChatInst.visibility == View.VISIBLE)
+                View.INVISIBLE else View.VISIBLE
+        }
+        btnStartChat.setOnClickListener {
+            val fragment = ChatTalk()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frameLayout, fragment, "chatTalk")
+                .commit()
+            //어플리케이션 종료 전까지는 계속 1단계 화면에 남아있어야 하기에 replace
+        }
+        binding.root.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                binding.tvChatInst.visibility = View.INVISIBLE
             }
+            false
+        }
+        return binding.root
     }
 }
