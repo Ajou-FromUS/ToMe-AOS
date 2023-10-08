@@ -72,5 +72,7 @@
     <string name="chat_intro2">티오는 당신의 이야기를 들을 준비가 되어 있어요.</string>
     <string name="chat_inst">심리상담가 티오는 당신의 일상이 궁금해요.\n티오에게 오늘 있었던 일을 얘기해 주세요.\n티오는 chat GPT ~~를 ~~하고 있습니다.</string>
 
+    <string name="visitor">로그인 시 더 많은 기능을 사용할 수 있어요.\n티오의 친구가 되어 보세요!</string>
+    <string name="sign_in">회원가입</string>
 
 </resources>
