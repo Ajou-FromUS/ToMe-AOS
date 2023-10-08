@@ -13,7 +13,6 @@
                 android:paddingTop="155dp"
                 android:paddingHorizontal="26dp"
                 android:background="@color/color_transparent"
-                android:layout_marginBottom="26dp"
                 app:layout_constraintBottom_toTopOf="@id/et_chat_talk"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
