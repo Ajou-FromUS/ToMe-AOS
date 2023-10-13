@@ -4,7 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.tome_aos.databinding.ActivityLoginBinding
+import com.kakao.sdk.user.UserApiClient
 import presentation.MainActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -15,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnKakao.setOnClickListener {
+            kakaoLogin()
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -29,6 +32,13 @@ class LoginActivity : AppCompatActivity() {
             var intent = Intent(this, MainActivity::class.java)
             //이건 추후 방문자 모드로 변경
             startActivity(intent)
+        }
+    }
+    private fun kakaoLogin(){
+        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
+            if (error != null){
+                Toast.makeText(this, "token info failed", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
