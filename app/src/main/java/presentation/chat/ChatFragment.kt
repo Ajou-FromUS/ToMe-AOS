@@ -9,6 +9,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentManager
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentChatBinding
 
@@ -28,9 +29,11 @@ class ChatFragment : Fragment() {
         }
         btnStartChat.setOnClickListener {
             val fragment = ChatTalk()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.main_frameLayout, fragment, "chatTalk")
-                .commit()
+            if(fragment != null){
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.chat_framelayout, fragment)
+                    .commitAllowingStateLoss()
+            }
             //어플리케이션 종료 전까지는 계속 1단계 화면에 남아있어야 하기에 replace
         }
         binding.root.setOnTouchListener { _, event ->

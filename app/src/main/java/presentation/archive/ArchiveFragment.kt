@@ -34,7 +34,7 @@ class ArchiveFragment : Fragment() {
                 )
             )
             parentFragmentManager.beginTransaction()
-                .replace(R.id.main_frameLayout, fragment, "archiveWrite")
+                .replace(R.id.archive_framelayout, fragment, "archiveWrite")
                 .commit()
         }
         return binding.root
