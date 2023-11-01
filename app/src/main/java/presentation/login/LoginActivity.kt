@@ -1,32 +1,29 @@
 package presentation.login
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import com.example.tome_aos.BuildConfig
+import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityLoginBinding
-import com.kakao.sdk.user.UserApiClient
 import presentation.MainActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnKakao.setOnClickListener {
-            kakaoLogin()
-            var intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val uri = BuildConfig.KAKAO_URI
+            webviewLogin(uri)
         }
         binding.btnGoogle.setOnClickListener {
-            var intent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://api.furo.one/oauth?platform=google&public_api_key=apikey-public-live-41fecaee-0924-4e03-80e5-a26a5f3d3788")
-            )
-            startActivity(intent)
+            val uri = BuildConfig.KAKAO_URI
+            webviewLogin(uri)
         }
         binding.tvVisitor.setOnClickListener {
             var intent = Intent(this, MainActivity::class.java)
@@ -34,11 +31,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    private fun kakaoLogin(){
-        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
-            if (error != null){
-                Toast.makeText(this, "token info failed", Toast.LENGTH_SHORT).show()
-            }
-        }
+
+    private fun webviewLogin(uri: String) {
+        val intent = Intent(this, LoginWebviewActivity::class.java)
+        intent.putExtra("uri", uri)
+        startActivity(intent)
     }
 }
