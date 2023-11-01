@@ -3,8 +3,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context="presentation.TopBarFragment"
-                                                   android:background="@drawable/topbar_background">
+                                                   tools:context="presentation.TopBarFragment">
     <ImageButton
             android:src="@drawable/ic_mypage"
             android:layout_width="36dp"
