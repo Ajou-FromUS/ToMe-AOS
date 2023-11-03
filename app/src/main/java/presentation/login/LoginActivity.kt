@@ -3,9 +3,6 @@ package presentation.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import com.example.tome_aos.BuildConfig
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityLoginBinding
