@@ -35,17 +35,19 @@ class ChatActivity: AppCompatActivity() {
         recyclerView = binding.chatRecycler
         adapter = chatAdapter(messageList)
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
+        //메시지 방향 아래서부터 위로
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.stackFromEnd = true
+        recyclerView.layoutManager = layoutManager
+        binding.pgbarChat.progress=2
         //설명 버튼 on/off
         ibtnQuestion.setOnClickListener {
             binding.tvChatInst.visibility = if (binding.tvChatInst.visibility == View.VISIBLE)
                 View.INVISIBLE else View.VISIBLE
         }
-        rootTouch()
-
         recyclerView.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
+                binding.tvChatInst.visibility = View.INVISIBLE
                 hideKeyboard()
             }
             false
@@ -62,18 +64,11 @@ class ChatActivity: AppCompatActivity() {
                 updateButtonUI()
             }
         })
-        setContentView(binding.root)
-    }
 
-    //배경을 눌러도 설명 버튼 off 되게 설정
-    @SuppressLint("ClickableViewAccessibility")
-    private fun rootTouch(){
-        binding.root.setOnTouchListener { _, event ->
-            if (event.action == MotionEvent.ACTION_DOWN) {
-                binding.tvChatInst.visibility = View.INVISIBLE
-            }
-            false
+        binding.btnFinishChat.setOnClickListener {
+            finish()
         }
+        setContentView(binding.root)
     }
 
     //text watcher로 전송 버튼 변경
