@@ -56,16 +56,21 @@
     <style name="new_body1">
         <item name="android:fontFamily">@font/leeseoyun</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:lineSpacingMultiplier">1.4</item>
     </style>
     <style name="new_body2">
         <item name="android:fontFamily">@font/leeseoyun</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:lineSpacingMultiplier">1.35</item>
     </style>
     <style name="new_body3">
         <item name="android:fontFamily">@font/leeseoyun</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+    <style name="new_body4">
+        <item name="android:fontFamily">@font/leeseoyun</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="new_body5">
+        <item name="android:fontFamily">@font/leeseoyun</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>
