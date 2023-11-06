@@ -7,10 +7,6 @@
         android:layout_height="match_parent"
         tools:context="presentation.mypage.MyPageActivity" android:orientation="vertical">
 
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_home_close"
-            android:id="@+id/imageButton" android:background="@color/color_transparent" android:scaleType="fitCenter"/>
     <TextView
             android:text="TextView"
             android:layout_width="match_parent"
