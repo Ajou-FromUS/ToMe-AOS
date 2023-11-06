@@ -1,11 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              tools:context="presentation.archive.ArchiveWrite"
-             android:id="@+id/frame_archiveWrite">
-
-
+             android:id="@+id/archiveWrite_framelayout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -85,7 +84,7 @@
                 android:text="@string/save_archive"
                 android:textAppearance="@style/text_body1"
                 android:textColor="@color/color_font3"
-                android:layout_marginBottom="110dp"
+                android:layout_marginBottom="105dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tome_aos.R
+import com.example.tome_aos.databinding.ActivityMainBinding
 import com.example.tome_aos.databinding.FragmentArchiveBinding
 import com.example.tome_aos.databinding.FragmentArchiveSaveBinding
 
@@ -33,22 +34,21 @@ class ArchiveSave(private val textInput: String) : Fragment() {
 
             bindingArchive.tvWriteArchive.text = getString(R.string.already_archive)
             bindingArchive.btnWriteArchive.text = getString(R.string.check_archive)
-            prevFrag?.let{
-                handler.postDelayed({
+            prevFrag?.let {
+                handler.post {
                     parentFragmentManager.beginTransaction()
                         .remove(this@ArchiveSave)
+                        .remove(prevFrag)
                         .show(it)
-                        .replace(R.id.frame_archive, ArchiveFragment())
-                        .commit()
-                }, 1000)
+                        .replace(R.id.main_frameLayout, ArchiveFragment())
+                        .commitAllowingStateLoss()
+                }
             }
         }
-
-        binding.btnNoSave.setOnClickListener{
+        binding.btnNoSave.setOnClickListener {
             val prevFrag = parentFragmentManager.findFragmentByTag("archiveWrite")
             prevFrag?.let {
                 parentFragmentManager.beginTransaction()
-                    //.show(it) // 이전 프래그먼트를 다시 표시
                     .remove(this@ArchiveSave) // ArchiveSave 프래그먼트를 제거
                     .commit()
             }

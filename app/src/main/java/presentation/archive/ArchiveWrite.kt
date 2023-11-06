@@ -67,8 +67,7 @@ class ArchiveWrite : Fragment() {
             val textInput = et.text.toString()
             val fragment = ArchiveSave(textInput)
             parentFragmentManager.beginTransaction()
-                //.hide(this@ArchiveWrite)
-                .add(R.id.frame_archive, fragment, "archiveSave")
+                .add(R.id.archive_framelayout, fragment, "archiveSave")
                 //.addToBackStack("archiveWrite")
                 .commit()
         }

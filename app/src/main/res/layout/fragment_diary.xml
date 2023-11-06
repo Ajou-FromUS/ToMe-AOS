@@ -3,7 +3,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
              tools:context="presentation.diary.DiaryFragment"
-             android:id="@+id/frame_diary">
+             android:background="@color/color_font3"
+             android:id="@+id/diary_framelayout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,7 +37,7 @@
                 android:textAppearance="@style/text_body1"
                 android:background="@drawable/btn_basic_24dp"
                 android:backgroundTint="@color/color_font4"
-                android:layout_marginBottom="63dp"
+                android:layout_marginBottom="105dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

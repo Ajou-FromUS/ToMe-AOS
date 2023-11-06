@@ -27,7 +27,7 @@ class ArchiveFragment : Fragment() {
         binding.btnWriteArchive.setOnClickListener {
             val fragment = ArchiveWrite()
             parentFragmentManager.beginTransaction()
-                .replace(R.id.frame_archive, fragment, "archiveWrite")
+                .replace(R.id.archive_framelayout, fragment, "archiveWrite")
                 .commit()
         }
         return binding.root
