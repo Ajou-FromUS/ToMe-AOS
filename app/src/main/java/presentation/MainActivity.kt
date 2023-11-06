@@ -23,11 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-
-        val transaction = supportFragmentManager.beginTransaction()
-            .replace(R.id.top_bar_linear, TopBarFragment())
-        transaction.commit()
-
         binding.bnvMain.selectedItemId = R.id.navi_home
 
 

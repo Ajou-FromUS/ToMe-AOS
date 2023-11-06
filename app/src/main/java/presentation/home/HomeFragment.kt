@@ -25,9 +25,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setMissionBtnClickEvent() {
-        binding.missionBtn.setOnClickListener {
 
-        }
     }
 
 }

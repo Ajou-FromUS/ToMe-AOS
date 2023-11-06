@@ -24,15 +24,8 @@ class ArchiveFragment : Fragment() {
         binding = FragmentArchiveBinding.inflate(inflater, container, false)
         bindingMain = ActivityMainBinding.inflate(inflater, container, false)
 
-        val topbar = bindingMain.topBarLinear
         binding.btnWriteArchive.setOnClickListener {
             val fragment = ArchiveWrite()
-            topbar.backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.color_transparent
-                )
-            )
             parentFragmentManager.beginTransaction()
                 .replace(R.id.frame_archive, fragment, "archiveWrite")
                 .commit()
