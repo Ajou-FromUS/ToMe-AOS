@@ -32,8 +32,9 @@
     <string name="toMe">To ME</string>
     <string name="exam_main_text">몽이야,\n오늘도 나랑 대화하자</string>
 
-    <string name="snack">티오의 과자</string>
-    <string name="snack_detail">티오가 제일 좋아하는 새우과자</string>
+    <string name="today_mission">오늘의 미션 수행 현황</string>
+    <string name="mission_title">힐링 미션 (워딩)</string>
+    <string name="mission_body">행복 나무 찍어보기</string>
 
     <string name="todayMission">오늘의 미션</string>
     <string name="fighting">오늘 하루도 파이팅!</string>
