@@ -23,7 +23,7 @@
             android:layout_height="125dp" android:id="@+id/check_mission_btn"
             android:textAppearance="@style/text_body2"
             android:textColor="@color/color_sub3"
-            android:background="@drawable/img_bubble_btn" android:drawableTop="@drawable/ic_mission_able"
+            android:background="@drawable/img_bubble_btn" android:drawableTop="@drawable/ic_mission_complete"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="254dp" app:layout_constraintEnd_toEndOf="parent"
             android:paddingTop="20dp" android:drawablePadding="-20dp" app:layout_constraintStart_toStartOf="parent"
