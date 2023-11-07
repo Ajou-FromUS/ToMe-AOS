@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityMainBinding
 import presentation.archive.ArchiveFragment
-import presentation.chat.ChatFragment
 import presentation.diary.DiaryFragment
 import presentation.home.HomeFragment
 
@@ -50,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
     }
 
     private fun showFragment(fragment: Fragment) {
