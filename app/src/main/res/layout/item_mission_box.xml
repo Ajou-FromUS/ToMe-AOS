@@ -4,9 +4,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="94dp"
         android:background="@drawable/round_box_mission"
-        tools:showIn="@layout/fragment_mission" android:gravity="center_vertical">
+        tools:showIn="@layout/fragment_mission" android:gravity="center_vertical" android:clickable="true">
     <ImageView
             android:src="@drawable/img_mission_camera"
             android:layout_width="67dp"
