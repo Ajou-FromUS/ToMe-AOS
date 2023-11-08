@@ -36,10 +36,8 @@
     <string name="mission_title">힐링 미션 (워딩)</string>
     <string name="mission_body">행복 나무 찍어보기</string>
 
-    <string name="todayMission">오늘의 미션</string>
-    <string name="fighting">오늘 하루도 파이팅!</string>
-    <string name="untilGrowth">티오의 성장까지</string>
-    <string name="mission1">앱 접속하기</string>
+    <string name="go_mission">미션 수행하러 가기</string>
+    <string name="back_mission">다른 미션 보러 가기</string>
 
     <string name="todays_archive">오늘의 아카이브를 작성해볼까요?</string>
     <string name="save_archive">저장 완료하기</string>

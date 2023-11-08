@@ -26,12 +26,14 @@ class HomeFragment : Fragment() {
             // Fragment 전환을 위한 트랜잭션 시작
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(com.example.tome_aos.R.id.main_frameLayout, fragment)
+            transaction.addToBackStack(null);
             transaction.commit()
         }
 
 
         return binding.root
     }
+
 
 
 }
