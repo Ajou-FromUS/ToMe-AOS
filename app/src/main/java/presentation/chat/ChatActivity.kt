@@ -15,31 +15,34 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityChatBinding
-import presentation.chat.Adapter.chatAdapter
+import presentation.chat.Adapter.ChatAdapter
 
 class ChatActivity: AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
     private lateinit var et: EditText
     private lateinit var ibtn: ImageButton
     private val messageList = mutableListOf<String>()
-    private lateinit var adapter: chatAdapter
+    private lateinit var adapter: ChatAdapter
     private lateinit var recyclerView: RecyclerView
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
+
         val ibtnQuestion = binding.ibtnChatQuestion
+        var missionProgress = 3
+
         ibtn = binding.ibtnChatSend
         et = binding.etChatTalk
         recyclerView = binding.chatRecycler
-        adapter = chatAdapter(messageList)
+        adapter = ChatAdapter(messageList)
         recyclerView.adapter = adapter
+
         //메시지 방향 아래서부터 위로
         val layoutManager = LinearLayoutManager(this)
         layoutManager.stackFromEnd = true
         recyclerView.layoutManager = layoutManager
-        binding.pgbarChat.progress=2
         //설명 버튼 on/off
         ibtnQuestion.setOnClickListener {
             binding.tvChatInst.visibility = if (binding.tvChatInst.visibility == View.VISIBLE)
@@ -64,6 +67,21 @@ class ChatActivity: AppCompatActivity() {
                 updateButtonUI()
             }
         })
+
+        binding.pgbarChat.progress = missionProgress
+        //미션 개수에 따라 알림 표시
+        if(missionProgress > 0) {
+            binding.chatMissionAlert.visibility = View.VISIBLE
+            binding.chatMissionAlert.text = "$missionProgress"
+            binding.tvMissionAdded.visibility = View.INVISIBLE
+            if(missionProgress == 3) {
+                binding.tvMissionAdded.visibility = View.VISIBLE
+            }
+        }else{
+            binding.chatMissionAlert.visibility = View.INVISIBLE
+            binding.tvMissionAdded.visibility = View.INVISIBLE
+            binding.chatMissionAlert.text = "$missionProgress"
+        }
 
         binding.btnFinishChat.setOnClickListener {
             finish()
