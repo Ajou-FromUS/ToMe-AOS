@@ -76,4 +76,10 @@
     <string name="visitor">로그인 시 더 많은 기능을 사용할 수 있어요.\n티오의 친구가 되어 보세요!</string>
     <string name="sign_in">회원가입</string>
 
+    <string name="statistics">통계</string>
+    <string name="statistics_analyzed">티오가 몽이 13월을 분석했어요.</string>
+    <string name="stats_keyword">월간 키워드 분석</string>
+    <string name="stats_emotion">월간 감정 분석</string>
+    <string name="stats_mission_progress">미션 수행 현황</string>
+
 </resources>
