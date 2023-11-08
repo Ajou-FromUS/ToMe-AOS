@@ -2,7 +2,7 @@ package presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityMainBinding
@@ -37,15 +37,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.navi_home -> {
                     showFragment(homeFragment)
                 }
-
                 R.id.navi_archive -> {
                     showFragment(archiveFragment)
                 }
-
-                R.id.navi_diary -> {
+                R.id.navi_mypage -> {
                     showFragment(diaryFragment)
                 }
-
             }
             true
         }
@@ -53,16 +50,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFragment(fragment: Fragment) {
-        if (fragment != currentFragment) {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.hide(currentFragment)
-            if (!fragment.isAdded) {
-                transaction.add(R.id.main_frameLayout, fragment)
-            } else {
-                transaction.show(fragment)
-            }
-            transaction.commit()
-            currentFragment = fragment
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.main_frameLayout, fragment)
+        transaction.commit()
+    }
+
+    fun hideBottomNavigation(state:Boolean){
+        if(state) {
+            binding.bnvMain.visibility = View.GONE
+        }else{
+            binding.bnvMain.visibility = View.VISIBLE
         }
     }
 }
