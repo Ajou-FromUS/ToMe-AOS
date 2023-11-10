@@ -17,7 +17,8 @@ import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityChatBinding
 import presentation.chat.Adapter.ChatAdapter
 
-class ChatActivity: AppCompatActivity() {
+
+class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
     private lateinit var et: EditText
     private lateinit var ibtn: ImageButton
@@ -63,6 +64,7 @@ class ChatActivity: AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 updateButtonUI()
             }
+
             override fun afterTextChanged(s: Editable?) {
                 updateButtonUI()
             }
@@ -70,14 +72,14 @@ class ChatActivity: AppCompatActivity() {
 
         binding.pgbarChat.progress = missionProgress
         //미션 개수에 따라 알림 표시
-        if(missionProgress > 0) {
+        if (missionProgress > 0) {
             binding.chatMissionAlert.visibility = View.VISIBLE
             binding.chatMissionAlert.text = "$missionProgress"
             binding.tvMissionAdded.visibility = View.INVISIBLE
-            if(missionProgress == 3) {
+            if (missionProgress == 3) {
                 binding.tvMissionAdded.visibility = View.VISIBLE
             }
-        }else{
+        } else {
             binding.chatMissionAlert.visibility = View.INVISIBLE
             binding.tvMissionAdded.visibility = View.INVISIBLE
             binding.chatMissionAlert.text = "$missionProgress"
@@ -100,6 +102,7 @@ class ChatActivity: AppCompatActivity() {
             ibtn.isEnabled = true
         }
     }
+
     private fun hideKeyboard() {
         val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE)
                 as InputMethodManager
