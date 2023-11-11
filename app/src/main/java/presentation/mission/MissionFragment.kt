@@ -18,18 +18,17 @@ class MissionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMissionBinding.inflate(inflater, container, false)
-
+        binding.missionBoxLayout.visibility = View.VISIBLE
+        val fragment = MissionDetailFragment()
         val mainActivity = activity as MainActivity
         mainActivity.hideBottomNavigation(false)
 
         binding.missionBox1.setOnClickListener {
-            val fragment = MissionDetailFragment()
             val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(com.example.tome_aos.R.id.mission_box_frame, fragment)
-            binding.missionBoxLayout.visibility = View.GONE
+            transaction.replace(com.example.tome_aos.R.id.main_frameLayout, fragment)
+            transaction.addToBackStack(null);
             transaction.commit()
         }
-
 
         return binding.root
     }

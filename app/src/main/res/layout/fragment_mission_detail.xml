@@ -4,10 +4,15 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    tools:context="presentation.mission.MissionDetailFragment"
-                                                   android:paddingHorizontal="27dp" android:paddingTop="30dp"
-                                                   android:id="@+id/mission_detail_frame">
+                                                   android:id="@+id/mission_detail_frame"
+                                                   android:background="@color/color_mission_default"
+                                                   android:paddingHorizontal="27dp">
 
     <!-- TODO: Update blank fragment layout -->
+    <include layout="@layout/item_mission_check"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -15,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:id="@+id/linearLayout" android:gravity="start"
             android:background="@drawable/round_box_mission" android:paddingVertical="18dp"
-            android:paddingHorizontal="21dp">
+            android:paddingHorizontal="21dp" android:layout_marginTop="261dp">
         <androidx.cardview.widget.CardView
                 android:layout_width="279dp"
                 android:layout_height="202dp"
@@ -66,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:backgroundTint="@color/color_disabled2"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="43dp" android:background="@drawable/btn_basic_8dp"
+            android:layout_marginBottom="64dp" android:background="@drawable/btn_basic_8dp"
             android:gravity="center" android:textColor="@color/color_font2"
             android:drawableLeft="@drawable/ic_mission_detail_back" app:layout_constraintHorizontal_bias="1.0"/>
 

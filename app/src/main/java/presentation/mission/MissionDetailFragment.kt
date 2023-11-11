@@ -23,15 +23,16 @@ class MissionDetailFragment : Fragment() {
         val mainActivity = activity as MainActivity
         mainActivity.hideBottomNavigation(true)
 
-        binding.backMissionBtn.setOnClickListener {
+        val missionFragment = MissionFragment()
+        val transaction = parentFragmentManager.beginTransaction()
 
-            parentFragmentManager.beginTransaction().apply{
-                replace(com.example.tome_aos.R.id.mission_box_frame, MissionDetailFragment())
-                addToBackStack(null)
-                commit()
-            }
+
+        binding.backMissionBtn.setOnClickListener {
+            transaction.replace(R.id.main_frameLayout, missionFragment)
+            transaction.commit()
+
         }
-        return inflater.inflate(R.layout.fragment_mission_detail, container, false)
+        return binding.root
     }
 
 }
