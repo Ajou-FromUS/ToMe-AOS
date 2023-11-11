@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       tools:showIn="@layout/fragment_mission_detail">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today_mission" android:id="@+id/today_mission_text"
+            android:textAppearance="@style/text_body2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="151dp"
+            android:textColor="@color/color_font1"/>
+    <ImageView
+            android:src="@drawable/btn_basic_24dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" android:id="@+id/check_mission1"
+            app:srcCompat="@drawable/ic_mission_uncomplete"
+            android:scaleType="fitCenter" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@+id/check_mission2"
+            app:layout_constraintTop_toBottomOf="@+id/today_mission_text" android:layout_marginTop="12dp"
+    />
+    <ImageView
+            android:src="@drawable/btn_basic_24dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" android:id="@+id/check_mission3"
+            android:scaleType="fitCenter" app:layout_constraintStart_toEndOf="@+id/check_mission2"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/check_mission2"
+            app:srcCompat="@drawable/ic_mission_uncomplete"/>
+    <ImageView
+            android:src="@drawable/btn_basic_24dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" android:id="@+id/check_mission2"
+            app:srcCompat="@drawable/ic_mission_uncomplete"
+            android:scaleType="fitCenter" app:layout_constraintStart_toEndOf="@+id/check_mission1"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/check_mission3"
+            app:layout_constraintTop_toTopOf="@+id/check_mission1"/>
+</merge>
