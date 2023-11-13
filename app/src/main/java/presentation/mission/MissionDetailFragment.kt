@@ -10,6 +10,7 @@ import com.example.tome_aos.databinding.FragmentMissionBinding
 import com.example.tome_aos.databinding.FragmentMissionDetailBinding
 import kotlinx.coroutines.flow.combine
 import presentation.MainActivity
+import presentation.mission.text.MissionTextFragment
 
 
 class MissionDetailFragment : Fragment() {
@@ -24,13 +25,17 @@ class MissionDetailFragment : Fragment() {
         mainActivity.hideBottomNavigation(true)
 
         val missionFragment = MissionFragment()
+        val missionTextFragment = MissionTextFragment()
         val transaction = parentFragmentManager.beginTransaction()
 
+        binding.goMissionBtn.setOnClickListener {
+            transaction.replace(R.id.main_frameLayout, missionTextFragment)
+            transaction.commit()
+        }
 
         binding.backMissionBtn.setOnClickListener {
             transaction.replace(R.id.main_frameLayout, missionFragment)
             transaction.commit()
-
         }
         return binding.root
     }

@@ -13,17 +13,17 @@
             android:textAppearance="@style/new_text_body3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="180dp" android:id="@+id/textView9"/>
+            android:layout_marginTop="180dp" android:id="@+id/mission_top_text1"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/mission_top_text1"
             android:layout_marginTop="29dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:background="@drawable/round_box_12dp"
             android:backgroundTint="@color/color_mission_default"
             android:paddingTop="21dp" android:paddingBottom="41dp" android:paddingHorizontal="20dp"
-            android:gravity="center_horizontal" android:id="@+id/linearLayout2" android:layout_marginHorizontal="27dp">
+            android:gravity="center_horizontal" android:id="@+id/text_mission_box" android:layout_marginHorizontal="27dp">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
@@ -68,6 +68,7 @@
                 android:layout_height="166dp"
                 android:background="@drawable/round_box_12dp"
                 android:backgroundTint="@color/color_font4"
+                android:privateImeOptions="defaultInputmode=korean"
                 android:hint="@string/text_field_explain"
                 android:textAppearance="@style/new_text_body3"
                 android:textColorHint="@color/color_disabled1"
@@ -76,8 +77,8 @@
                 android:gravity="center_horizontal|top"
                 android:paddingTop="20dp"
                 android:layout_marginTop="12dp"
-                android:paddingHorizontal="20dp" android:lineSpacingExtra="14dp" android:textAlignment="center"
-                android:textAllCaps="false"/>
+                android:paddingHorizontal="20dp" android:lineSpacingExtra="14sp" android:textAlignment="center"
+                android:textAllCaps="false" android:paddingBottom="26dp" android:lines="4" android:lineHeight="30sp"/>
     </LinearLayout>
     <Button
             android:text="@string/show_tome"
@@ -89,9 +90,9 @@
             android:layout_marginStart="27dp" android:layout_marginEnd="27dp"
             android:background="@drawable/btn_basic_8dp" android:backgroundTint="@color/color_disabled1"
             app:layout_constraintBottom_toTopOf="@+id/back_text_btn" android:layout_marginBottom="8dp"
-            android:textColor="@color/color_font2"/>
+            android:textColor="@color/color_font2" android:clickable="true" android:enabled="false"/>
     <Button
-            android:text="@string/back_mission"
+            android:text="@string/back_textfield"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/back_text_btn"
             android:textAppearance="@style/text_body1"
