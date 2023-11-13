@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:layout_weight="1" android:paddingVertical="18dp">
                 <TextView
-                        android:text="@string/mission_title"
+                        android:text="@string/mission_title_photo"
                         android:layout_width="match_parent"
                         android:textAppearance="@style/text_body2"
                         android:layout_height="wrap_content" android:id="@+id/mission_title_1"
@@ -74,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:layout_weight="1" android:paddingVertical="18dp">
                 <TextView
-                        android:text="@string/mission_title"
+                        android:text="@string/mission_title_photo"
                         android:layout_width="match_parent"
                         android:textAppearance="@style/text_body2"
                         android:layout_height="wrap_content" android:id="@+id/mission_title_2"
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content" android:layout_weight="1" android:paddingVertical="18dp"
                     android:orientation="vertical">
                 <TextView
-                        android:text="@string/mission_title"
+                        android:text="@string/mission_title_photo"
                         android:layout_width="match_parent"
                         android:textAppearance="@style/text_body2"
                         android:layout_height="wrap_content" android:id="@+id/mission_title_3"

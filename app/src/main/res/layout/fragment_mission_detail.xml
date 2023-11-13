@@ -35,7 +35,7 @@
 
         </androidx.cardview.widget.CardView>
         <TextView
-                android:text="@string/mission_title"
+                android:text="@string/mission_title_photo"
                 android:layout_width="match_parent"
                 android:textAppearance="@style/text_body2"
                 android:layout_height="wrap_content" android:id="@+id/textView6" android:layout_marginTop="11dp"
