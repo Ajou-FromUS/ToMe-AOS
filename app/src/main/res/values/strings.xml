@@ -23,7 +23,6 @@
     <string name="btn_close">닫기</string>
 
     <string name="navi_home">홈</string>
-    <string name="navi_archive">아카이브</string>
     <string name="navi_diary">일기</string>
 
     <string name="to_start_Talk">티오랑\n대화하기</string>
@@ -32,12 +31,22 @@
     <string name="toMe">To ME</string>
     <string name="exam_main_text">몽이야,\n오늘도 나랑 대화하자</string>
 
+    <string name="title_mission">미션</string>
     <string name="today_mission">오늘의 미션 수행 현황</string>
-    <string name="mission_title">힐링 미션 (워딩)</string>
+    <string name="mission_title_photo">힐링 미션 (워딩)</string>
+    <string name="mission_title_text">글쓰기 미션</string>
+    <string name="mission_title_decibel">데시벨 미션</string>
     <string name="mission_body">행복 나무 찍어보기</string>
 
+    <string name="mission_diary_detail">오늘 하루를 되돌아보고, 감사일기를 적어보세요.</string>
+
+    <string name="text_field_explain">이곳을 클릭하여 작성하세요.\n최대 85자까지 작성할 수 있어요.</string>
+
+    <string name="show_tome">티오에게 보여주기</string>
     <string name="go_mission">미션 수행하러 가기</string>
     <string name="back_mission">다른 미션 보러 가기</string>
+
+    <string name="do_today_mission">오늘의 미션을 수행해 보세요.</string>
 
     <string name="todays_archive">오늘의 아카이브를 작성해볼까요?</string>
     <string name="save_archive">저장 완료하기</string>
@@ -57,7 +66,7 @@
     <string name="diary_write_start">일기 작성 시작하기</string>
     <string name="good">굿! 👍</string>
 
-
+    <string name="title_chat">티오랑 대화하기</string>
     <string name="start_chat">티오와 대화 시작하기</string>
     <string name="chat_intro1">저랑 대화해요!\n오늘 하루는 어떠셨나요?</string>
     <string name="chat_intro2">티오는 당신의 이야기를 들을 준비가 되어 있어요.</string>
