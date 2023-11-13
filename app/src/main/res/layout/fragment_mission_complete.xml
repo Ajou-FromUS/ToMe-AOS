@@ -1,0 +1,60 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context="presentation.mission.MissionCompleteFragment"
+                                                   android:background="@color/color_mission_default">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+            android:src="@drawable/img_mission_text"
+            android:layout_width="211dp"
+            android:layout_height="211dp" android:id="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="253dp"
+            app:layout_constraintHorizontal_bias="0.498" android:scaleType="fitCenter"/>
+    <TextView
+            android:text="@string/good_job"
+            android:textAppearance="@style/new_text_body3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="26dp"
+            app:layout_constraintHorizontal_bias="0.498" android:textColor="@color/color_font1"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/new_text_body1"
+            android:textColor="@color/color_font1"
+            android:text="@string/complete_text_mission" android:id="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="5dp"
+            app:layout_constraintHorizontal_bias="0.532" android:lineSpacingExtra="10sp" android:lineHeight="34sp"
+            android:transformPivotY="-4.8sp"/>
+    <Button
+            android:text="@string/other_mission"
+            android:layout_width="0dp"
+            android:background="@drawable/btn_basic_8dp_noripple"
+            android:textAppearance="@style/text_body1"
+            android:textColor="@color/color_font4"
+            android:layout_height="wrap_content" android:id="@+id/go_other_mission_btn"
+            app:layout_constraintBottom_toTopOf="@+id/back_home_btn"
+            android:layout_marginBottom="10dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="27dp"
+            android:layout_marginEnd="27dp"/>
+    <Button
+            android:text="@string/back_home"
+            android:layout_width="0dp"
+            android:background="@drawable/btn_basic_8dp"
+            android:backgroundTint="@color/color_disabled2"
+            android:textAppearance="@style/text_body1"
+            android:textColor="@color/color_font2"
+            android:layout_height="wrap_content" android:id="@+id/back_home_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="27dp" android:layout_marginEnd="27dp"
+            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="64dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
