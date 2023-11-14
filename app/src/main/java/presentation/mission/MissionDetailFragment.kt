@@ -1,5 +1,6 @@
 package presentation.mission
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import com.example.tome_aos.databinding.FragmentMissionBinding
 import com.example.tome_aos.databinding.FragmentMissionDetailBinding
 import kotlinx.coroutines.flow.combine
 import presentation.MainActivity
+import presentation.mission.camera.GalleryActivity
+import presentation.mission.decibel.MissionDecibelFragment
 import presentation.mission.text.MissionTextFragment
 
 
@@ -26,11 +29,14 @@ class MissionDetailFragment : Fragment() {
 
         val missionFragment = MissionFragment()
         val missionTextFragment = MissionTextFragment()
+        val missionDecibelFragment = MissionDecibelFragment()
         val transaction = parentFragmentManager.beginTransaction()
 
         binding.goMissionBtn.setOnClickListener {
-            transaction.replace(R.id.main_frameLayout, missionTextFragment)
-            transaction.commit()
+            //transaction.replace(R.id.main_frameLayout, missionTextFragment)
+//            transaction.replace(R.id.main_frameLayout, missionDecibelFragment)
+//            transaction.commit()
+
         }
 
         binding.backMissionBtn.setOnClickListener {

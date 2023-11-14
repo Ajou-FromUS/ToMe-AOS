@@ -11,14 +11,14 @@
             android:layout_height="match_parent">
         <androidx.constraintlayout.utils.widget.ImageFilterButton
                 android:id="@+id/ibtn_chat_question"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="73dp"
+                android:layout_height="68dp"
                 android:src="@drawable/ic_chat_question"
                 android:background="@color/color_transparent"
                 android:layout_marginTop="167dp"
                 android:layout_marginStart="26dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" android:contentDescription="@string/check_archive"/>
         <TextView
                 android:id="@+id/tv_intro1"
                 android:layout_width="wrap_content"

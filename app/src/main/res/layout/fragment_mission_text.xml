@@ -26,8 +26,9 @@
             android:gravity="center_horizontal" android:id="@+id/text_mission_box" android:layout_marginHorizontal="27dp">
         <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:gravity="center" android:paddingBottom="32dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:gravity="center"
+                android:layout_marginBottom="32dp">
             <ImageView
                     android:src="@drawable/img_mission_text"
                     android:layout_width="67dp"
@@ -36,7 +37,7 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:layout_weight="1">
+                    android:layout_height="wrap_content" android:layout_weight="3">
                 <TextView
                         android:text="@string/mission_title_text"
                         android:layout_width="wrap_content"
@@ -83,7 +84,7 @@
     <Button
             android:text="@string/show_tome"
             android:layout_width="match_parent"
-            android:layout_height="48dp" android:id="@+id/show_to_btn"
+            android:layout_height="48dp" android:id="@+id/show_to_text_btn"
             android:textAppearance="@style/text_body1"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

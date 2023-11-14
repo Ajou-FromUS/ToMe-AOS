@@ -7,7 +7,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -17,9 +16,7 @@ import android.widget.EditText
 import androidx.core.content.ContextCompat
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMissionTextBinding
-import presentation.archive.ArchiveSave
 import presentation.mission.MissionCompleteFragment
-import presentation.mission.MissionFragment
 
 class MissionTextFragment : Fragment() {
     private lateinit var binding: FragmentMissionTextBinding
@@ -38,7 +35,7 @@ class MissionTextFragment : Fragment() {
     ): View? {
         binding = FragmentMissionTextBinding.inflate(inflater, container, false).apply {
             et = missionTextField
-            showBtn = showToBtn
+            showBtn = showToTextBtn
             backBtn = backTextBtn
         }
 
