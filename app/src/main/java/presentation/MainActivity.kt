@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bnvMain.selectedItemId = R.id.navi_home
 
-
+        changeMainTitle(0)
         binding.bnvMain.itemIconTintList = null
         currentFragment = homeFragment
 
@@ -34,15 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.bnvMain.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.navi_home -> {
-                    showFragment(homeFragment)
-                }
-                R.id.navi_archive -> {
-                    showFragment(archiveFragment)
-                }
-                R.id.navi_mypage -> {
-                    showFragment(diaryFragment)
-                }
+                R.id.navi_home -> showFragment(homeFragment)
+                R.id.navi_archive -> showFragment(archiveFragment)
+                R.id.navi_mypage -> showFragment(diaryFragment)
             }
             true
         }
@@ -60,6 +54,13 @@ class MainActivity : AppCompatActivity() {
             binding.bnvMain.visibility = View.GONE
         }else{
             binding.bnvMain.visibility = View.VISIBLE
+        }
+    }
+
+    fun changeMainTitle(pageNumber: Int){
+        when(pageNumber){
+            0 -> binding.mainTitleText.setText(R.string.exam_main_text)
+            1 -> binding.mainTitleText.setText(R.string.title_mission)
         }
     }
 }
