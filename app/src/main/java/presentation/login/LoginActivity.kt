@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tome_aos.BuildConfig
-import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityLoginBinding
 import presentation.MainActivity
 
@@ -15,11 +14,11 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnKakao.setOnClickListener {
-            val uri = BuildConfig.KAKAO_URI
+            var uri = BuildConfig.KAKAO_URI
             webviewLogin(uri)
         }
         binding.btnGoogle.setOnClickListener {
-            val uri = BuildConfig.KAKAO_URI
+            var uri = BuildConfig.GOOGLE_URI
             webviewLogin(uri)
         }
         binding.tvVisitor.setOnClickListener {
