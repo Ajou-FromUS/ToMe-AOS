@@ -5,21 +5,18 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentChatTalkBinding
-import presentation.chat.Adapter.chatAdapter
+import presentation.chat.Adapter.ChatAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -28,7 +25,7 @@ class ChatTalk : Fragment() {
     private lateinit var et: EditText
     private lateinit var ibtn: ImageButton
     private val messageList = mutableListOf<String>()
-    private lateinit var adapter: chatAdapter
+    private lateinit var adapter: ChatAdapter
     private lateinit var recyclerView: RecyclerView
 
     @SuppressLint("ClickableViewAccessibility")
@@ -40,7 +37,7 @@ class ChatTalk : Fragment() {
         et = binding.etChatTalk
         ibtn = binding.ibtnChatSend
         recyclerView = binding.chatRecycler
-        adapter = chatAdapter(messageList)
+        //adapter = ChatAdapter(this, messageList)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         //중복 코드 어떻게 해결할 지 고민해보기

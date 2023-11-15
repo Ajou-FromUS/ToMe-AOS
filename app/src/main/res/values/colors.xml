@@ -24,5 +24,6 @@
     <color name="color_snack_background">#FFF1DA</color>
     <color name="color_snack_stroke">#FFC09C</color>
     <color name="color_snack_text">#FF6454</color>
+    <color name="color_statistics_background">#F6F8FF</color>
 
 </resources>

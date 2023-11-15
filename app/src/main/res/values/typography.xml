@@ -53,4 +53,24 @@
         <item name="android:fontFamily">@font/coiny_cyrillic</item>
         <item name="android:textSize">48sp</item>
     </style>
+    <style name="new_body1">
+        <item name="android:fontFamily">@font/leeseoyun</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="new_body2">
+        <item name="android:fontFamily">@font/leeseoyun</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="new_body3">
+        <item name="android:fontFamily">@font/leeseoyun</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="new_body4">
+        <item name="android:fontFamily">@font/leeseoyun</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="new_body5">
+        <item name="android:fontFamily">@font/leeseoyun</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>
