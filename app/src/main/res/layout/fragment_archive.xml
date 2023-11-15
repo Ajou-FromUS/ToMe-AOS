@@ -1,0 +1,53 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context="presentation.archive.ArchiveFragment"
+             android:id="@+id/archive_framelayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/iv_archive_character"
+                android:layout_width="118dp"
+                android:layout_height="181dp"
+                android:layout_marginTop="219dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/color_main"/>
+
+        <TextView
+                android:id="@+id/tv_write_archive"
+                android:layout_width="308dp"
+                android:layout_height="84dp"
+                android:background="@drawable/img_message"
+                android:text="@string/todays_archive"
+                android:textAppearance="@style/text_title3"
+                android:textColor="@color/color_font1"
+                android:gravity="center"
+                android:paddingTop="11dp"
+                android:layout_marginTop="21dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_archive_character"/>
+
+        <Button
+                android:id="@+id/btn_write_archive"
+                android:layout_width="195dp"
+                android:layout_height="46dp"
+                android:background="@drawable/btn_basic_24dp"
+                android:backgroundTint="@color/color_font4"
+                android:text="@string/write_diary"
+                android:textAppearance="@style/text_body1"
+                android:textColor="@color/color_font1"
+                android:layout_marginBottom="147dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="?android:attr/borderlessButtonStyle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
