@@ -76,13 +76,32 @@
     <string name="diary_write_start">일기 작성 시작하기</string>
     <string name="good">굿! 👍</string>
 
-    <string name="title_chat">티오랑 대화하기</string>
+    <string name="talk_with_TO">티오랑 대화하기</string>
     <string name="start_chat">티오와 대화 시작하기</string>
+    <string name="end_chat">대화 마치기</string>
     <string name="chat_intro1">저랑 대화해요!\n오늘 하루는 어떠셨나요?</string>
     <string name="chat_intro2">티오는 당신의 이야기를 들을 준비가 되어 있어요.</string>
     <string name="chat_inst">심리상담가 티오는 당신의 일상이 궁금해요.\n티오에게 오늘 있었던 일을 얘기해 주세요.\n티오는 chat GPT ~~를 ~~하고 있습니다.</string>
-
+    <string name="chat_mission_added">오늘의 미션이\n모두 추가되었어요.</string>
     <string name="visitor">로그인 시 더 많은 기능을 사용할 수 있어요.\n티오의 친구가 되어 보세요!</string>
     <string name="sign_in">회원가입</string>
+
+    <string name="statistics">통계</string>
+    <string name="statistics_analyzed">티오가 몽이 13월을 분석했어요.</string>
+    <string name="stats_keyword">월간 키워드 분석</string>
+    <string name="stats_emotion">월간 감정 분석</string>
+    <string name="stats_mission_progress">미션 수행 현황</string>
+
+    <string name="mypage">마이페이지</string>
+    <string name="mypage_mission_record">내 미션 기록보기</string>
+    <string name="mypage_setting">환경 설정</string>
+    <string name="mypage_qna">문의하기</string>
+    <string name="qna_explain">\‘from US\' 카카오톡 플러스친구를 추가해 문의해주세요.\n문의 답변 시간 : 평일 오전 9시 ~ 오후 5시</string>
+    <string name="mypage_account_setting">계정 설정</string>
+    <string name="mypage_privacy_policy">개인정보처리방침</string>
+    <string name="kakao_plus_friend">카카오톡 플러스친구 보러가기</string>
+    <string name="nickname">닉네임</string>
+    <string name="nickname_mod">닉네임 수정</string>
+
 
 </resources>

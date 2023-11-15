@@ -26,5 +26,6 @@
     <color name="color_overlay_back1">#CCFFFFFF</color>
     <color name="color_radial_bubble">#CCFFFFFF</color>
     <color name="color_transparent">#00000000</color>
+    <color name="color_statistics_background">#F6F8FF</color>
 
 </resources>

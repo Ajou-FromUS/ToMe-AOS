@@ -1,6 +1,7 @@
 package presentation.chat.Adapter
 
 import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tome_aos.R
 
-class chatAdapter(private val messageList: List<String>) :
-    RecyclerView.Adapter<chatAdapter.MessageViewHolder>() {
-
+class ChatAdapter(private val messageList: List<String>) :
+    RecyclerView.Adapter<ChatAdapter.MessageViewHolder>() {
     inner class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val messageTextView: TextView = itemView.findViewById(R.id.tv_send_message)
     }
