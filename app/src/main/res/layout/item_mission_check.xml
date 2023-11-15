@@ -11,28 +11,25 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="151dp"
             android:textColor="@color/color_font1"/>
     <ImageView
-            android:src="@drawable/btn_basic_24dp"
             android:layout_width="60dp"
             android:layout_height="60dp" android:id="@+id/check_mission1"
-            app:srcCompat="@drawable/ic_mission_uncomplete"
+            android:background="@drawable/ic_mission_uncomplete"
             android:scaleType="fitCenter" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintEnd_toStartOf="@+id/check_mission2"
             app:layout_constraintTop_toBottomOf="@+id/today_mission_text" android:layout_marginTop="12dp"
     />
     <ImageView
-            android:src="@drawable/btn_basic_24dp"
             android:layout_width="60dp"
             android:layout_height="60dp" android:id="@+id/check_mission3"
             android:scaleType="fitCenter" app:layout_constraintStart_toEndOf="@+id/check_mission2"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/check_mission2"
-            app:srcCompat="@drawable/ic_mission_uncomplete"/>
+            android:background="@drawable/ic_mission_uncomplete"/>
     <ImageView
-            android:src="@drawable/btn_basic_24dp"
             android:layout_width="60dp"
             android:layout_height="60dp" android:id="@+id/check_mission2"
-            app:srcCompat="@drawable/ic_mission_uncomplete"
+            android:background="@drawable/ic_mission_uncomplete"
             android:scaleType="fitCenter" app:layout_constraintStart_toEndOf="@+id/check_mission1"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/check_mission3"
             app:layout_constraintTop_toTopOf="@+id/check_mission1"/>
