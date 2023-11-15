@@ -14,9 +14,10 @@
             android:textColor="@color/color_sub3"
             android:background="@drawable/img_bubble_btn" android:drawableTop="@drawable/ic_talking_main"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="365dp" android:paddingTop="20dp"
+            android:paddingTop="20dp"
             android:drawablePadding="-20dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.18"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.529"/>
     <Button
             android:text="@string/check_mission"
             android:layout_width="125dp"
@@ -25,16 +26,16 @@
             android:textColor="@color/color_sub3"
             android:background="@drawable/img_bubble_btn" android:drawableTop="@drawable/ic_mission"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="254dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:paddingTop="20dp" android:drawablePadding="-20dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"/>
+            app:layout_constraintHorizontal_bias="0.793" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.382"/>
     <ImageView
             android:src="@drawable/img_tome"
             android:layout_width="148dp"
             android:layout_height="128dp" android:id="@+id/tome_image"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="522dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="196dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.56"
-            app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.797"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

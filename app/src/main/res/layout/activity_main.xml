@@ -20,14 +20,17 @@
         <TextView
                 android:text="@string/exam_main_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="16dp"/>
+                android:layout_height="wrap_content" android:id="@+id/main_title_text"
+                app:layout_constraintStart_toStartOf="@+id/main_tome_text"
+                android:textAppearance="@style/new_text_body1"
+                app:layout_constraintTop_toBottomOf="@+id/main_tome_text" android:layout_marginTop="16dp"
+                android:textColor="@color/color_font1"/>
         <TextView
                 android:text="@string/toMe"
                 android:textColor="@color/color_main"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView"
+                android:layout_height="wrap_content" android:id="@+id/main_tome_text"
+                android:textAppearance="@style/new_text_body2"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="69dp" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.1"/>

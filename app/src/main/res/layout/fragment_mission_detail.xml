@@ -29,7 +29,7 @@
             <ImageView
                     android:src="@drawable/img_mission_camera"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:id="@+id/imageView"
+                    android:layout_height="match_parent" android:id="@+id/detail_image_view"
                     app:srcCompat="@drawable/img_mission_camera"
                     android:scaleType="centerCrop"/>
 

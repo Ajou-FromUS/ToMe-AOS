@@ -1,6 +1,6 @@
 package presentation.mission
 
-import android.R
+import android.R.attr.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -23,6 +23,9 @@ class MissionFragment : Fragment() {
         binding.missionBoxLayout.visibility = View.VISIBLE
         val homeFragment = HomeFragment()
         val missionDetailFragment = MissionDetailFragment()
+
+        val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
+
         val mainActivity = activity as MainActivity
         mainActivity.hideBottomNavigation(false)
 
@@ -37,6 +40,8 @@ class MissionFragment : Fragment() {
         }
 
         binding.missionBox1.setOnClickListener {
+            bundle.putString("missionType", "photo") // key , value
+            missionDetailFragment.arguments = bundle
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(com.example.tome_aos.R.id.main_frameLayout, missionDetailFragment)
             transaction.addToBackStack(null);
