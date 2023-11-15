@@ -1,13 +1,12 @@
 package presentation.chat
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityChatBinding
 import presentation.chat.Adapter.ChatAdapter
+import util.hideKeyboard
 
 
 class ChatActivity : AppCompatActivity() {
@@ -43,18 +43,11 @@ class ChatActivity : AppCompatActivity() {
         //메시지 방향 아래서부터 위로
         val layoutManager = LinearLayoutManager(this)
         layoutManager.stackFromEnd = true
-        recyclerView.layoutManager = layoutManager
+            recyclerView.layoutManager = layoutManager
         //설명 버튼 on/off
         ibtnQuestion.setOnClickListener {
             binding.tvChatInst.visibility = if (binding.tvChatInst.visibility == View.VISIBLE)
                 View.INVISIBLE else View.VISIBLE
-        }
-        recyclerView.setOnTouchListener { _, event ->
-            if (event.action == MotionEvent.ACTION_DOWN) {
-                binding.tvChatInst.visibility = View.INVISIBLE
-                hideKeyboard()
-            }
-            false
         }
         ibtn.setOnClickListener {
             sendMessage()
@@ -102,14 +95,6 @@ class ChatActivity : AppCompatActivity() {
             ibtn.isEnabled = true
         }
     }
-
-    private fun hideKeyboard() {
-        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE)
-                as InputMethodManager
-        imm.hideSoftInputFromWindow(et.windowToken, 0)
-        et.clearFocus()
-    }
-
     //메시지 전송
     private fun sendMessage() {
         val message = et.text.toString()
@@ -119,5 +104,18 @@ class ChatActivity : AppCompatActivity() {
             et.text.clear()
             recyclerView.scrollToPosition(messageList.size - 1)
         }
+    }
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        val focusView = currentFocus
+        if (focusView != null) {
+            val rect = Rect()
+            focusView.getGlobalVisibleRect(rect)
+            val x = ev!!.x.toInt()
+            val y = ev.y.toInt()
+            if (!rect.contains(x, y)) {
+                hideKeyboard(focusView)
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }
