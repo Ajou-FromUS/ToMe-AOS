@@ -23,30 +23,40 @@
     <string name="btn_close">닫기</string>
 
     <string name="navi_home">홈</string>
-    <string name="navi_archive">아카이브</string>
     <string name="navi_diary">일기</string>
-    <string name="navi_chat">대화</string>
 
-    <string name="menu_book">도감</string>
-    <string name="menu_store">상점</string>
+    <string name="to_start_Talk">티오랑\n대화하기</string>
+    <string name="check_mission">오늘의 미션\n확인하기</string>
 
-    <string name="toMe">to Me</string>
-    <string name="welcome">어서오세요!</string>
-    <string name="whatToday">오늘은\n무슨 일 있었어?</string>
-    <string name="todayFeeling">🥱</string>
+    <string name="toMe">To ME</string>
+    <string name="exam_main_text">몽이야,\n오늘도 나랑 대화하자</string>
 
-    <string name="snack">티오의 과자</string>
-    <string name="snack_detail">티오가 제일 좋아하는 새우과자</string>
+    <string name="title_mission">미션</string>
+    <string name="today_mission">오늘의 미션 수행 현황</string>
+    <string name="mission_title_photo">힐링 미션 (워딩)</string>
+    <string name="mission_title_text">글쓰기 미션</string>
+    <string name="mission_title_decibel">데시벨 미션</string>
+    <string name="mission_body">행복 나무 찍어보기</string>
 
-    <string name="to_level">티오의 레벨</string>
-    <string name="lv_">Lv.응애</string>
-    <string name="lv_icon">🍼</string>
-    <string name="level_0_description">티오의 가장 어린 모습입니다.\n쑥쓰러움이 많아 혼잣말을 자주 해요.</string>
+    <string name="mission_diary_detail">오늘 하루를 되돌아보고, 감사일기를 적어보세요.</string>
+    <string name="text_field_explain">이곳을 클릭하여 작성하세요.\n최대 85자까지 작성할 수 있어요.</string>
 
-    <string name="todayMission">오늘의 미션</string>
-    <string name="fighting">오늘 하루도 파이팅!</string>
-    <string name="untilGrowth">티오의 성장까지</string>
-    <string name="mission1">앱 접속하기</string>
+    <string name="measure_decibel">데시벨을 측정하고 있어요.\n마음껏 소리 지르세요!</string>
+
+    <string name="good_job">오늘 하루도 수고 많았어요 :)</string>
+    <string name="complete_text_mission">오늘의 글쓰기 미션 완료</string>
+
+    <string name="show_tome">티오에게 보여주기</string>
+    <string name="go_mission">미션 수행하러 가기</string>
+    <string name="back_mission">다른 미션 보러 가기</string>
+
+    <string name="back_textfield">다시 작성하기</string>
+    <string name="back_decibel">데시벨 다시 측정하기</string>
+
+    <string name="other_mission">다음 미션 수행하기</string>
+    <string name="back_home">홈으로 돌아가기</string>
+
+    <string name="do_today_mission">오늘의 미션을 수행해 보세요.</string>
 
     <string name="todays_archive">오늘의 아카이브를 작성해볼까요?</string>
     <string name="save_archive">저장 완료하기</string>

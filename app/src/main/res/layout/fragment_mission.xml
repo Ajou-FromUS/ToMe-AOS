@@ -1,0 +1,134 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context="presentation.mission.MissionFragment"
+                                                   android:background="@color/color_mission_default"
+                                                   android:id="@+id/mission_layout">
+
+    <!-- TODO: Update blank fragment layout -->
+    <include layout="@layout/item_mission_check" app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="27dp"
+            android:id="@+id/mission_box_layout" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="261dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_box_mission"
+                tools:showIn="@layout/fragment_mission" android:gravity="center_vertical" android:clickable="true"
+                android:layout_marginBottom="12dp" android:id="@+id/mission_box_1">
+            <ImageView
+                    android:src="@drawable/img_mission_camera"
+                    android:layout_width="67dp"
+                    android:layout_height="67dp" android:id="@+id/mission_image_1"
+                    android:scaleType="fitCenter" android:layout_marginLeft="19dp"
+                    android:layout_marginRight="15dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:paddingVertical="18dp">
+                <TextView
+                        android:text="@string/mission_title_photo"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/text_body2"
+                        android:layout_height="wrap_content" android:id="@+id/mission_title_1"
+                        android:textColor="@color/color_font2" android:layout_marginBottom="4dp"/>
+                <View
+                        android:id="@+id/mission_divider_1"
+                        android:layout_width="100dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                />
+                <TextView
+                        android:text="@string/mission_body"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/new_text_body2"
+                        android:layout_height="wrap_content" android:id="@+id/mission_body_1"
+                        android:textColor="@color/color_font1" android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_box_mission"
+                tools:showIn="@layout/fragment_mission" android:gravity="center_vertical" android:clickable="true"
+                android:layout_marginBottom="12dp" android:id="@+id/mission_box_2">
+            <ImageView
+                    android:src="@drawable/img_mission_camera"
+                    android:layout_width="67dp"
+                    android:layout_height="67dp" android:id="@+id/mission_image_2"
+                    android:scaleType="fitCenter" android:layout_marginLeft="19dp"
+                    android:layout_marginRight="15dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:paddingVertical="18dp">
+                <TextView
+                        android:text="@string/mission_title_photo"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/text_body2"
+                        android:layout_height="wrap_content" android:id="@+id/mission_title_2"
+                        android:textColor="@color/color_font2" android:layout_marginBottom="4dp"/>
+                <View
+                        android:id="@+id/mission_divider_2"
+                        android:layout_width="100dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                />
+                <TextView
+                        android:text="@string/mission_body"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/new_text_body2"
+                        android:layout_height="wrap_content" android:id="@+id/mission_body_2"
+                        android:textColor="@color/color_font1" android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_box_mission"
+                tools:showIn="@layout/fragment_mission" android:gravity="center_vertical" android:clickable="true"
+                android:id="@+id/mission_box_3">
+            <ImageView
+                    android:src="@drawable/img_mission_camera"
+                    android:layout_width="67dp"
+                    android:layout_height="67dp" android:id="@+id/mission_image_3"
+                    android:scaleType="fitCenter" android:layout_marginLeft="19dp"
+                    android:layout_marginRight="15dp"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:paddingVertical="18dp"
+                    android:orientation="vertical">
+                <TextView
+                        android:text="@string/mission_title_photo"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/text_body2"
+                        android:layout_height="wrap_content" android:id="@+id/mission_title_3"
+                        android:textColor="@color/color_font2" android:layout_marginBottom="4dp"/>
+                <View
+                        android:id="@+id/mission_divider_3"
+                        android:layout_width="100dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                />
+                <TextView
+                        android:text="@string/mission_body"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/new_text_body2"
+                        android:layout_height="wrap_content" android:id="@+id/mission_body_3"
+                        android:textColor="@color/color_font1" android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

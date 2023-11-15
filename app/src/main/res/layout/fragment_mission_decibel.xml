@@ -1,0 +1,111 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context="presentation.mission.decibel.MissionDecibelFragment"
+                                                   android:background="@color/color_mission_default">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/do_today_mission"
+            android:textAppearance="@style/new_text_body3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="180dp" android:id="@+id/mission_top_text"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/mission_top_text"
+            android:layout_marginTop="29dp" android:layout_marginStart="27dp" android:layout_marginEnd="27dp"
+            android:paddingHorizontal="29dp" android:paddingTop="21dp" android:paddingBottom="37dp"
+            android:background="@drawable/round_box_12dp" android:backgroundTint="@color/color_mission_default"
+            android:gravity="center_horizontal">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+            <ImageView
+                    android:src="@drawable/img_mission_decibel"
+                    android:layout_width="67dp"
+                    android:layout_height="67dp" android:id="@+id/imageView4" android:layout_marginRight="15dp"
+                    android:layout_weight="1"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:gravity="clip_vertical" android:layout_weight="3">
+                <TextView
+                        android:text="@string/mission_title_decibel"
+                        android:layout_width="match_parent"
+                        android:textAppearance="@style/text_body2"
+                        android:layout_height="wrap_content" android:id="@+id/textView11"
+                        android:textColor="@color/color_font3"/>
+                <View
+                        android:id="@+id/divider3"
+                        android:layout_width="97dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginTop="4dp" android:layout_marginBottom="8dp"/>
+                <TextView
+                        android:text="TextView"
+                        android:textAppearance="@style/new_text_body2"
+                        android:textColor="@color/color_font1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView10"/>
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="49dp" android:layout_marginBottom="20dp">
+
+            <ProgressBar
+                    android:id="@+id/decibel_progress"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="134dp"
+                    android:layout_height="134dp"
+                    android:max="100"
+                    android:progressBackgroundTint="@color/color_sub1"
+                    android:progressDrawable="@drawable/circle_progressbar"
+                    android:progressTint="@color/color_main" android:indeterminate="false"/>
+            <TextView
+                    android:text="TextView"
+                    android:bufferType="spannable"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/text_title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/decibel_value"
+                    android:textColor="@color/color_font1"/>
+        </FrameLayout>
+        <TextView
+                android:text="@string/measure_decibel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView12"
+                android:textAppearance="@style/new_text_body2"
+                android:textColor="@color/color_font1" android:textAlignment="center"/>
+    </LinearLayout>
+    <Button
+            android:text="@string/show_tome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/show_to_decidel_btn"
+            app:layout_constraintBottom_toTopOf="@+id/back_decidel_btn" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="10dp"
+            android:layout_marginStart="27dp" android:layout_marginEnd="27dp"
+            android:textAppearance="@style/text_body1"
+            android:background="@drawable/btn_basic_8dp_noripple" android:textColor="@color/color_font4"
+            android:visibility="invisible"/>
+    <Button
+            android:text="@string/back_decibel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/back_decidel_btn"
+            android:textAppearance="@style/text_body1"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="27dp"
+            android:layout_marginEnd="27dp" android:layout_marginBottom="64dp"
+            android:background="@drawable/btn_basic_8dp" android:backgroundTint="@color/color_disabled2"
+            android:textColor="@color/color_font2" android:visibility="invisible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

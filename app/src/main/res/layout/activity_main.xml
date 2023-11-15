@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="presentation.MainActivity" android:background="@color/color_disabled1">
+        tools:context="presentation.MainActivity" android:background="@drawable/img_back_example">
 
     <FrameLayout
             android:id="@+id/main_frameLayout"
@@ -13,26 +13,43 @@
             android:layout_height="match_parent"
             android:layout_gravity="center">
     </FrameLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnv_main"
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            app:itemIconSize="30dp"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
-            android:background="@drawable/navi_background"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/menu_navi_bar"
-            android:layout_gravity="bottom">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="155dp"
-            android:id="@+id/top_bar_linear" android:background="@drawable/topbar_background"
-            android:layout_gravity="top">
-    </LinearLayout>
+            android:layout_height="match_parent">
+
+        <TextView
+                android:text="@string/exam_main_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/main_title_text"
+                app:layout_constraintStart_toStartOf="@+id/main_tome_text"
+                android:textAppearance="@style/new_text_body1"
+                app:layout_constraintTop_toBottomOf="@+id/main_tome_text" android:layout_marginTop="16dp"
+                android:textColor="@color/color_font1"/>
+        <TextView
+                android:text="@string/toMe"
+                android:textColor="@color/color_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/main_tome_text"
+                android:textAppearance="@style/new_text_body2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="69dp" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.1"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bnv_main"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                app:itemIconSize="30dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:background="@drawable/border_bottom"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/menu_navi_bar"
+                android:layout_gravity="bottom"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
