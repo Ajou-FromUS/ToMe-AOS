@@ -39,12 +39,22 @@
     <string name="mission_body">행복 나무 찍어보기</string>
 
     <string name="mission_diary_detail">오늘 하루를 되돌아보고, 감사일기를 적어보세요.</string>
-
     <string name="text_field_explain">이곳을 클릭하여 작성하세요.\n최대 85자까지 작성할 수 있어요.</string>
+
+    <string name="measure_decibel">데시벨을 측정하고 있어요.\n마음껏 소리 지르세요!</string>
+
+    <string name="good_job">오늘 하루도 수고 많았어요 :)</string>
+    <string name="complete_text_mission">오늘의 글쓰기 미션 완료</string>
 
     <string name="show_tome">티오에게 보여주기</string>
     <string name="go_mission">미션 수행하러 가기</string>
     <string name="back_mission">다른 미션 보러 가기</string>
+
+    <string name="back_textfield">다시 작성하기</string>
+    <string name="back_decibel">데시벨 다시 측정하기</string>
+
+    <string name="other_mission">다음 미션 수행하기</string>
+    <string name="back_home">홈으로 돌아가기</string>
 
     <string name="do_today_mission">오늘의 미션을 수행해 보세요.</string>
 
