@@ -24,7 +24,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
-import presentation.chat.Adapter.ChatAdapter
+import presentation.chat.adapter.ChatAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

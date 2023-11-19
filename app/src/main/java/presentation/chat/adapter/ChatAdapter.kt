@@ -1,4 +1,4 @@
-package presentation.chat.Adapter
+package presentation.chat.adapter
 
 import android.view.LayoutInflater
 import android.view.View
