@@ -1,6 +1,5 @@
 package data.service
 
-import data.dto.request.ChatRequest
 import data.dto.response.ChatResponse
 import okhttp3.RequestBody
 import retrofit2.Call
