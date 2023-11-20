@@ -3,6 +3,7 @@ package presentation.login
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -18,16 +19,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.FormBody
-import presentation.MainActivity
 import presentation.chat.ChatActivity
 import retrofit2.Call
 import retrofit2.Response
 
+
 class LoginWebviewActivity : AppCompatActivity() {
     private lateinit var binding: AvtivityLoginWebviewBinding
     private lateinit var webView: WebView
-
-    //구글 로그인 때문에 chrome custom tab으로 바꿔야 함
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +40,9 @@ class LoginWebviewActivity : AppCompatActivity() {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
         }
+        val userAgentString = webView.settings.userAgentString
+        val newUserAgentString = userAgentString.replace("; wv", "").replace("Android ${Build.VERSION.RELEASE};", "")
+        webView.settings.userAgentString = newUserAgentString
         webView.loadUrl("$uri")
     }
 }
@@ -64,7 +66,6 @@ class LoginWebViewClient(private val context: Context) : WebViewClient() {
         return true
     }
 }
-
 private fun sendBody(code: String) {
     val client = ApiFuroClient.getApiClient().create(LoginService::class.java)
     val requestBody = FormBody.Builder()
@@ -81,7 +82,9 @@ private fun sendBody(code: String) {
                 CoroutineScope(Dispatchers.Main).launch {
                     ApplicationClass.getInstance().getDataStore().saveTokens(accessToken, refreshToken)
                 }
-            } else { println("HTTP 오류: ${response.code()}") }
+            } else {
+                println("HTTP 오류: ${response.code()}")
+            }
         }
         override fun onFailure(call: Call<JWTTokenResponse>, t: Throwable) {
             t.printStackTrace()
