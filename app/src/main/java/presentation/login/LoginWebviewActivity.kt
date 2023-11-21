@@ -1,92 +1,94 @@
 package presentation.login
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import application.ApplicationClass
 import com.example.tome_aos.BuildConfig
 import com.example.tome_aos.databinding.AvtivityLoginWebviewBinding
+import data.dto.response.JWTTokenResponse
 import data.service.ApiFuroClient
 import data.service.LoginService
-import okhttp3.*
-import org.json.JSONObject
-import retrofit2.create
-import java.io.IOException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.FormBody
+import presentation.chat.ChatActivity
+import retrofit2.Call
+import retrofit2.Response
 
-val BASE_URL = "http://www.naver.com"
 
 class LoginWebviewActivity : AppCompatActivity() {
     private lateinit var binding: AvtivityLoginWebviewBinding
     private lateinit var webView: WebView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = AvtivityLoginWebviewBinding.inflate(layoutInflater)
         webView = binding.wvLogin
         setContentView(binding.root)
+
         val uri = intent.getStringExtra("uri")
         webView.apply {
-            webViewClient = LoginWebViewClient()
+            webViewClient = LoginWebViewClient(this@LoginWebviewActivity)
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
         }
+        val userAgentString = webView.settings.userAgentString
+        val newUserAgentString = userAgentString.replace("; wv", "").replace("Android ${Build.VERSION.RELEASE};", "")
+        webView.settings.userAgentString = newUserAgentString
         webView.loadUrl("$uri")
     }
 }
 
-class LoginWebViewClient : WebViewClient() {
+class LoginWebViewClient(private val context: Context) : WebViewClient() {
     override fun shouldOverrideUrlLoading(
         view: WebView?,
         request: WebResourceRequest?,
     ): Boolean {
-        // Redirection을 허용하고 로직을 추가
         val url = request?.url.toString()
         view?.loadUrl(url)
-        if (url.contains("?code=") && url != null && url.contains(BASE_URL)) {
+        if (url.contains("?code=") && url != null && url.contains(BuildConfig.REDIRECT_URL)) {
             val index = url.indexOf("?code=")
             val code = url.substring(index + 6)
             sendBody(code)
+            val intent = Intent(context, ChatActivity::class.java)
+            context.startActivity(intent)
+            (context as Activity).finish()
+            return true
         }
         return true
     }
-
-    //    private fun sendBody(code: String){
-//        val target = BuildConfig.FURO_TARGET
-//        val client = OkHttpClient()
-//        val requestBody = FormBody.Builder()
-//            .add("code", code)
-//            .build()
-//        val request = Request.Builder()
-//            .url(target)
-//            .post(requestBody)
-//            .addHeader("Origin", BASE_URL) // BASE_URL을 헤더에 추가
-//            .build()
-//        client.newCall(request).enqueue(object : Callback {
-//            override fun onFailure(call: Call, e: IOException) {
-//                e.printStackTrace()
-//            }
-//            override fun onResponse(call: Call, response: Response) {
-//                if (response.isSuccessful) {
-//                    val responseBody = response.body?.string()
-//                    val jsonObject = JSONObject(responseBody)
-//                    val access_token = jsonObject.getString("access_token")
-//                    val refresh_token = jsonObject.getString("refresh_token")
-////                    println("HTTP !@!@@!@!@!@!@!@!@AT!: $access_token")
-////                    println("HTTP !@!@!@!@!@!@!@!@!RT: $refresh_token")
-//                } else {
-//                    println("HTTP 오류: ${response.code}")
-//                }
-//            }
-//        })
-//    }
-    private fun sendBody(code: String) {
-        val target = BuildConfig.BASE_FURO
-        val client = ApiFuroClient.getApiClient().create(LoginService::class.java)
-
-        val requestBody = FormBody.Builder()
-            .add("code", code)
-            .build()
-
-        val call = client.sendCode(requestBody)
-    }
 }
+private fun sendBody(code: String) {
+    val client = ApiFuroClient.getApiClient().create(LoginService::class.java)
+    val requestBody = FormBody.Builder()
+        .add("code", code)
+        .build()
+    val call = client.sendCode(requestBody)
+    call.enqueue(object : retrofit2.Callback<JWTTokenResponse> {
+        override fun onResponse(call: Call<JWTTokenResponse>, response: Response<JWTTokenResponse>) {
+            if (response.isSuccessful) {
+                val jwtTokenResponse = response.body()
+                val accessToken = jwtTokenResponse?.accessToken ?: ""
+                val refreshToken = jwtTokenResponse?.refreshToken ?: ""
+                //token 저장
+                CoroutineScope(Dispatchers.Main).launch {
+                    ApplicationClass.getInstance().getDataStore().saveTokens(accessToken, refreshToken)
+                }
+            } else {
+                println("HTTP 오류: ${response.code()}")
+            }
+        }
+        override fun onFailure(call: Call<JWTTokenResponse>, t: Throwable) {
+            t.printStackTrace()
+        }
+    })
+}
+
