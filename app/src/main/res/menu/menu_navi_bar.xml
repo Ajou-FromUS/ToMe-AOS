@@ -3,7 +3,7 @@
       tools:context="com.example.ToMe-AOS.presentation.MainActivity">
     <item android:id="@+id/navi_archive"
           android:title="통계"
-          android:icon="@drawable/select_archive"/>
+          android:icon="@drawable/ic_statistics"/>
     <item android:id="@+id/navi_home"
           android:title="홈"
           android:icon="@drawable/select_home"/>
