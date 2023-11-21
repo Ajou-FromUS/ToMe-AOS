@@ -6,6 +6,15 @@
         android:layout_height="match_parent"
         tools:context="presentation.home.HomeFragment"
         android:id="@+id/home_layout">
+    <ImageView
+            android:src="@drawable/img_tome"
+            android:layout_width="148dp"
+            android:layout_height="128dp" android:id="@+id/tome_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.797"
+            app:layout_constraintHorizontal_bias="0.56"/>
     <Button
             android:text="@string/to_start_Talk"
             android:layout_width="125dp"
@@ -30,12 +39,4 @@
             android:paddingTop="20dp" android:drawablePadding="-20dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.793" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.382"/>
-    <ImageView
-            android:src="@drawable/img_tome"
-            android:layout_width="148dp"
-            android:layout_height="128dp" android:id="@+id/tome_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.797"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
