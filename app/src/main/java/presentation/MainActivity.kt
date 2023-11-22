@@ -1,19 +1,23 @@
 package presentation
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityMainBinding
-import presentation.archive.ArchiveFragment
-import presentation.diary.DiaryFragment
+import presentation.chat.ChatActivity
 import presentation.home.HomeFragment
+import presentation.login.LoginWebviewActivity
+import presentation.mypage.MypageFragment
+import presentation.statistics.StatisticsFragment
 
 class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
-    private val archiveFragment = ArchiveFragment()
-    private val diaryFragment = DiaryFragment()
+    private val mypageFragment = MypageFragment()
+    private val statisticsFragment = StatisticsFragment()
     private lateinit var currentFragment: Fragment
 
 
@@ -35,8 +39,8 @@ class MainActivity : AppCompatActivity() {
         binding.bnvMain.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navi_home -> showFragment(homeFragment)
-                R.id.navi_archive -> showFragment(archiveFragment)
-                R.id.navi_mypage -> showFragment(diaryFragment)
+                R.id.navi_statistics -> showFragment(statisticsFragment)
+                R.id.navi_mypage -> showFragment(mypageFragment)
             }
             true
         }
@@ -47,6 +51,16 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.main_frameLayout, fragment)
         transaction.commit()
+        if(fragment != homeFragment){
+            binding.topBarLayout.visibility = View.GONE
+        }else{
+            binding.topBarLayout.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showActivity(activity: Activity) {
+        val intent = Intent(this, activity::class.java)
+        startActivity(intent)
     }
 
     fun hideBottomNavigation(state:Boolean){
