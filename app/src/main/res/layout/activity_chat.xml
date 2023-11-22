@@ -134,7 +134,6 @@
             app:layout_constraintEnd_toStartOf="@id/chat_mission_alert"
             android:visibility="invisible"/>
 
-
     <EditText
             android:id="@+id/et_chat_talk"
             android:layout_width="309dp"
@@ -155,6 +154,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:maxLines="2"
             android:imeOptions="actionDone"/>
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:lottie_rawRes="@raw/chat_typing_dots"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/et_chat_talk"
+            app:layout_constraintTop_toTopOf="@id/et_chat_talk"
+            android:visibility="gone"/>
 
     <androidx.constraintlayout.utils.widget.ImageFilterButton
             android:id="@+id/ibtn_chat_send"
