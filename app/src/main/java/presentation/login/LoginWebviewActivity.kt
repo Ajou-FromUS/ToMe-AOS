@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 import okhttp3.FormBody
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
-import presentation.chat.ChatActivity
+import presentation.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,8 +67,8 @@ class LoginWebviewActivity : AppCompatActivity() {
                 val index = url.indexOf("?code=")
                 val code = url.substring(index + 6)
                 sendBody(code)
-                createUser("이재현")
-                val intent = Intent(context, ChatActivity::class.java)
+                //createUser("이재현")
+                val intent = Intent(context, MainActivity::class.java)
                 context.startActivity(intent)
                 (context as Activity).finish()
                 return true
