@@ -33,7 +33,8 @@ import kotlin.collections.ArrayList
 class StatisticsFragment: Fragment() {
     private lateinit var binding: FragmentStatisticsBinding
     private lateinit var adapter: StatsticsAdapter
-
+    private var year = LocalDate.now().year
+    private var month = LocalDate.now().monthValue
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,9 +49,9 @@ class StatisticsFragment: Fragment() {
         adapter = StatsticsAdapter(requireContext(), emptyList()) // 빈 상태의 어댑터 설정
         recyclerView.adapter = adapter
 
-        val yearMonth = "${LocalDate.now().year}-${LocalDate.now().monthValue}"
-        binding.tvStatDate.text = "${LocalDate.now().year}년 ${LocalDate.now().monthValue}월"
-        binding.tvAnalyze.text = "티오가 ${LocalDate.now().monthValue}월을 분석했어요."
+        val yearMonth = "$year-$month"
+        binding.tvStatDate.text = "${year}년 ${month}월"
+        binding.tvAnalyze.text = "티오가 ${month}월을 분석했어요."
         btnListener()
         getStats(yearMonth)
 
@@ -134,8 +135,10 @@ class StatisticsFragment: Fragment() {
             monthPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
             yearPicker.minValue = 2023
             yearPicker.maxValue = 9999
+            yearPicker.value = year
             monthPicker.minValue = 1
             monthPicker.maxValue = 12
+            monthPicker.value = month
 
             val dialog = AlertDialog.Builder(requireContext()).apply {
                 setView(dialogView)
@@ -144,13 +147,19 @@ class StatisticsFragment: Fragment() {
                 dialog.dismiss()
             }
             btnSave.setOnClickListener {
-                val year = "${yearPicker.value}년"
-                val month = "${monthPicker.value}월"
-                val yearMonth = "${yearPicker.value}-${monthPicker.value}"
-                binding.tvStatDate.text = "$year $month"
-                binding.tvAnalyze.text = "티오가 ${month}을 분석했어요."
-                getStats(yearMonth)
-                dialog.dismiss()
+                val now = LocalDate.now()
+                if (yearPicker.value > now.year || (yearPicker.value >= now.year && monthPicker.value > now.monthValue)) {
+                    Toast.makeText(requireContext(), "현재 날짜를 확인해주세요.", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }else{
+                    year = yearPicker.value
+                    month = monthPicker.value
+                    val yearMonth = "$year-$month"
+                    binding.tvStatDate.text = "${year}년 ${month}월"
+                    binding.tvAnalyze.text = "티오가 ${month}월을 분석했어요."
+                    getStats(yearMonth)
+                    dialog.dismiss()
+                }
             }
             dialog.show()
         }
