@@ -36,4 +36,7 @@
         <item name="colorPrimaryVariant">@color/color_sub2</item>
         <item name="colorOnPrimary">@color/color_sub2</item>
     </style>
+    <style name="NumberPicker" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorControlNormal">@color/color_main</item>
+    </style>
 </resources>

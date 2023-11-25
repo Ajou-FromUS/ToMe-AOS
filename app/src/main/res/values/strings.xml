@@ -103,5 +103,9 @@
     <string name="nickname">닉네임</string>
     <string name="nickname_mod">닉네임 수정</string>
 
+    <string name="neutral_emotion">일반적인 감정을 가장 많이 느꼈어요</string>
+    <string name="positive_emotion">긍정적인 감정을 가장 많이 느꼈어요</string>
+    <string name="negative_emotion">부정적인 감정을 가장 많이 느꼈어요</string>
+    <string name="default_emotion">감정 분석을 위해서 티오와 대화해주세요!</string>
 
 </resources>
