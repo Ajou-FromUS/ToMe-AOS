@@ -35,7 +35,8 @@ class MissionDetailFragment : Fragment() {
             goButton = goMissionBtn
             backButton = backMissionBtn
         }
-        var missionType = arguments?.getString("missionType")
+        var missionDetail = arguments?.getString("missionTitle")
+        val missionType = arguments?.getInt("missionType")
 
         val mainActivity = activity as MainActivity
         mainActivity.hideBottomNavigation(true)
@@ -47,14 +48,14 @@ class MissionDetailFragment : Fragment() {
 
         goButton.setOnClickListener {
             when(missionType){
-                "photo" -> openGallery()
-                "text" -> {
-                    transaction.replace(R.id.main_frameLayout, missionTextFragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit() }
-                "decibel" -> {
+                0 -> openGallery()
+                1 -> {
                     transaction.replace(R.id.main_frameLayout, missionDecibelFragment)
                     transaction.addToBackStack(null);
+                    transaction.commit() }
+                2 -> {
+                    transaction.replace(R.id.main_frameLayout, missionTextFragment)
+                    transaction.addToBackStack(null)
                     transaction.commit() }
             }
         }

@@ -13,13 +13,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent" android:id="@+id/mission_image"
             android:scaleType="fitCenter"
-            android:layout_marginRight="15dp" android:layout_weight="1"/>
+            android:layout_marginRight="15dp" android:layout_weight="0.8"/>
     <LinearLayout
             android:orientation="vertical"
+            android:id="@+id/exist_mission"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_weight="1">
         <TextView
-                android:text="@string/mission_title_photo"
                 android:layout_width="match_parent"
                 android:textAppearance="@style/text_body2"
                 android:layout_height="wrap_content" android:id="@+id/mission_title"
@@ -31,10 +31,28 @@
                 android:background="?android:attr/listDivider"
         />
         <TextView
-                android:text="@string/mission_body"
                 android:layout_width="match_parent"
                 android:textAppearance="@style/new_text_body3"
                 android:layout_height="wrap_content" android:id="@+id/mission_body"
                 android:textColor="@color/color_font1" android:layout_marginTop="8dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/not_exist_mission"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_weight="1" android:layout_marginVertical="7dp"
+            android:visibility="gone">
+        <TextView
+                android:text="@string/null_mission"
+                android:layout_width="match_parent"
+                android:textAppearance="@style/new_text_body2"
+                android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_weight="1"
+                android:textColor="@color/color_font1" android:textAlignment="center"/>
+        <TextView
+                android:text="@string/make_mission"
+                android:textAppearance="@style/text_body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView2"
+                android:textColor="@color/color_font3" android:textAlignment="center"/>
     </LinearLayout>
 </LinearLayout>

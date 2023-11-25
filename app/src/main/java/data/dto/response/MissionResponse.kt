@@ -1,9 +1,10 @@
 package data.dto.response
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.util.Date
 
-data class MissionResponse(
+data class MissionResponse (
     @SerializedName("data") val missionsData: List<Data>,
 ){
     data class Data(
@@ -13,7 +14,7 @@ data class MissionResponse(
         @SerializedName("id") val id: Int?,
         @SerializedName("content") val content: String?,
         @SerializedName("mission") val mission: Mission?,
-    ) {
+    ) : Serializable {
         data class Mission(
             @SerializedName("id") val id: Int?,
             @SerializedName("type") val type: Int?,

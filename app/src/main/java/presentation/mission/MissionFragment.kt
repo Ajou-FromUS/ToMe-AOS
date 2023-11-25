@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import application.ApplicationClass
+import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMissionBinding
 import data.dto.response.MissionResponse
 import data.service.ApiClient
@@ -30,6 +31,7 @@ import java.time.LocalDate
 class MissionFragment : Fragment() {
     private lateinit var binding: FragmentMissionBinding
     private lateinit var recyclerView: RecyclerView
+    private val missionDetailFragment = MissionDetailFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +43,6 @@ class MissionFragment : Fragment() {
 
         getMission()
         val homeFragment = HomeFragment()
-        val missionDetailFragment = MissionDetailFragment()
 
         val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
 
@@ -69,10 +70,26 @@ class MissionFragment : Fragment() {
         return binding.root
     }
 
+
     private fun setMissionList(response: List<MissionResponse.Data>?){
         if (response != null) {
             recyclerView = binding.missionListLayout
-            recyclerView.adapter = MissionAdapter(response)
+            val missionAdapter = MissionAdapter(response)
+            recyclerView.adapter = missionAdapter
+
+            missionAdapter.setOnItemclickListner(object: MissionAdapter.OnItemClickListner{
+                    override fun onItemClick(position: Int) {
+                        val bundle = Bundle(2)
+                        //bundle.putSerializable("missionDetail", response[position]) // key , value
+                        response[position].mission?.type?.let { bundle.putInt("missionType", it) }
+                        bundle.putString("missionTitle", response[position].mission?.title)
+                        missionDetailFragment.arguments = bundle
+                        val transaction = parentFragmentManager.beginTransaction()
+                        transaction.replace(R.id.main_frameLayout, missionDetailFragment)
+                        transaction.addToBackStack(null);
+                        transaction.commit()
+                    }
+                })
 
             val layoutManager = LinearLayoutManager(context)
             recyclerView.layoutManager = layoutManager
