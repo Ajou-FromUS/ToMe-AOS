@@ -22,12 +22,19 @@ class ChatAdapter(private val messageList: List<ChatDTO>) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val message = messageList[position]
         val messageHolder = holder as ViewHolder
-
-        messageHolder.sendTextView.visibility = if (message.sender == "SENDER") View.VISIBLE else View.GONE
-        messageHolder.receiveTextView.visibility = if (message.sender == "RECEIVER") View.VISIBLE else View.GONE
-        val content = if (message.sender == "SENDER" || message.sender == "RECEIVER") message.content else "Unknown sender"
-        messageHolder.sendTextView.text = content
-        messageHolder.receiveTextView.text = content
+        if (message.sender == "SENDER") {
+            messageHolder.sendTextView.visibility = View.VISIBLE
+            messageHolder.sendTextView.text = message.content
+            messageHolder.receiveTextView.visibility = View.GONE
+        } else if (message.sender == "RECEIVER") {
+            messageHolder.sendTextView.visibility = View.GONE
+            messageHolder.receiveTextView.visibility = View.VISIBLE
+            messageHolder.receiveTextView.text = message.content
+        } else {
+            messageHolder.receiveTextView.visibility = View.VISIBLE
+            messageHolder.receiveTextView.text = message.content
+            messageHolder.sendTextView.visibility = View.GONE
+        }
     }
     override fun getItemCount(): Int {
         return messageList.size

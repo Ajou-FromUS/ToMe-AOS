@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,7 +45,6 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
-        bindingChat = ItemSendMessageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         et = binding.etChatTalk
@@ -135,6 +135,7 @@ class ChatActivity : AppCompatActivity() {
                         if (response.body()?.message != null) {
                             receiveMessage(chatResponse)
                         }
+                        println("미션 개수: $mission")
                         updateMission(mission)
                     } else {
                         println("HTTP 오류: ${response.code()}")
@@ -142,8 +143,9 @@ class ChatActivity : AppCompatActivity() {
                 }
                 override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
                     enableEditText()
-                    t.printStackTrace()
-                    println("통신 실패")
+                    //t.printStackTrace()
+                    Toast.makeText(this@ChatActivity, "서버 통신 실패 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+                    //println("통신 실패")
                 }
             })
         }
