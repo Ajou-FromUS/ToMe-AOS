@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.bnvMain.selectedItemId = R.id.navi_home
 
-        changeMainTitle(0)
         binding.bnvMain.itemIconTintList = null
         currentFragment = homeFragment
 
@@ -71,9 +70,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun changeMainTitle(pageNumber: Int){
+    fun changeMainTitle(pageNumber: Int, nickName: String?){
         when(pageNumber){
-            0 -> binding.mainTitleText.setText(R.string.exam_main_text)
+            0 -> binding.mainTitleText.setText("${nickName},\n오늘도 나랑 대화하자.")
             1 -> binding.mainTitleText.setText(R.string.title_mission)
         }
     }
