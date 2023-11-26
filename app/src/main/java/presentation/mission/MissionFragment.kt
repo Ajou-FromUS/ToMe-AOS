@@ -1,6 +1,5 @@
 package presentation.mission
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -44,8 +43,6 @@ class MissionFragment : Fragment() {
         getMission()
         val homeFragment = HomeFragment()
 
-        val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
-
         mainActivity.hideBottomNavigation(false)
 
         binding.root.setOnTouchListener { _, event ->
@@ -57,15 +54,6 @@ class MissionFragment : Fragment() {
             }
             false
         }
-
-//        binding.missionBox1.setOnClickListener {
-//            bundle.putString("missionType", "photo") // key , value
-//            missionDetailFragment.arguments = bundle
-//            val transaction = parentFragmentManager.beginTransaction()
-//            transaction.replace(com.example.tome_aos.R.id.main_frameLayout, missionDetailFragment)
-//            transaction.addToBackStack(null);
-//            transaction.commit()
-//        }
 
         return binding.root
     }
@@ -79,10 +67,10 @@ class MissionFragment : Fragment() {
 
             missionAdapter.setOnItemclickListner(object: MissionAdapter.OnItemClickListner{
                     override fun onItemClick(position: Int) {
-                        val bundle = Bundle(2)
-                        //bundle.putSerializable("missionDetail", response[position]) // key , value
-                        response[position].mission?.type?.let { bundle.putInt("missionType", it) }
+                        val bundle = Bundle(3)
+                        bundle.putInt("missionType", response[position].mission?.type!!)
                         bundle.putString("missionTitle", response[position].mission?.title)
+                        bundle.putInt("missionID", response[position].id!!)
                         missionDetailFragment.arguments = bundle
                         val transaction = parentFragmentManager.beginTransaction()
                         transaction.replace(R.id.main_frameLayout, missionDetailFragment)

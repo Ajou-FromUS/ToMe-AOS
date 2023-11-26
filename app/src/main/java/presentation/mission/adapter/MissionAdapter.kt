@@ -1,26 +1,24 @@
 package presentation.mission.adapter
 
-import android.os.Bundle
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tome_aos.R
 import data.dto.response.MissionResponse
-import presentation.mission.MissionDetailFragment
 
 
 class MissionAdapter(private val missionList: List<MissionResponse.Data>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
-        private const val PHOTO_TYPE = 0
-        private const val DECIBEL_TYPE = 1
-        private const val TEXT_TYPE = 2
+        private const val PHOTO_TYPE = 1
+        private const val DECIBEL_TYPE = 2
+        private const val TEXT_TYPE = 0
     }
 
     inner class MissionHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -39,15 +37,13 @@ class MissionAdapter(private val missionList: List<MissionResponse.Data>) :
         return MissionHolder(itemView)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val missionData = missionList[position]
         val missionDetail = missionData.mission
         val missionHolder = holder as MissionHolder
 
-        if (missionData.is_completed == true) {
-            missionHolder.missionBox.setBackgroundColor(2)
-
-        }else if(missionData.is_completed == false){
+        if (missionData.is_completed != null) {
             when (missionDetail?.type) {
                 PHOTO_TYPE -> {
                     missionHolder.title.text = "찰칵 미션"
@@ -65,6 +61,10 @@ class MissionAdapter(private val missionList: List<MissionResponse.Data>) :
                     missionHolder.content.text = missionDetail.title
                 }
             }
+            if(missionData.is_completed == true){
+                missionHolder.missionBox.setBackgroundResource(R.drawable.round_box_mission_complete)
+                missionHolder.image.setImageResource(R.drawable.img_mission_complete)
+            }
         }else{
             missionHolder.image.visibility = View.GONE
             missionHolder.existLayout.visibility = View.GONE
@@ -72,7 +72,10 @@ class MissionAdapter(private val missionList: List<MissionResponse.Data>) :
         }
 
         missionHolder.missionBox.setOnClickListener {
-            itemClickListner.onItemClick(position)
+            if (missionData.is_completed == false) {
+                missionHolder.missionBox.setClickable(true)
+                itemClickListner.onItemClick(position)
+            }
         }
     }
 
