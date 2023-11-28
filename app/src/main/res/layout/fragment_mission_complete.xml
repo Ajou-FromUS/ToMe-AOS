@@ -6,20 +6,19 @@
                                                    tools:context="presentation.mission.MissionCompleteFragment"
                                                    android:background="@color/color_mission_default">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView
-            android:src="@drawable/img_mission_text"
+    <com.airbnb.lottie.LottieAnimationView
             android:layout_width="211dp"
-            android:layout_height="211dp" android:id="@+id/imageView2"
+            android:layout_height="211dp" android:id="@+id/completeLottie"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="253dp"
-            app:layout_constraintHorizontal_bias="0.498" android:scaleType="fitCenter"/>
+            app:lottie_autoPlay="true" app:lottie_loop="false"
+            app:lottie_rawRes="@raw/mission_complete" android:scaleType="fitCenter"/>
     <TextView
             android:text="@string/good_job"
             android:textAppearance="@style/new_text_body3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/completeLottie" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="26dp"
             app:layout_constraintHorizontal_bias="0.498" android:textColor="@color/color_font1"/>
     <TextView
