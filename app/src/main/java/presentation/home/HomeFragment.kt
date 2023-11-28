@@ -6,30 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import application.ApplicationClass
 import com.example.tome_aos.databinding.FragmentHomeBinding
-import data.dto.response.InitResponse
-import data.dto.response.MissionResponse
-import data.service.ApiClient
-import data.service.InitClient
-import data.service.MissionService
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 import presentation.MainActivity
 import presentation.chat.ChatActivity
 import presentation.mission.MissionFragment
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.time.LocalDate
 
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private var has_mission_today = false
-    private var nickname = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,10 +24,9 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val mainActivity = activity as MainActivity
+        val hasMissionToday = arguments?.getBoolean("hasMission")
 
-        getInit()
-
-        mainActivity.changeMainTitle(0, nickname)
+        Log.d("home has mission", hasMissionToday.toString())
 
         binding.toTalkBtn.setOnClickListener {
             var intent = Intent(context, ChatActivity::class.java)
@@ -49,7 +34,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.checkMissionBtn.setOnClickListener{
-            if(has_mission_today == true) {
+            if(hasMissionToday == true) {
                 val fragment = MissionFragment()
                 // Fragment 전환을 위한 트랜잭션 시작
                 val transaction = parentFragmentManager.beginTransaction()
@@ -58,37 +43,13 @@ class HomeFragment : Fragment() {
                 transaction.commit()
 
                 mainActivity.changeMainTitle(1, null)
+            }else if(hasMissionToday == false){
+                Toast.makeText(context, "현재 할 수 있는 미션이 없어요!", Toast.LENGTH_SHORT).show()
             }
         }
 
 
         return binding.root
-    }
-
-
-
-    private fun getInit() {
-        val client = ApiClient.getApiClient().create(InitClient::class.java)
-        lifecycleScope.launch {
-            val accessToken = ApplicationClass.getInstance().getDataStore().accessToken.first()
-            val refreshToken = ApplicationClass.getInstance().getDataStore().refreshToken.first()
-            client.getInit(accessToken, refreshToken).enqueue(object : Callback<InitResponse> {
-                override fun onResponse(call: Call<InitResponse>, response: Response<InitResponse>) {
-                    if (response.isSuccessful) {
-                        Log.d("initResponse", response.body().toString())
-                        val initData: InitResponse.Data = response.body()!!.initData
-                        nickname = initData.nickname
-                        has_mission_today = initData.has_mission_today
-                    } else {
-                        Log.d("initResponse", "HTTP 오류")
-                    }
-                }
-                override fun onFailure(call: Call<InitResponse>, t: Throwable) {
-                    Log.d("initFail", t.toString())
-                    t.printStackTrace()
-                }
-            })
-        }
     }
 }
 
