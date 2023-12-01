@@ -21,6 +21,7 @@
             android:layout_height="wrap_content" android:layout_weight="1">
         <TextView
                 android:layout_width="match_parent"
+                android:text="미션 타입"
                 android:textAppearance="@style/text_body2"
                 android:layout_height="wrap_content" android:id="@+id/mission_title"
                 android:textColor="@color/color_font2" android:layout_marginBottom="4dp"/>
@@ -32,6 +33,7 @@
         />
         <TextView
                 android:layout_width="match_parent"
+                android:text="상세미션"
                 android:textAppearance="@style/new_text_body3"
                 android:layout_height="wrap_content" android:id="@+id/mission_body"
                 android:textColor="@color/color_font1" android:layout_marginTop="8dp"/>

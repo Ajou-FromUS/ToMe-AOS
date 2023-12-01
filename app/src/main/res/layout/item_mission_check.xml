@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
        xmlns:android="http://schemas.android.com/apk/res/android"
-       tools:showIn="@layout/fragment_mission_detail">
+       tools:showIn="@layout/fragment_mission">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/today_mission" android:id="@+id/today_mission_text"
             android:textAppearance="@style/text_body2"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="151dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="135dp"
             android:textColor="@color/color_font1"/>
     <ImageView
             android:layout_width="60dp"

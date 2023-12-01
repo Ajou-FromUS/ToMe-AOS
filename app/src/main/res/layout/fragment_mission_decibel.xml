@@ -39,10 +39,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:gravity="clip_vertical" android:layout_weight="3">
                 <TextView
-                        android:text="@string/mission_title_decibel"
                         android:layout_width="match_parent"
+                        android:text="@string/decibel_mission"
                         android:textAppearance="@style/text_body2"
-                        android:layout_height="wrap_content" android:id="@+id/textView11"
+                        android:layout_height="wrap_content" android:id="@+id/title_text"
                         android:textColor="@color/color_font3"/>
                 <View
                         android:id="@+id/divider3"
@@ -52,10 +52,10 @@
                         android:layout_marginTop="4dp" android:layout_marginBottom="8dp"/>
                 <TextView
                         android:text="TextView"
-                        android:textAppearance="@style/new_text_body2"
+                        android:textAppearance="@style/new_text_body3"
                         android:textColor="@color/color_font1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textView10"/>
+                        android:layout_height="wrap_content" android:id="@+id/decibel_title_text"/>
             </LinearLayout>
         </LinearLayout>
         <FrameLayout
@@ -83,7 +83,7 @@
         <TextView
                 android:text="@string/measure_decibel"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView12"
+                android:layout_height="wrap_content" android:id="@+id/decibel_explain_text"
                 android:textAppearance="@style/new_text_body2"
                 android:textColor="@color/color_font1" android:textAlignment="center"/>
     </LinearLayout>
