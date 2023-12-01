@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -61,7 +62,6 @@ class MissionTextFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 updateButtonUI()
             }
-
             override fun afterTextChanged(s: Editable?) {
                 updateButtonUI()
             }
@@ -71,6 +71,12 @@ class MissionTextFragment : Fragment() {
                 val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
                 imm?.hideSoftInputFromWindow(et.windowToken, 0)
                 return@setOnEditorActionListener true
+            }
+            false
+        }
+        binding.root.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                hideKeyboard()
             }
             false
         }
