@@ -86,7 +86,7 @@ class MissionDetailFragment : Fragment() {
 
         missionDecibelFragment.arguments = bundle
         missionTextFragment.arguments = bundle
-        missionTextFragment.arguments = bundle
+        missionPhotoFragment.arguments = bundle
 
         val mainActivity = activity as MainActivity
         mainActivity.hideBottomNavigation(true)
