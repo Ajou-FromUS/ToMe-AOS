@@ -37,8 +37,6 @@
             android:layout_marginBottom="5dp"
             app:layout_constraintStart_toStartOf="@id/iv_face_logo"
             app:layout_constraintEnd_toEndOf="@id/iv_face_logo"
-            app:layout_constraintBottom_toBottomOf="@id/iv_face_logo"
-
-/>
+            app:layout_constraintBottom_toBottomOf="@id/iv_face_logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

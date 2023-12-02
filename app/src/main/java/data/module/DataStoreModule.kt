@@ -1,6 +1,7 @@
 package data.module
 
 import android.content.Context
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -14,6 +15,7 @@ class DataStoreModule(private val context: Context) {
     private val Context.dataStore by preferencesDataStore(name = "dataStore")
     private val accessTokenKey = stringPreferencesKey("ACCESS_TOKEN")
     private val refreshTokenKey = stringPreferencesKey("REFRESH_TOKEN")
+    private val landingFlagKey = booleanPreferencesKey("LANDING_FLAG")
 
     //accessToken
     val accessToken : Flow<String> = context.dataStore.data
@@ -39,11 +41,27 @@ class DataStoreModule(private val context: Context) {
         .map { preferences ->
             preferences[refreshTokenKey] ?: ""
         }
+    val landingFlag: Flow<Boolean> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map { preferences ->
+            preferences[landingFlagKey] ?: false // 기본값은 false로 설정
+        }
     //token들을 각 키 값에 저장
     suspend fun saveTokens(accessToken: String, refreshToken: String) {
         context.dataStore.edit { preferences ->
             preferences[accessTokenKey] = accessToken
             preferences[refreshTokenKey] = refreshToken
+        }
+    }
+    suspend fun saveFlag(isClicked: Boolean) {
+        context.dataStore.edit { preferences ->
+            preferences[landingFlagKey] = isClicked
         }
     }
 }
