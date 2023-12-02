@@ -5,23 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.tome_aos.databinding.FragmentMissionCheckBinding
+import com.example.tome_aos.databinding.FragmentNotificationBinding
 
-class MissionCheckFragment: Fragment() {
-    private lateinit var binding: FragmentMissionCheckBinding
-
+class NotificationFragment: Fragment() {
+    private lateinit var binding: FragmentNotificationBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMissionCheckBinding.inflate(inflater, container, false)
+        binding = FragmentNotificationBinding.inflate(inflater, container, false)
         btnListener()
         return binding.root
     }
     private fun btnListener() {
+        val fragmentManager = parentFragmentManager
         binding.btnBack.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            fragmentManager.popBackStack()
         }
+        //binding.btnSwitch
+        //스위치 변경 시 알림 설정
     }
 }

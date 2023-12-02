@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
-        android:background="@color/color_font4">
+        android:background="@color/color_disabled2">
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,6 +49,20 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="20dp"/>
         <Button
+                android:id="@+id/btn_notify"
+                android:layout_width="321dp"
+                android:layout_height="61dp"
+                android:text="@string/mypage_notification"
+                android:textAppearance="@style/text_body1"
+                android:textColor="@color/color_font1"
+                android:gravity="center_vertical"
+                android:paddingStart="32dp"
+                android:background="@drawable/btn_basic_8dp"
+                android:backgroundTint="@color/color_font4"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="20dp"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+        <Button
                 android:id="@+id/btn_qna"
                 android:layout_width="321dp"
                 android:layout_height="61dp"
@@ -58,7 +72,7 @@
                 android:gravity="center_vertical"
                 android:paddingStart="32dp"
                 android:background="@drawable/btn_basic_8dp"
-                android:backgroundTint="#CCFFFFFF"
+                android:backgroundTint="@color/color_font4"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="20dp"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
@@ -72,7 +86,7 @@
                 android:gravity="center_vertical"
                 android:paddingStart="32dp"
                 android:background="@drawable/btn_basic_8dp"
-                android:backgroundTint="#CCFFFFFF"
+                android:backgroundTint="@color/color_font4"
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="20dp"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
@@ -86,7 +100,7 @@
                 android:gravity="center_vertical"
                 android:paddingStart="32dp"
                 android:background="@drawable/btn_basic_8dp"
-                android:backgroundTint="#CCFFFFFF"
+                android:backgroundTint="@color/color_font4"
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="20dp"
                 style="@style/Widget.AppCompat.Button.Borderless"/>

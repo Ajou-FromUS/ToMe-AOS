@@ -40,9 +40,9 @@ class AccountSettingFragment: Fragment() {
             CoroutineScope(Dispatchers.Main).launch {
                 //Token remove
                 ApplicationClass.getInstance().getDataStore().removeTokens()
-                requireActivity().finish()
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)
+                requireActivity().finish()
             }
         }
         //회원탈퇴

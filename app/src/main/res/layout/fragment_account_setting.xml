@@ -3,8 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_font4"
+        android:background="@color/color_disabled2"
         android:clickable="true"
+        android:paddingHorizontal="25dp"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageButton
             android:id="@+id/btn_back"
@@ -14,7 +15,6 @@
             android:background="@color/color_transparent"
             android:padding="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="21dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -26,53 +26,50 @@
             android:textAppearance="@style/new_body1"
             android:textColor="@color/color_font1"
             android:gravity="center"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="26dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/btn_back"
             app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-            android:layout_width="42dp"
-            android:layout_height="26dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/nickname"
             android:textAppearance="@style/text_body1"
             android:textColor="@color/color_font1"
             android:gravity="center"
-            android:layout_marginTop="11dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/tv_account_setting"
             app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
             android:layout_width="wrap_content"
-            android:layout_height="19dp"
+            android:layout_height="wrap_content"
             android:text="김안젤라"
             android:gravity="center"
             android:maxLength="13"
-            android:textAppearance="@style/text_body2"
+            android:textAppearance="@style/text_body1"
             android:textColor="@color/color_font1"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="9dp"
             app:layout_constraintTop_toBottomOf="@id/tv_account_setting"
             app:layout_constraintEnd_toStartOf="@id/btn_nickname_modify"/>
     
     <Button
             android:id="@+id/btn_nickname_modify"
-            android:layout_width="98dp"
+            android:layout_width="118dp"
             android:layout_height="32dp"
             android:text="@string/nickname_mod"
             android:textAppearance="@style/text_body2"
             android:textColor="@color/color_font4"
             android:background="@drawable/btn_basic_4dp"
             android:backgroundTint="@color/color_main"
-            android:layout_marginTop="105dp"
-            android:layout_marginEnd="25dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_account_setting"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/Widget.AppCompat.Button.Borderless"/>
 
     <View
-            android:layout_width="309dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#59696969"
             android:layout_marginTop="24dp"
@@ -82,29 +79,28 @@
 
     <Button
             android:id="@+id/btn_logout"
-            android:layout_width="60dp"
-            android:layout_height="26dp"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
             android:text="로그아웃"
             android:textAppearance="@style/text_body1"
             android:textColor="#A1A1A1"
             android:gravity="center_vertical"
             android:background="@color/color_transparent"
             android:layout_marginTop="53dp"
-            android:layout_marginStart="26dp"
             app:layout_constraintTop_toBottomOf="@id/btn_nickname_modify"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/Widget.AppCompat.Button.Borderless"/>
 
     <Button
             android:id="@+id/btn_resign"
-            android:layout_width="64dp"
-            android:layout_height="26dp"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
             android:text="회원 탈퇴"
             android:textAppearance="@style/text_body1"
             android:textColor="#A1A1A1"
             android:gravity="center_vertical"
             android:background="@color/color_transparent"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@id/btn_logout"
             app:layout_constraintStart_toStartOf="@id/btn_logout"
             style="@style/Widget.AppCompat.Button.Borderless"/>

@@ -86,8 +86,10 @@ class MainActivity : AppCompatActivity() {
             val currentTag = currentFragment?.tag
             println(currentTag)
             if(currentTag == "MISSION_CHECK" || currentTag == "QNA" ||
-                currentTag == "ACCOUNT_SETTING") {
+                currentTag == "ACCOUNT_SETTING" || currentTag == "NOTIFICATION") {
                 hideBottomNavigation(true)
+            } else {
+                hideBottomNavigation(false)
             }
         }
         fragmentManager.addOnBackStackChangedListener(onBackStackChangedListener)
