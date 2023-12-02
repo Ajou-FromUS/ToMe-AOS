@@ -16,19 +16,18 @@ class QnaFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentQnaBinding.inflate(inflater, container, false)
-
-        val fragmentManager = parentFragmentManager.beginTransaction()
-
+        btnListener()
+        return binding.root
+    }
+    private fun btnListener() {
+        val fragmentManager = parentFragmentManager
         //뒤로가기 버튼
         binding.btnBack.setOnClickListener {
-            fragmentManager
-                .remove(this)
-                .commitAllowingStateLoss()
+            fragmentManager.popBackStack()
         }
         //카카오톡 플러스 친구 링크 이동
         binding.btnKakaoPlus.setOnClickListener {
 
         }
-        return binding.root
     }
 }
