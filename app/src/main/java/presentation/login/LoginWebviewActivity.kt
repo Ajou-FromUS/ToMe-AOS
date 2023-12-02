@@ -27,7 +27,6 @@ import kotlinx.coroutines.launch
 import okhttp3.FormBody
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
-import presentation.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,7 +53,6 @@ class LoginWebviewActivity : AppCompatActivity() {
         val newUserAgentString = userAgentString.replace("; wv", "").replace("Android ${Build.VERSION.RELEASE};", "")
         webView.settings.userAgentString = newUserAgentString
         webView.loadUrl("$uri")
-
     }
     inner class LoginWebViewClient(private val context: Context) : WebViewClient() {
         override fun shouldOverrideUrlLoading(
@@ -68,8 +66,9 @@ class LoginWebviewActivity : AppCompatActivity() {
                 val code = url.substring(index + 6)
                 sendBody(code)
                 //createUser("이재현")
-                val intent = Intent(context, MainActivity::class.java)
-                context.startActivity(intent)
+                val intent = Intent()
+                intent.putExtra("loginSuccess", true)
+                setResult(Activity.RESULT_OK, intent)
                 (context as Activity).finish()
                 return true
             }
@@ -92,7 +91,9 @@ class LoginWebviewActivity : AppCompatActivity() {
                         CoroutineScope(Dispatchers.Main).launch {
                             ApplicationClass.getInstance().getDataStore().saveTokens(accessToken, refreshToken)
                         }
-                    } else { println("HTTP 오류: ${response.code()}") }
+                    } else {
+                        println("HTTP 오류: ${response.code()}")
+                    }
                 }
                 override fun onFailure(call: Call<JWTTokenResponse>, t: Throwable) {
                     t.printStackTrace()
@@ -117,16 +118,12 @@ class LoginWebviewActivity : AppCompatActivity() {
                             println("CREATE USER HTTP 오류: ${response.code()}")
                         }
                     }
-                        override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                            t.printStackTrace()
-                            println("CREATE USER 통신 실패")
-                        }
-                    })
-                }
+                    override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                        t.printStackTrace()
+                        println("CREATE USER 통신 실패")
+                    }
+                })
             }
         }
+    }
 }
-
-
-
-

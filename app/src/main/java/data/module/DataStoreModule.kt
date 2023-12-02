@@ -59,6 +59,12 @@ class DataStoreModule(private val context: Context) {
             preferences[refreshTokenKey] = refreshToken
         }
     }
+    suspend fun removeTokens() {
+        context.dataStore.edit { preferences ->
+            preferences.remove(accessTokenKey)
+            preferences.remove(refreshTokenKey)
+        }
+    }
     suspend fun saveFlag(isClicked: Boolean) {
         context.dataStore.edit { preferences ->
             preferences[landingFlagKey] = isClicked
