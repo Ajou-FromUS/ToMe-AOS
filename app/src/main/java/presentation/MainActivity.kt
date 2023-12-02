@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityMainBinding
 import presentation.chat.ChatActivity
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
+        findTag()
     }
 
     private fun showFragment(fragment: Fragment) {
@@ -76,5 +77,19 @@ class MainActivity : AppCompatActivity() {
             0 -> binding.mainTitleText.setText(R.string.exam_main_text)
             1 -> binding.mainTitleText.setText(R.string.title_mission)
         }
+    }
+    fun findTag() {
+        val fragmentManager = supportFragmentManager
+
+        val onBackStackChangedListener = FragmentManager.OnBackStackChangedListener {
+            val currentFragment = fragmentManager.findFragmentById(R.id.frame_mypage)
+            val currentTag = currentFragment?.tag
+            println(currentTag)
+            if(currentTag == "MISSION_CHECK" || currentTag == "QNA" ||
+                currentTag == "ACCOUNT_SETTING") {
+                hideBottomNavigation(true)
+            }
+        }
+        fragmentManager.addOnBackStackChangedListener(onBackStackChangedListener)
     }
 }
