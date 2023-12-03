@@ -10,7 +10,7 @@ import retrofit2.http.Path
 
 interface MissionCompleteService {
     @PATCH("/user/mission/{mission_id}")
-    fun getMissions(
+    fun patchMissions(
         @Header("access_token") accessToken: String?,
         @Header("refresh_token") refreshToken: String?,
         @Path("mission_id") missionID: Int?,

@@ -8,10 +8,10 @@ import retrofit2.http.*
 interface MissionImageService {
     @Multipart
     @PATCH("/user/mission/{mission_id}")
-    fun getMissions(
+    fun patchImageMissions(
         @Header("access_token") accessToken: String?,
         @Header("refresh_token") refreshToken: String?,
         @Path("mission_id") missionID: Int?,
-        @Part requestBody: MultipartBody.Part?
+        @Part missionImage: MultipartBody.Part
     ): Call<MissionResponse.Data>
 }
