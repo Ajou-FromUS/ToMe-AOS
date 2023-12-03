@@ -2,8 +2,10 @@ package presentation
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -14,6 +16,7 @@ import presentation.home.HomeFragment
 import presentation.login.LoginWebviewActivity
 import presentation.mypage.MypageFragment
 import presentation.statistics.StatisticsFragment
+import util.hideKeyboard
 
 class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
@@ -93,5 +96,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
         fragmentManager.addOnBackStackChangedListener(onBackStackChangedListener)
+    }
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        val focusView = currentFocus
+        if (focusView != null) {
+            val rect = Rect()
+            focusView.getGlobalVisibleRect(rect)
+            val x = ev!!.x.toInt()
+            val y = ev.y.toInt()
+            if (!rect.contains(x, y)) {
+                hideKeyboard(focusView)
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }
