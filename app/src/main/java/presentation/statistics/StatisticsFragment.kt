@@ -68,8 +68,10 @@ class StatisticsFragment: Fragment() {
                 val response = client.getStatisticsForYearMonth(accessToken, refreshToken, yearMonth)
                 //println(accessToken +"\n"+ refreshToken)
                 //키워드 이미지 설정
+//                println(response)
                 Glide.with(this@StatisticsFragment)
                     .load(response.data.keywordImg)
+                    .error(R.drawable.img_error_wordcloud)
                     .into(binding.ivMonthlyKeyword)
                 //감정 분석 차트 설정
                 val pieChart: PieChart = binding.pieChart
