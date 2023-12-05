@@ -3,10 +3,7 @@ package presentation.mission.photo
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ContentResolver
-import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
+import android.content.*
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.database.Cursor
@@ -140,8 +137,8 @@ class MissionPhotoFragment : Fragment() {
         builder?.setTitle("두 가지 방법 중 고르기!")?.setItems(chooseOne,
             DialogInterface.OnClickListener { dialog, which ->
                 if (which == 0){ // 카메라
-                    val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                    callCamera.launch(intent)
+                    currentPhotoPath = createImageFile()!!
+                    getTakePicture.launch(currentPhotoPath)
                 }else{ // 앨범
                     val intent = Intent(Intent.ACTION_PICK)
                     intent.type = "image/*"
@@ -254,15 +251,6 @@ class MissionPhotoFragment : Fragment() {
 //        }
 //    }
 
-    private val takePictureLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == Activity.RESULT_OK) {
-                currentPhotoPath?.let { uri ->
-                    //cropSingleImage(uri)
-                }
-                return@registerForActivityResult
-            }
-        }
 
 //    val cursor = requireActivity().contentResolver.query(
 //        dataUri,
@@ -323,6 +311,22 @@ class MissionPhotoFragment : Fragment() {
 //        cropPictureLauncher.launch(intent)
 //    }
 
+    // 카메라를 실행한 후 찍은 사진을 저장
+    private val getTakePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) {
+        if(it) {
+            currentPhotoPath.let { binding.detailImageView.setImageURI(currentPhotoPath) }
+        }
+    }
+
+    private fun createImageFile(): Uri? {
+        val now = SimpleDateFormat("yyMMdd_HHmmss").format(Date())
+        val content = ContentValues().apply {
+            put(MediaStore.Images.Media.DISPLAY_NAME, "img_$now.jpeg")
+            put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+        }
+        return requireContext()?.contentResolver?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, content)
+    }
+
     @SuppressLint("Range")
     fun Uri.asMultipart(contentResolver: ContentResolver): MultipartBody.Part? {
         return contentResolver.query(this, null, null, null, null)?.let {
@@ -347,20 +351,12 @@ class MissionPhotoFragment : Fragment() {
 
     private val callAlbum: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         if(it.resultCode == AppCompatActivity.RESULT_OK && it.data != null){
-            val uri = it.data!!.data
+            val uri = it.data?.data
             currentPhotoPath = uri!!
 
             Glide.with(this)
                 .load(uri)
                 .into(binding.detailImageView)
-        }
-    }
-
-    private val callCamera: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-        if(it.resultCode == AppCompatActivity.RESULT_OK && it.data != null){
-            val extras = it.data?.extras
-            bitmap = extras?.get("data") as Bitmap
-            binding.detailImageView.setImageBitmap(bitmap)
         }
     }
 
