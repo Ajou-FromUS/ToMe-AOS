@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.net.Uri
@@ -23,6 +24,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -53,6 +55,7 @@ import okhttp3.internal.http.hasBody
 import okio.BufferedSink
 import okio.source
 import presentation.MainActivity
+import presentation.mission.MissionCompleteFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -69,7 +72,9 @@ class MissionPhotoFragment : Fragment() {
     private lateinit var againButton: Button
     private lateinit var missionImage: ImageView
     private lateinit var detailText: TextView
-//    private lateinit var baseLayout:
+    private lateinit var doMissionText: TextView
+    private lateinit var conanLayout: LinearLayout
+    private lateinit var warningLayout: LinearLayout
 
     lateinit var bitmap: Bitmap
 
@@ -84,6 +89,9 @@ class MissionPhotoFragment : Fragment() {
             againButton = chooseAgainBtn
             missionImage = detailImageView
             detailText = missionDetailText
+            doMissionText = doAnalyzeText
+            conanLayout = analyzeLayout
+            warningLayout = warningMsgLayout
         }
 
         val missionTitle = arguments?.getString("missionTitle")
@@ -112,6 +120,7 @@ class MissionPhotoFragment : Fragment() {
         chooseImage()
 
         showButton.setOnClickListener {
+            analayzeView()
             Log.d("Image uri", currentPhotoPath.toString())
             if(currentPhotoPath != null){
                 patchImageMission(currentPhotoPath, missionID)
@@ -145,9 +154,16 @@ class MissionPhotoFragment : Fragment() {
 
     @SuppressLint("ResourceAsColor")
     private fun imageError(){
+        warningLayout.visibility = View.VISIBLE
         showButton.visibility = View.INVISIBLE
         againButton.text = "사진 다시 선택하기"
-        againButton.background.setTint(R.color.color_main)
+        againButton.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_font4))
+        againButton.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(),R.color.color_main))
+    }
+
+    private fun analayzeView(){
+        doMissionText.visibility = View.INVISIBLE
+        conanLayout.visibility = View.VISIBLE
     }
 
 
@@ -307,32 +323,8 @@ class MissionPhotoFragment : Fragment() {
 //        cropPictureLauncher.launch(intent)
 //    }
 
-
-    private fun getRealPathFromURI(uri: Uri, context: Context): String {
-        val contentResolver = context.contentResolver
-        val cursor = contentResolver.query(uri, null, null, null, null)
-        return if (cursor != null) {
-            val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-            cursor.moveToFirst()
-            val filePath = cursor.getString(columnIndex)
-            cursor.close()
-            filePath
-        } else {
-            // Android 10 이상에서는 contentResolver.openInputStream 사용
-            val inputStream = contentResolver.openInputStream(uri)
-            val file = File(context.cacheDir, "tome_image.jpeg")
-            file.createNewFile()
-            inputStream?.use { input ->
-                FileOutputStream(file).use { output ->
-                    input.copyTo(output)
-                }
-            }
-            file.absolutePath
-        }
-    }
-
     @SuppressLint("Range")
-    fun Uri.asMultipart(name: String, contentResolver: ContentResolver): MultipartBody.Part? {
+    fun Uri.asMultipart(contentResolver: ContentResolver): MultipartBody.Part? {
         return contentResolver.query(this, null, null, null, null)?.let {
             if (it.moveToNext()) {
                 val displayName = it.getString(it.getColumnIndex(OpenableColumns.DISPLAY_NAME));
@@ -340,7 +332,6 @@ class MissionPhotoFragment : Fragment() {
                     override fun contentType(): MediaType? {
                         return contentResolver.getType(this@asMultipart)?.toMediaType()
                     }
-
                     override fun writeTo(sink: BufferedSink) {
                         sink.writeAll(contentResolver.openInputStream(this@asMultipart)?.source()!!)
                     }
@@ -373,11 +364,16 @@ class MissionPhotoFragment : Fragment() {
         }
     }
 
+    private fun completePage(){
+        val missionCompleteFragment = MissionCompleteFragment()
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.main_frameLayout, missionCompleteFragment)
+        transaction.addToBackStack(null);
+        transaction.commit()
+    }
+
     private fun patchImageMission(uri: Uri, missionID: Int?) {
-        val file = File(getRealPathFromURI(uri, requireContext()))
-        val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
-        //val missionImage: MultipartBody.Part = MultipartBody.Part.createFormData("mission_image","image.jpeg", requestFile)
-        val missionImage: MultipartBody.Part = Uri.asMultipart()
+        val missionImage: MultipartBody.Part? = uri.asMultipart(requireContext().contentResolver)
 
         Log.d("Image patch", missionImage.toString())
 
@@ -385,11 +381,12 @@ class MissionPhotoFragment : Fragment() {
         lifecycleScope.launch {
             val accessToken = ApplicationClass.getInstance().getDataStore().accessToken.first()
             val refreshToken = ApplicationClass.getInstance().getDataStore().refreshToken.first()
-            client.patchImageMissions(accessToken, refreshToken, missionID, missionImage).enqueue(object :
+            client.patchImageMissions(accessToken, refreshToken, missionID, missionImage!!).enqueue(object :
                 Callback<MissionResponse.Data> {
                 override fun onResponse(call: Call<MissionResponse.Data>, response: Response<MissionResponse.Data>) {
                     if (response.isSuccessful) {
                         Log.d("Image success", response.body().toString())
+                        completePage()
                     } else {
                         Log.d("Image else", "code: " + response.code().toString() + ", body: " + response.message())
                         imageError()

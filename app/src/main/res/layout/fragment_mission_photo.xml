@@ -94,6 +94,7 @@
                     android:layout_marginTop="8dp" android:textColor="@color/color_font1"/>
         </LinearLayout>
         <LinearLayout
+                android:id="@+id/warning_msg_layout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="65dp" android:visibility="invisible">
@@ -118,6 +119,6 @@
                 android:backgroundTint="@color/color_disabled2"
                 android:background="@drawable/btn_basic_8dp"
                 android:gravity="center" android:textColor="@color/color_font2"
-                android:drawableLeft="@drawable/ic_mission_detail_back"/>
+                android:drawableLeft="@drawable/ic_mission_detail_back" android:visibility="visible"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
