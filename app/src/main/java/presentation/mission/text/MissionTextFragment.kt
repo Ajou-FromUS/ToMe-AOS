@@ -110,7 +110,7 @@ class MissionTextFragment : Fragment() {
                 .serializeNulls().create()
                 .toJson(missionCompleteRequest)
                 .toRequestBody("application/json".toMediaTypeOrNull())
-            client.getMissions(accessToken, refreshToken, missionID, requestBody).enqueue(object : Callback<MissionResponse.Data> {
+            client.patchMissions(accessToken, refreshToken, missionID, requestBody).enqueue(object : Callback<MissionResponse.Data> {
                 override fun onResponse(call: Call<MissionResponse.Data>, response: Response<MissionResponse.Data>) {
                     if (response.isSuccessful) {
                         completePage()
