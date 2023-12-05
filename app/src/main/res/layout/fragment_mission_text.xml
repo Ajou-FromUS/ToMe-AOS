@@ -10,6 +10,27 @@
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
             android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="69dp" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/topBar_layout">
+        <TextView
+                android:text="@string/toMe"
+                android:textColor="@color/color_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/main_tome_text"
+                android:textAppearance="@style/new_text_body2"
+        />
+        <TextView
+                android:text="@string/mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/main_title_text"
+                android:textAppearance="@style/new_text_body1"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/color_font1"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:gravity="center_horizontal"
             app:layout_constraintStart_toStartOf="parent"
