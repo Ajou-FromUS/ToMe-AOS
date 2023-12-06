@@ -23,7 +23,7 @@
     <string name="btn_close">닫기</string>
 
     <string name="navi_home">홈</string>
-    <string name="navi_diary">일기</string>
+    <string name="mission">미션</string>
 
     <string name="to_start_Talk">티오랑\n대화하기</string>
     <string name="check_mission">오늘의 미션\n확인하기</string>
@@ -33,10 +33,10 @@
 
     <string name="title_mission">미션</string>
     <string name="today_mission">오늘의 미션 수행 현황</string>
-    <string name="mission_title_photo">힐링 미션 (워딩)</string>
-    <string name="mission_title_text">글쓰기 미션</string>
-    <string name="mission_title_decibel">데시벨 미션</string>
-    <string name="mission_body">행복 나무 찍어보기</string>
+
+    <string name="null_mission">미션이 존재하지 않아요.</string>
+    <string name="make_mission">티오와 대화하여 오늘의 미션을 받아보세요.</string>
+
 
     <string name="mission_diary_detail">오늘 하루를 되돌아보고, 감사일기를 적어보세요.</string>
     <string name="text_field_explain">이곳을 클릭하여 작성하세요.\n최대 85자까지 작성할 수 있어요.</string>
@@ -53,28 +53,19 @@
     <string name="back_textfield">다시 작성하기</string>
     <string name="back_decibel">데시벨 다시 측정하기</string>
 
+    <string name="choose_camera">카메라로 촬영하기</string>
+    <string name="choose_album">사진 선택하기</string>
+    <string name="choose_album_again">사진 다시 선택하기</string>
+    <string name="analyze_photo">티오가 사진을 분석하고 있어요...</string>
+
     <string name="other_mission">다음 미션 수행하기</string>
     <string name="back_home">홈으로 돌아가기</string>
 
+    <string name="text_mission">텍스트 미션</string>
+    <string name="decibel_mission">데시벨 미션</string>
+    <string name="photo_mission">찰칵 미션</string>
+
     <string name="do_today_mission">오늘의 미션을 수행해 보세요.</string>
-
-    <string name="todays_archive">오늘의 아카이브를 작성해볼까요?</string>
-    <string name="save_archive">저장 완료하기</string>
-    <string name="save_sure">오늘의 아카이브를 저장할까요?</string>
-    <string name="save_warn">저장된 아카이브는 수정이 불가해요.</string>
-    <string name="save_yes">네, 저장할게요.</string>
-    <string name="save_no">아니요, 수정할래요.</string>
-    <string name="already_archive">오늘의 아카이브를 작성했어요.</string>
-    <string name="check_archive">확인하기</string>
-
-    <string name="write_diary">작성하러 가기</string>
-    <string name="next_stage">다음 단계로 넘어가기</string>
-    <string name="ready_diary">오늘의 일기\n작성할 준비 됐어?!</string>
-    <string name="answer_to">티오에게 힘차게 대답해주세요.</string>
-    <string name="start_write">일의\n일기 작성 시작!</string>
-    <string name="sure">당연하지!</string>
-    <string name="diary_write_start">일기 작성 시작하기</string>
-    <string name="good">굿! 👍</string>
 
     <string name="talk_with_TO">티오랑 대화하기</string>
     <string name="start_chat">티오와 대화 시작하기</string>
