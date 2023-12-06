@@ -42,6 +42,7 @@
     <string name="text_field_explain">이곳을 클릭하여 작성하세요.\n최대 85자까지 작성할 수 있어요.</string>
 
     <string name="measure_decibel">데시벨을 측정하고 있어요.\n마음껏 소리 지르세요!</string>
+    <string name="measure_decibel_complete">70 데시벨을 달성했어요.</string>
 
     <string name="good_job">오늘 하루도 수고 많았어요 :)</string>
     <string name="complete_text_mission">오늘의 글쓰기 미션 완료</string>

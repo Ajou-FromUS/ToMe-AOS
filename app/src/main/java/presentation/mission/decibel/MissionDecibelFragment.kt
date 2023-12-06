@@ -3,6 +3,7 @@ package presentation.mission.decibel
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.media.MediaRecorder
 import android.os.Build
@@ -18,6 +19,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -26,6 +28,7 @@ import application.ApplicationClass
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMissionDecibelBinding
 import com.google.gson.GsonBuilder
+import data.dto.request.MissionCompleteRequest
 import data.dto.response.MissionResponse
 import data.service.ApiClient
 import data.service.MissionCompleteService
@@ -47,6 +50,7 @@ class MissionDecibelFragment : Fragment() {
     private lateinit var dbText: TextView
     private lateinit var missionTitleText: TextView
     private lateinit var explainText: TextView
+    private lateinit var progressBar: ProgressBar
 
     private var recorder: MediaRecorder? = null
     private var isRecording = false
@@ -65,11 +69,11 @@ class MissionDecibelFragment : Fragment() {
             dbText = decibelValue
             missionTitleText = decibelTitleText
             explainText = decibelExplainText
+            progressBar = decibelProgress
         }
 
         val missionTitle = arguments?.getString("missionTitle")
         val missionID = arguments?.getInt("missionID")
-
         missionTitleText.text = missionTitle
 
         // 권한 부여 여부
@@ -77,7 +81,6 @@ class MissionDecibelFragment : Fragment() {
             Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(context as MainActivity,
             Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
 
-        Log.d("Record isEmpower", isEmpower.toString())
         // 권한 부여 되지 않았을경우
         if (isEmpower) {
             empowerRecordAudioAndWriteReadStorage()
@@ -92,6 +95,12 @@ class MissionDecibelFragment : Fragment() {
             patchDecibelMission(missionID)
         }
         againBtn.setOnClickListener {
+            showBtn.isEnabled = false
+            explainText.setText(R.string.measure_decibel)
+            showBtn.backgroundTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(requireContext(), R.color.color_disabled2)
+            )
+            showBtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.color_font2))
             startRecord()
         }
 
@@ -103,7 +112,7 @@ class MissionDecibelFragment : Fragment() {
         lifecycleScope.launch {
             val accessToken = ApplicationClass.getInstance().getDataStore().accessToken.first()
             val refreshToken = ApplicationClass.getInstance().getDataStore().refreshToken.first()
-            val missionCompleteRequest = null
+            val missionCompleteRequest = MissionCompleteRequest(null)
             val requestBody = GsonBuilder()
                 .serializeNulls().create()
                 .toJson(missionCompleteRequest)
@@ -112,9 +121,10 @@ class MissionDecibelFragment : Fragment() {
                 Callback<MissionResponse.Data> {
                 override fun onResponse(call: Call<MissionResponse.Data>, response: Response<MissionResponse.Data>) {
                     if (response.isSuccessful) {
+                        Log.d("Record Patch", "patch complete")
                         completePage()
                     } else {
-                        println("HTTP 오류: ${response.code()}")
+                        Log.d("Record fail", "patch error")
                     }
                 }
                 override fun onFailure(call: Call<MissionResponse.Data>, t: Throwable) {
@@ -134,9 +144,16 @@ class MissionDecibelFragment : Fragment() {
     }
 
     private fun completeDecibelCheck(){
-        dbText.text = "50"
+        changeDbText(70)
+        progressBar.progress = 70
         showBtn.visibility = View.VISIBLE
         againBtn.visibility = View.VISIBLE
+        showBtn.isEnabled = true
+        explainText.setText(R.string.measure_decibel_complete)
+        showBtn.backgroundTintList = ColorStateList.valueOf(
+            ContextCompat.getColor(requireContext(), R.color.color_main)
+        )
+        showBtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.color_font4))
     }
 
     // 레코딩, 파일 읽기 쓰기 권한부여
@@ -179,30 +196,28 @@ class MissionDecibelFragment : Fragment() {
             isRecording = true
             job = CoroutineScope(Dispatchers.Default).launch {
                 while (isRecording) {
-                    delay(2000L) //2초에 한번씩 데시벨을 측정
+                    delay(500L) //0.5초에 한번씩 데시벨을 측정
                     val amplitude = it.maxAmplitude
                     db = 20 * kotlin.math.log10(amplitude.toDouble()) //진폭 to 데시벨
-                    Log.d("Record decibel", db.toString())
-                    if (db.toInt() >= 85){
-                        Log.d("Record decibel 50", "85")
-                        onStop()
+                    Log.d("Record decibel", db.toInt().toString())
+                    withContext(Dispatchers.Main) {
+                        if (db.toInt() >= 0) {
+                            progressBar.progress = db.toInt()
+                            changeDbText(db.toInt())
+                            if (db.toInt() >= 70) {
+                                completeDecibelCheck()
+                                onStop()
+                            }
+                        }
                     }
-                    //데시벨은 기준 값을 기준으로 결정되는 것이라 한다.
-                    //그래서 기준값을 넣고싶다면 아래와 같이 기준값으로 나눠주면 된다.
+                    //기준값을 넣고싶다면 아래와 같이 기준값으로 나눠주면 된다.
                     //val db = 20 * kotlin.math.log10(amplitude.toDouble()/기준값)
-                    //아무것도 안 넣는다면 우리가 흔히 생각하는 데시벨값이 된다. > https://www.joongang.co.kr/article/23615791#home
-                    if (amplitude > 0) {
-                        changeDbText(db.toInt())
-                        //진폭이 0 보다 크면 .. toDoSomething
-                        //진폭이 0이하이면 데시벨이 -무한대로 나옵니다.
-                    }
                 }
             }
         }
     }
 
     //녹음 중지
-
     override fun onStop() {
         super.onStop()
         isRecording = false
@@ -224,7 +239,6 @@ class MissionDecibelFragment : Fragment() {
         val dbColor = R.color.color_main
         sps.setSpan(RelativeSizeSpan(2.0f), start, end, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
         sps.setSpan(ForegroundColorSpan(context?.resources?.getColor(dbColor) ?: Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        // 텍스트뷰에 저장합니다.
         dbText.text = sps
     }
 
