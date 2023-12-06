@@ -1,0 +1,147 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context="presentation.mission.photo.MissionPhotoFragment"
+                                                   android:background="@color/color_mission_default"
+                                                   android:paddingHorizontal="27dp">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="69dp" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/topBar_layout">
+        <TextView
+                android:text="@string/toMe"
+                android:textColor="@color/color_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/main_tome_text"
+                android:textAppearance="@style/new_text_body2"
+        />
+        <TextView
+                android:text="@string/mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/main_title_text"
+                android:textAppearance="@style/new_text_body1"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/color_font1"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="130dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/analyze_layout" android:visibility="invisible">
+        <TextView
+                android:text="@string/analyze_photo"
+                android:textAppearance="@style/new_text_body3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/photo_analyze_text"
+                android:textColor="@color/color_font1"/>
+        <ImageView
+                android:src="@drawable/img_conan_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/conan_to"
+        />
+    </LinearLayout>
+    <TextView
+            android:text="@string/do_today_mission"
+            android:textAppearance="@style/new_text_body3"
+            android:textColor="@color/color_font1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/do_analyze_text" android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="200dp"/>
+<!--    <com.canhub.cropper.CropImageView-->
+<!--            android:id="@+id/cropImageView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            tools:ignore="MissingConstraints" app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>-->
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="261dp"
+            android:layout_marginBottom="64dp">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout" android:gravity="start"
+                android:background="@drawable/round_box_mission" android:paddingVertical="18dp"
+                android:paddingHorizontal="21dp"
+        >
+            <androidx.cardview.widget.CardView
+                    android:layout_width="279dp"
+                    android:layout_height="202dp"
+                    app:cardCornerRadius="12dp" android:background="@color/color_transparent">
+
+                <ImageView
+                        android:src="@drawable/img_mission_camera"
+                        android:layout_width="match_parent"
+                        android:layout_height="202dp" android:id="@+id/detail_image_view"
+                        app:srcCompat="@drawable/img_mission_camera"
+                        android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
+            <TextView
+                    android:text="@string/photo_mission"
+                    android:layout_width="match_parent"
+                    android:textAppearance="@style/text_body2"
+                    android:layout_height="wrap_content" android:id="@+id/mission_type_text"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="4dp" android:textColor="@color/color_font3"/>
+            <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <TextView
+                    android:text="상세 미션"
+                    android:layout_width="match_parent"
+                    android:textAppearance="@style/new_text_body3"
+                    android:layout_height="wrap_content" android:id="@+id/mission_detail_text"
+                    android:layout_marginTop="8dp" android:textColor="@color/color_font1"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/warning_msg_layout"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="65dp" android:visibility="invisible">
+            <Button
+                    android:text="Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/button" android:layout_weight="1"/>
+        </LinearLayout>
+        <Button
+                android:text="@string/show_tome"
+                android:layout_width="match_parent"
+                android:textAppearance="@style/text_body1"
+                android:layout_height="wrap_content" android:id="@+id/show_mission_photo"
+                android:background="@drawable/btn_basic_8dp"
+                android:textColor="@color/color_font2" android:drawableLeft="@drawable/select_show_to"
+                android:layout_marginBottom="10dp" android:backgroundTint="@color/color_disabled1"
+                android:enabled="false" android:paddingLeft="70dp" android:drawablePadding="-60dp"/>
+        <Button
+                android:text="@string/choose_album_again"
+                android:layout_width="match_parent"
+                android:textAppearance="@style/text_body1"
+                android:layout_height="wrap_content" android:id="@+id/choose_again_btn"
+                android:backgroundTint="@color/color_disabled1"
+                android:background="@drawable/btn_basic_8dp"
+                android:gravity="center" android:textColor="@color/color_font2"
+                android:drawableLeft="@drawable/ic_mission_back" android:visibility="visible"
+                android:paddingLeft="70dp" android:drawablePadding="-60dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
