@@ -62,11 +62,6 @@ class MainActivity : AppCompatActivity() {
         startService(intent) // 서비스 시작
     }
 
-    fun ServiceStop(view : View){
-        val intent = Intent(this,MusicService::class.java)
-        stopService(intent) // 서비스 종료
-    }
-
     private fun setBundle(hasMission: Boolean, nickName: String?){
         val bundle = Bundle()
         bundle.putString("nickname", nickName)
@@ -118,10 +113,12 @@ class MainActivity : AppCompatActivity() {
 
         val onBackStackChangedListener = FragmentManager.OnBackStackChangedListener {
             val currentFragment = fragmentManager.findFragmentById(R.id.frame_mypage)
+            val missionFragment = fragmentManager.findFragmentById(R.id.main_frameLayout)
             val currentTag = currentFragment?.tag
+            val missionTag = missionFragment?.tag
             println(currentTag)
             if(currentTag == "MISSION_CHECK" || currentTag == "QNA" ||
-                currentTag == "ACCOUNT_SETTING" || currentTag == "NOTIFICATION") {
+                currentTag == "ACCOUNT_SETTING" || currentTag == "NOTIFICATION" || missionTag == "MISSION") {
                 hideBottomNavigation(true)
             } else {
                 hideBottomNavigation(false)

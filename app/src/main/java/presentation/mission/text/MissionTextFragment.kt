@@ -95,7 +95,7 @@ class MissionTextFragment : Fragment() {
     private fun completePage(){
         val missionCompleteFragment = MissionCompleteFragment()
         val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.main_frameLayout, missionCompleteFragment)
+        transaction.replace(R.id.main_frameLayout, missionCompleteFragment,"MISSION")
         transaction.addToBackStack(null);
         transaction.commit()
     }

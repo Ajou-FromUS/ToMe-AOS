@@ -2,8 +2,6 @@ package presentation.mission.decibel
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity.RESULT_OK
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.media.MediaRecorder
@@ -21,19 +19,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import application.ApplicationClass
-import com.bumptech.glide.Glide
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMissionDecibelBinding
 import com.google.gson.GsonBuilder
-import data.dto.request.MissionCompleteRequest
 import data.dto.response.MissionResponse
 import data.service.ApiClient
 import data.service.MissionCompleteService
@@ -136,7 +128,7 @@ class MissionDecibelFragment : Fragment() {
     private fun completePage(){
         val missionCompleteFragment = MissionCompleteFragment()
         val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.main_frameLayout, missionCompleteFragment)
+        transaction.replace(R.id.main_frameLayout, missionCompleteFragment,"MISSION")
         transaction.addToBackStack(null);
         transaction.commit()
     }

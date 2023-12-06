@@ -74,9 +74,7 @@ class MissionPhotoFragment : Fragment() {
     private lateinit var conanLayout: LinearLayout
     private lateinit var warningLayout: LinearLayout
 
-    lateinit var bitmap: Bitmap
-
-    private lateinit var currentPhotoPath: Uri
+    private var currentPhotoPath: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -120,7 +118,7 @@ class MissionPhotoFragment : Fragment() {
         showButton.setOnClickListener {
             analayzeView()
             if(currentPhotoPath != null){
-                patchImageMission(currentPhotoPath, missionID)
+                patchImageMission(currentPhotoPath!!, missionID)
             }
         }
         againButton.setOnClickListener {
@@ -257,6 +255,9 @@ class MissionPhotoFragment : Fragment() {
     // 카메라를 실행한 후 찍은 사진을 저장
     private val getTakePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) {
         if(it) {
+            showButton.isEnabled = true
+            showButton.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_font4))
+            showButton.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(),R.color.color_main))
             currentPhotoPath.let { binding.detailImageView.setImageURI(currentPhotoPath) }
         }
     }
@@ -297,6 +298,10 @@ class MissionPhotoFragment : Fragment() {
             val uri = it.data?.data
             currentPhotoPath = uri!!
 
+            showButton.isEnabled = true
+            showButton.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_font4))
+            showButton.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(),R.color.color_main))
+
             Glide.with(this)
                 .load(uri)
                 .into(binding.detailImageView)
@@ -306,7 +311,7 @@ class MissionPhotoFragment : Fragment() {
     private fun completePage(){
         val missionCompleteFragment = MissionCompleteFragment()
         val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.main_frameLayout, missionCompleteFragment)
+        transaction.replace(R.id.main_frameLayout, missionCompleteFragment,"MISSION")
         transaction.addToBackStack(null);
         transaction.commit()
     }
