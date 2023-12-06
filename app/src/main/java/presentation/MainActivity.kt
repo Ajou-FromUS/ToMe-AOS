@@ -1,5 +1,8 @@
 package presentation
 
+import android.content.Intent
+import android.media.MediaPlayer
+import android.media.SoundPool
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +23,7 @@ import presentation.statistics.StatisticsFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import util.MusicService
 
 class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
@@ -33,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getInit()
+        ServiceStart(binding.root)
 
         binding.bnvMain.selectedItemId = R.id.navi_home
 
@@ -47,7 +52,16 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+    }
 
+    fun ServiceStart(view : View){
+        val intent = Intent(this,MusicService::class.java)
+        startService(intent) // 서비스 시작
+    }
+
+    fun ServiceStop(view : View){
+        val intent = Intent(this,MusicService::class.java)
+        stopService(intent) // 서비스 종료
     }
 
     private fun setBundle(hasMission: Boolean, nickName: String?){
@@ -73,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         val initData: InitResponse.Data = response.body()!!.initData
                         setBundle(initData.has_mission_today, initData.nickname)
                     } else {
-                        Log.d("initResponse", "HTTP 오류")
+                        Log.d("fail initResponse", "HTTP 오류")
                     }
                 }
                 override fun onFailure(call: Call<InitResponse>, t: Throwable) {
