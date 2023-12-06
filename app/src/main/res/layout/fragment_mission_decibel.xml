@@ -116,8 +116,10 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="10dp"
             android:layout_marginStart="27dp" android:layout_marginEnd="27dp"
             android:textAppearance="@style/text_body1"
-            android:background="@drawable/btn_basic_8dp_noripple" android:textColor="@color/color_font4"
-            android:visibility="invisible"/>
+            android:background="@drawable/btn_basic_8dp_noripple" android:textColor="@color/color_font2"
+            android:visibility="invisible" android:backgroundTint="@color/color_disabled2"
+            android:drawableLeft="@drawable/select_show_to"
+            android:drawablePadding="-60dp" android:paddingLeft="70dp"/>
     <Button
             android:text="@string/back_decibel"
             android:layout_width="0dp"
@@ -127,6 +129,8 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="27dp"
             android:layout_marginEnd="27dp" android:layout_marginBottom="64dp"
             android:background="@drawable/btn_basic_8dp" android:backgroundTint="@color/color_disabled2"
-            android:textColor="@color/color_font2" android:visibility="invisible"/>
+            android:textColor="@color/color_font2" android:visibility="invisible"
+            android:drawableLeft="@drawable/ic_mission_back" android:paddingLeft="70dp"
+            android:drawablePadding="-60dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

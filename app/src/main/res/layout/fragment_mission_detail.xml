@@ -89,8 +89,9 @@
                 android:textAppearance="@style/text_body1"
                 android:layout_height="wrap_content" android:id="@+id/go_mission_btn"
                 android:layout_marginBottom="10dp" android:background="@drawable/btn_basic_8dp"
-                android:textColor="@color/color_font4" android:drawableLeft="@drawable/ic_mission_detail_photo"
-                android:layout_marginTop="65dp"/>
+                android:textColor="@color/color_font4" android:drawableLeft="@drawable/ic_mission_photo_enable"
+                android:layout_marginTop="65dp" android:drawablePadding="-60dp"
+                android:paddingLeft="70dp"/>
         <Button
                 android:text="@string/back_mission"
                 android:layout_width="match_parent"
@@ -99,7 +100,8 @@
                 android:backgroundTint="@color/color_disabled2"
                 android:background="@drawable/btn_basic_8dp"
                 android:gravity="center" android:textColor="@color/color_font2"
-                android:drawableLeft="@drawable/ic_mission_detail_back"/>
+                android:drawableLeft="@drawable/ic_mission_back"
+                android:paddingLeft="70dp" android:drawablePadding="-60dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

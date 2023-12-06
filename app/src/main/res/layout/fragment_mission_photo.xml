@@ -130,16 +130,18 @@
                 android:textAppearance="@style/text_body1"
                 android:layout_height="wrap_content" android:id="@+id/show_mission_photo"
                 android:background="@drawable/btn_basic_8dp"
-                android:textColor="@color/color_font4" android:drawableLeft="@drawable/ic_mission_detail_photo"
-                android:layout_marginBottom="10dp"/>
+                android:textColor="@color/color_font2" android:drawableLeft="@drawable/select_show_to"
+                android:layout_marginBottom="10dp" android:backgroundTint="@color/color_disabled1"
+                android:enabled="false" android:paddingLeft="70dp" android:drawablePadding="-60dp"/>
         <Button
                 android:text="@string/choose_album_again"
                 android:layout_width="match_parent"
                 android:textAppearance="@style/text_body1"
                 android:layout_height="wrap_content" android:id="@+id/choose_again_btn"
-                android:backgroundTint="@color/color_disabled2"
+                android:backgroundTint="@color/color_disabled1"
                 android:background="@drawable/btn_basic_8dp"
                 android:gravity="center" android:textColor="@color/color_font2"
-                android:drawableLeft="@drawable/ic_mission_detail_back" android:visibility="visible"/>
+                android:drawableLeft="@drawable/ic_mission_back" android:visibility="visible"
+                android:paddingLeft="70dp" android:drawablePadding="-60dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
