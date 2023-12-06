@@ -10,7 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import application.ApplicationClass
 import com.example.tome_aos.databinding.ActivityLandingBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import presentation.login.LoginActivity
 
 class LandingActiviy : AppCompatActivity() {
@@ -49,6 +53,9 @@ class LandingActiviy : AppCompatActivity() {
             }
         })
         startButton.setOnClickListener{
+            CoroutineScope(Dispatchers.Main).launch {
+                ApplicationClass.getInstance().getDataStore().saveFlag(isClicked = true)
+            }
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -57,18 +64,16 @@ class LandingActiviy : AppCompatActivity() {
 
     private inner class ViewpagerFragmentAdapter(fragmentActivity: FragmentActivity) :
         FragmentStateAdapter(fragmentActivity) {
-        val fragmentList = listOf<Fragment>(
+        val fragmentList = listOf(
             FirstFragment(),
             SecondFragment(),
             ThirdFragment(),
             FourthFragment(),
             FifthFragment()
         )
-
         override fun getItemCount(): Int {
             return fragmentList.size
         }
-
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]
         }

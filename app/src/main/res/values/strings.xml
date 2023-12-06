@@ -93,9 +93,12 @@
     <string name="stats_mission_progress">미션 수행 현황</string>
 
     <string name="mypage">마이페이지</string>
+    <string name="mypage_notification">알림설정</string>
     <string name="mypage_mission_record">내 미션 기록보기</string>
     <string name="mypage_setting">환경 설정</string>
     <string name="mypage_qna">문의하기</string>
+    <string name="notification_bool">알림 여부</string>
+    <string name="notification_explain">투미와 지속적으로 대화하고 싶다면\n알림설정을 통해 상황을 전달드려요!</string>
     <string name="qna_explain">\‘from US\' 카카오톡 플러스친구를 추가해 문의해주세요.\n문의 답변 시간 : 평일 오전 9시 ~ 오후 5시</string>
     <string name="mypage_account_setting">계정 설정</string>
     <string name="mypage_privacy_policy">개인정보처리방침</string>
@@ -103,5 +106,9 @@
     <string name="nickname">닉네임</string>
     <string name="nickname_mod">닉네임 수정</string>
 
+    <string name="neutral_emotion">일반적인 감정을 가장 많이 느꼈어요</string>
+    <string name="positive_emotion">긍정적인 감정을 가장 많이 느꼈어요</string>
+    <string name="negative_emotion">부정적인 감정을 가장 많이 느꼈어요</string>
+    <string name="default_emotion">감정 분석을 위해서 티오와 대화해주세요!</string>
 
 </resources>

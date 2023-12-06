@@ -7,16 +7,36 @@
         android:layout_height="match_parent"
         tools:context="presentation.splash.SplashActivity">
 
-    <TextView
+
+    <ImageView
+            android:id="@+id/iv_face_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To Me"
-            android:fontFamily="@font/ydestreetl"
-            android:textSize="12sp"
-            android:textColor="@color/color_font1"
-            android:layout_marginTop="265dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/img_splash_face_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintVertical_bias="0.499"/>
+    <TextView
+            android:id="@+id/tv_splash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나를 위한 웰니스 기록 서비스"
+            android:textAppearance="@style/text_body2"
+            android:textColor="@color/color_sub3"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toStartOf="@id/iv_text_logo"
+            app:layout_constraintBottom_toTopOf="@id/iv_text_logo"/>
+    <ImageView
+            android:id="@+id/iv_text_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_splash_logo"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="@id/iv_face_logo"
+            app:layout_constraintEnd_toEndOf="@id/iv_face_logo"
+            app:layout_constraintBottom_toBottomOf="@id/iv_face_logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,7 @@
 package application
 
 import android.app.Application
-import data.DataStoreModule
+import data.module.DataStoreModule
 
 class ApplicationClass : Application() {
 

@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMypageBinding
+import presentation.MainActivity
 
 class MypageFragment: Fragment() {
     private lateinit var binding: FragmentMypageBinding
@@ -17,29 +19,22 @@ class MypageFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
-        val fragmentManager = parentFragmentManager.beginTransaction()
-
-        binding.btnMissionRecord.setOnClickListener {
-            val fragment = MissionCheckFragment()
-            fragmentManager.add(R.id.frame_mypage, fragment)
-                .commitAllowingStateLoss()
-        }
-        binding.btnQna.setOnClickListener {
-            val fragment = QnaFragment()
-            fragmentManager.add(R.id.frame_mypage, fragment)
-                .commitAllowingStateLoss()
-        }
-        binding.btnAccountSetting.setOnClickListener {
-            val fragment = AccountSettingFragment()
-            fragmentManager.add(R.id.frame_mypage, fragment)
-                .commitAllowingStateLoss()
-        }
-        //개인
-        binding.btnPrivatePolicy.setOnClickListener {
-
-        }
-
+        btnListener()
         return binding.root
     }
-
+    private fun btnListener() {
+        beginTransaction(binding.btnNotify, NotificationFragment(), "NOTIFICATION")
+        beginTransaction(binding.btnMissionRecord, MissionCheckFragment(), "MISSION_CHECK")
+        beginTransaction(binding.btnQna, QnaFragment(), "QNA")
+        beginTransaction(binding.btnAccountSetting, AccountSettingFragment(), "ACCOUNT_SETTING")
+//        beginTransaction(binding.btnPrivatePolicy,())
+    }
+    private fun beginTransaction(button: Button, fragment: Fragment, tag: String){
+        button.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .add(R.id.frame_mypage, fragment, tag)
+                .addToBackStack(null)
+                .commitAllowingStateLoss()
+        }
+    }
 }
