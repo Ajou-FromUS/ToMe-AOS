@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import application.ApplicationClass
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityChatBinding
+import com.example.tome_aos.databinding.ItemSendMessageBinding
 import com.google.gson.GsonBuilder
+import data.dto.ChatDTO
 import data.dto.request.ChatRequest
 import data.dto.response.ChatResponse
 import data.service.ApiClient
@@ -32,9 +35,10 @@ import util.hideKeyboard
 
 class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
+    private lateinit var bindingChat: ItemSendMessageBinding
     private lateinit var et: EditText
     private lateinit var ibtn: ImageButton
-    private val messageList = mutableListOf<String>()
+    private val messageList = mutableListOf<ChatDTO>()
     private lateinit var adapter: ChatAdapter
     private lateinit var recyclerView: RecyclerView
 
@@ -69,7 +73,7 @@ class ChatActivity : AppCompatActivity() {
     private fun sendMessage() {
         val message = et.text.toString()
         if (message.isNotEmpty()) {
-            messageList.add(message)
+            messageList.add(ChatDTO("SENDER", message))
             adapter.notifyItemInserted(messageList.size - 1)
             et.text.clear()
             recyclerView.scrollToPosition(messageList.size - 1)
@@ -78,7 +82,7 @@ class ChatActivity : AppCompatActivity() {
     }
     //메시지 반환
     private fun receiveMessage(response: String) {
-        messageList.add(response)
+        messageList.add(ChatDTO("RECEIVER", response))
         adapter.notifyItemInserted(messageList.size - 1)
         recyclerView.scrollToPosition(messageList.size - 1)
     }
@@ -111,6 +115,8 @@ class ChatActivity : AppCompatActivity() {
         }
     }
     private fun postMessage(content: String?) {
+        //입력 제한
+        disableEditText()
         val client = ApiClient.getApiClient().create(ChatService::class.java)
         lifecycleScope.launch {
             val accessToken = ApplicationClass.getInstance().getDataStore().accessToken.first()
@@ -122,22 +128,40 @@ class ChatActivity : AppCompatActivity() {
                 .toRequestBody("application/json".toMediaTypeOrNull())
             client.postMessage(accessToken, refreshToken, requestBody).enqueue(object : Callback<ChatResponse> {
                 override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
+                    enableEditText()
                     if (response.isSuccessful) {
                         val chatResponse = response.body()?.message.toString()
                         val mission = response.body()!!.mission_count
                         if (response.body()?.message != null) {
                             receiveMessage(chatResponse)
                         }
+                        println("미션 개수: $mission")
                         updateMission(mission)
                     } else {
                         println("HTTP 오류: ${response.code()}")
                     }
                 }
                 override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
-                    t.printStackTrace()
+                    enableEditText()
+                    //t.printStackTrace()
+                    Toast.makeText(this@ChatActivity, "서버 통신 실패 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+                    //println("통신 실패")
                 }
             })
         }
+    }
+    private fun disableEditText() {
+        binding.lottieBubble.visibility = View.VISIBLE
+        binding.etChatTalk.hint = ""
+        et.isEnabled = false // EditText 비활성화
+        ibtn.isEnabled = false // 전송 버튼도 비활성화
+
+    }
+    private fun enableEditText() {
+        binding.lottieBubble.visibility = View.GONE
+        binding.etChatTalk.hint = "티오에게 메시지 보내기"
+        et.isEnabled = true // EditText 활성화
+        ibtn.isEnabled = true // 전송 버튼도 활성화
     }
     private fun updateMission(mission: Int) {
         if (mission > 0) {
@@ -155,8 +179,7 @@ class ChatActivity : AppCompatActivity() {
         binding.pgbarChat.progress = mission
     }
     private fun init() {
-        messageList.add("오늘 하루는 어땠어?")
-
+        messageList.add(ChatDTO("ELSE","오늘 하루는 어땠어?"))
         postMessage(null)
 
         binding.etChatTalk.addTextChangedListener(object : TextWatcher {

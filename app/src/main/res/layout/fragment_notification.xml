@@ -5,6 +5,7 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:clickable="true"
+        android:paddingHorizontal="25dp"
         android:background="@color/color_disabled2">
     <ImageButton
             android:id="@+id/btn_back"
@@ -14,57 +15,52 @@
             android:background="@color/color_transparent"
             android:padding="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="21dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
-    
+
     <TextView
-            android:id="@+id/tv_qna"
-            android:layout_width="77dp"
+            android:id="@+id/tv_notification"
+            android:layout_width="wrap_content"
             android:layout_height="34dp"
-            android:text="@string/mypage_qna"
+            android:text="@string/mypage_notification"
             android:textAppearance="@style/new_body1"
             android:textColor="@color/color_font1"
             android:gravity="center"
             android:layout_marginTop="16dp"
-            android:layout_marginStart="26dp"
             app:layout_constraintTop_toBottomOf="@id/btn_back"
             app:layout_constraintStart_toStartOf="parent"/>
-
     <TextView
-            android:id="@+id/tv_qna_explain"
+            android:id="@+id/tv_notification_explain"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
-            android:text="@string/qna_explain"
+            android:text="@string/notification_explain"
             android:textAppearance="@style/text_body2"
             android:textColor="@color/color_main"
             android:gravity="center_vertical"
-            android:lineSpacingMultiplier="1.4"
             android:layout_marginTop="13dp"
-            android:layout_marginStart="26dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_qna"
+            android:lineSpacingMultiplier="1.4"
+            app:layout_constraintTop_toBottomOf="@id/tv_notification"
             app:layout_constraintStart_toStartOf="parent"/>
-    <ImageView
-            android:id="@+id/iv_qna"
-            android:layout_width="283dp"
-            android:layout_height="264dp"
-            android:src="@drawable/img_mypage_qna"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="93dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_qna_explain"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-            android:id="@+id/btn_kakao_plus"
-            android:layout_width="308dp"
-            android:layout_height="58dp"
-            android:text="@string/kakao_plus_friend"
-            android:textAppearance="@style/text_subtitle2"
-            android:textColor="@color/color_font1"
-            android:background="@drawable/btn_kakao_yellow"
-            android:layout_marginBottom="46dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/Widget.AppCompat.Button.Borderless"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="39dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_notification_explain">
+
+        <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/btn_switch"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:checked="false"
+                android:thumb="@drawable/switch_thumb"
+                app:track="@drawable/switch_selector"
+
+                app:thumbTextPadding="24dp"
+                android:textOff=""
+                android:textOn=""
+                android:text="@string/notification_bool"
+                android:textAppearance="@style/text_body1"
+                android:textColor="@color/color_font1"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

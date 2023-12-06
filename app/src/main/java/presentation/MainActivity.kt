@@ -1,8 +1,6 @@
 package presentation
 
 import android.content.Intent
-import android.media.MediaPlayer
-import android.media.SoundPool
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +8,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import application.ApplicationClass
+import android.graphics.Rect
+import android.view.MotionEvent
+import androidx.fragment.app.FragmentManager
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivityMainBinding
 import data.dto.response.InitResponse
@@ -24,6 +25,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import util.MusicService
+import util.hideKeyboard
 
 class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
@@ -52,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        findTag()
     }
 
     fun ServiceStart(view : View){
@@ -109,5 +112,34 @@ class MainActivity : AppCompatActivity() {
         }else{
             binding.bnvMain.visibility = View.VISIBLE
         }
+    }
+    fun findTag() {
+        val fragmentManager = supportFragmentManager
+
+        val onBackStackChangedListener = FragmentManager.OnBackStackChangedListener {
+            val currentFragment = fragmentManager.findFragmentById(R.id.frame_mypage)
+            val currentTag = currentFragment?.tag
+            println(currentTag)
+            if(currentTag == "MISSION_CHECK" || currentTag == "QNA" ||
+                currentTag == "ACCOUNT_SETTING" || currentTag == "NOTIFICATION") {
+                hideBottomNavigation(true)
+            } else {
+                hideBottomNavigation(false)
+            }
+        }
+        fragmentManager.addOnBackStackChangedListener(onBackStackChangedListener)
+    }
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        val focusView = currentFocus
+        if (focusView != null) {
+            val rect = Rect()
+            focusView.getGlobalVisibleRect(rect)
+            val x = ev!!.x.toInt()
+            val y = ev.y.toInt()
+            if (!rect.contains(x, y)) {
+                hideKeyboard(focusView)
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }
