@@ -1,19 +1,6 @@
 package presentation.mission
 
-import android.Manifest
-import android.app.Activity.RESULT_OK
-import android.content.ContentValues
-import android.content.DialogInterface
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.ImageDecoder
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,28 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
-import com.bumptech.glide.Glide
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMissionDetailBinding
-import com.gun0912.tedpermission.PermissionListener
-import com.gun0912.tedpermission.normal.TedPermission
 import presentation.MainActivity
 import presentation.mission.decibel.MissionDecibelFragment
 import presentation.mission.photo.MissionPhotoFragment
 import presentation.mission.text.MissionTextFragment
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class MissionDetailFragment : Fragment() {
