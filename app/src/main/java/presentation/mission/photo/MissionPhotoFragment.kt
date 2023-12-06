@@ -34,6 +34,7 @@ import androidx.lifecycle.lifecycleScope
 import application.ApplicationClass
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.canhub.cropper.CropImage
 import com.canhub.cropper.CropImageContract
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMissionPhotoBinding
@@ -118,12 +119,10 @@ class MissionPhotoFragment : Fragment() {
 
         showButton.setOnClickListener {
             analayzeView()
-            Log.d("Image uri", currentPhotoPath.toString())
             if(currentPhotoPath != null){
                 patchImageMission(currentPhotoPath, missionID)
             }
         }
-
         againButton.setOnClickListener {
             chooseImage()
         }
@@ -134,18 +133,17 @@ class MissionPhotoFragment : Fragment() {
     private fun chooseImage(){
         var chooseOne: Array<String> = arrayOf("카메라로 촬영하기", "앨범에서 선택하기") // 리스트에 들어갈 Array
         val builder = context?.let { AlertDialog.Builder(it) }
-        builder?.setTitle("두 가지 방법 중 고르기!")?.setItems(chooseOne,
-            DialogInterface.OnClickListener { dialog, which ->
-                if (which == 0){ // 카메라
-                    currentPhotoPath = createImageFile()!!
-                    getTakePicture.launch(currentPhotoPath)
-                }else{ // 앨범
-                    val intent = Intent(Intent.ACTION_PICK)
-                    intent.type = "image/*"
-                    intent.putExtra("crop", true)
-                    callAlbum.launch(intent)
-                }
-            })
+        builder?.setTitle("두 가지 방법 중 고르기!")?.setItems(chooseOne
+        ) { dialog, which ->
+            if (which == 0) { // 카메라
+                currentPhotoPath = createImageFile()!!
+                getTakePicture.launch(currentPhotoPath)
+            } else { // 앨범
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.type = "image/*"
+                callAlbum.launch(intent)
+            }
+        }
         builder?.show()
     }
 
@@ -212,61 +210,6 @@ class MissionPhotoFragment : Fragment() {
 //            .start(this)
 //    }
 
-
-//    private fun startCapture() {
-//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-//            takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
-//                val photoFile: File? = try {
-//                    createImageFile()
-//                } catch (ex: IOException) {
-//                    null
-//                }
-//                photoFile?.also {
-//                    val photoURI: Uri = FileProvider.getUriForFile(
-//                        requireActivity(),
-//                        "com.example.tome_aos.file-provider",
-//                        it
-//                    )
-//                    getPhotoURI = photoURI
-//
-//                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-//                    takePictureLauncher.launch(takePictureIntent)
-//                }
-//            }
-//        }
-//    }
-
-//    @Throws(IOException::class)
-//    private fun createImageFile(): File {
-//        Log.d("image", "createImageFile")
-//        val timeStamp: String = SimpleDateFormat().format(Date())
-//        val storageDir: File? =
-//            requireActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-//        return File.createTempFile(
-//            "JPEG_${timeStamp}_",
-//            ".jpeg",
-//            storageDir
-//        ).apply {
-//            currentPhotoPath = absolutePath
-//        }
-//    }
-
-
-//    val cursor = requireActivity().contentResolver.query(
-//        dataUri,
-//        null,
-//        null,
-//        null,
-//        null
-//    )
-//    cursor?.let { cu ->
-//        cu.moveToFirst()
-//        val columnIndex = cu.getColumnIndex(MediaStore.Images.Media.DATA)
-//        val mediaPath = cu.getString(columnIndex)
-//        cu.close()
-//
-//        val file = File(mediaPath)
-//    }
 
 //    private val cropPictureLauncher =
 //        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
