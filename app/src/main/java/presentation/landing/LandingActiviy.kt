@@ -42,7 +42,7 @@ class LandingActiviy : AppCompatActivity() {
                 positionOffsetPixels: Int
             ) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                if (position == 3 && positionOffset > 1 || position == 4) {
+                if (position == 2 && positionOffset > 1 || position == 3) {
                     slideText.visibility = View.INVISIBLE
                     startButton.visibility = View.VISIBLE
                 }
@@ -69,7 +69,6 @@ class LandingActiviy : AppCompatActivity() {
             SecondFragment(),
             ThirdFragment(),
             FourthFragment(),
-            FifthFragment()
         )
         override fun getItemCount(): Int {
             return fragmentList.size

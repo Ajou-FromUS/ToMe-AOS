@@ -16,7 +16,7 @@
                 android:text="Step 4."
                 android:textAppearance="@style/text_body2"
                 android:textColor="@color/color_font1"
-                android:layout_marginTop="166dp"
+                android:layout_marginTop="131dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
