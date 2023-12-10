@@ -102,4 +102,10 @@
     <string name="negative_emotion">부정적인 감정을 가장 많이 느꼈어요</string>
     <string name="default_emotion">감정 분석을 위해서 티오와 대화해주세요!</string>
 
+    <string name="signup">회원가입</string>
+    <string name="signup_intro">투미와 친구가 되기 위해\n정보를 입력해주세요.</string>
+    <string name="birthdate">생년월일</string>
+    <string name="signup_policy">이용약관 개인정보 수집 및 정보 이용에 동의합니다.</string>
+    <string name="signup_button">티오와 함께 투미 시작하기</string>
+
 </resources>
