@@ -155,7 +155,6 @@ class ChatActivity : AppCompatActivity() {
         binding.etChatTalk.hint = ""
         et.isEnabled = false // EditText 비활성화
         ibtn.isEnabled = false // 전송 버튼도 비활성화
-
     }
     private fun enableEditText() {
         binding.lottieBubble.visibility = View.GONE
@@ -179,8 +178,11 @@ class ChatActivity : AppCompatActivity() {
         binding.pgbarChat.progress = mission
     }
     private fun init() {
-        messageList.add(ChatDTO("ELSE","오늘 하루는 어땠어?"))
-        postMessage(null)
+        lifecycleScope.launch {
+            val username = ApplicationClass.getInstance().getDataStore().nickname.first()
+            messageList.add(ChatDTO("ELSE","${username}, 오늘 하루는 어땠어?"))
+            postMessage(null)
+        }
 
         binding.etChatTalk.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import application.ApplicationClass
 import com.example.tome_aos.databinding.FragmentAccountSettingBinding
 import com.google.gson.GsonBuilder
@@ -40,7 +41,7 @@ class AccountSettingFragment: Fragment() {
             }
         })
         binding = FragmentAccountSettingBinding.inflate(inflater, container, false)
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
             var nicknames = ApplicationClass.getInstance().getDataStore().nickname.first()
 //            println(nicknames)
             binding.etNickname.hint = nicknames
