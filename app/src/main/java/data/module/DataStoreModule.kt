@@ -16,6 +16,8 @@ class DataStoreModule(private val context: Context) {
     private val accessTokenKey = stringPreferencesKey("ACCESS_TOKEN")
     private val refreshTokenKey = stringPreferencesKey("REFRESH_TOKEN")
     private val landingFlagKey = booleanPreferencesKey("LANDING_FLAG")
+    private val nicknameKey = stringPreferencesKey("NICKNAME")
+
 
     //accessToken
     val accessToken : Flow<String> = context.dataStore.data
@@ -52,6 +54,17 @@ class DataStoreModule(private val context: Context) {
         .map { preferences ->
             preferences[landingFlagKey] ?: false // 기본값은 false로 설정
         }
+    val nickname: Flow<String> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map { preferences ->
+            preferences[nicknameKey] ?: ""
+        }
     //token들을 각 키 값에 저장
     suspend fun saveTokens(accessToken: String, refreshToken: String) {
         context.dataStore.edit { preferences ->
@@ -68,6 +81,11 @@ class DataStoreModule(private val context: Context) {
     suspend fun saveFlag(isClicked: Boolean) {
         context.dataStore.edit { preferences ->
             preferences[landingFlagKey] = isClicked
+        }
+    }
+    suspend fun saveNickname(nickname: String) {
+        context.dataStore.edit {preferences ->
+            preferences[nicknameKey] = nickname
         }
     }
 }

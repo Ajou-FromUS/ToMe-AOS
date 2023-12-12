@@ -24,6 +24,7 @@ import presentation.login.LoginActivity
 
 class AccountSettingFragment: Fragment() {
     private lateinit var binding: FragmentAccountSettingBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,7 +40,11 @@ class AccountSettingFragment: Fragment() {
             }
         })
         binding = FragmentAccountSettingBinding.inflate(inflater, container, false)
-        binding.etNickname.hint = "김종명"
+        CoroutineScope(Dispatchers.Main).launch {
+            var nicknames = ApplicationClass.getInstance().getDataStore().nickname.first()
+//            println(nicknames)
+            binding.etNickname.hint = nicknames
+        }
         binding.etNickname.filters = filterWords
         //닉네임 불러온 값 여기에 저장
         btnListener()
@@ -90,7 +95,10 @@ class AccountSettingFragment: Fragment() {
                 val response = client.changeNickname(accessToken, refreshToken, requestBody)
                 binding.etNickname.hint = response.data.nickname
                 binding.etNickname.text.clear()
-                println("성공")
+                ApplicationClass.getInstance().getDataStore().saveNickname(response.data.nickname)
+//                println("성공")
+                Toast.makeText(requireContext(),"닉네임 변경 성공. 앱을 다시 시작해주세요.", Toast.LENGTH_SHORT).show()
+
             } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(requireContext(),"요청 실패. 다시 시도해주세요", Toast.LENGTH_SHORT).show()
