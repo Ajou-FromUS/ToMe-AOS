@@ -8,6 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.tome_aos.BuildConfig
 import com.example.tome_aos.databinding.ActivityLoginBinding
 import presentation.MainActivity
+import presentation.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -17,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
             val data: Intent? = result.data
             isLoginSuccessful = data?.getBooleanExtra("loginSuccess", false) ?: false
             if (isLoginSuccessful) {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, SignupActivity::class.java)
                 startActivity(intent)
                 finish()
             }

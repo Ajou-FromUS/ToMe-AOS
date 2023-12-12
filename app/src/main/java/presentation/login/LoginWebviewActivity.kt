@@ -100,30 +100,5 @@ class LoginWebviewActivity : AppCompatActivity() {
                 }
             })
         }
-        private fun createUser(nickname: String) {
-            val client = ApiClient.getApiClient().create(LoginService::class.java)
-            lifecycleScope.launch {
-                val accessToken = ApplicationClass.getInstance().getDataStore().accessToken.first()
-                val refreshToken = ApplicationClass.getInstance().getDataStore().refreshToken.first()
-                val userRequest = UserRequest(nickname)
-                val requestBody = GsonBuilder()
-                    .serializeNulls().create()
-                    .toJson(userRequest)
-                    .toRequestBody("application/json".toMediaTypeOrNull())
-                client.createUser(accessToken, refreshToken, requestBody).enqueue(object : Callback<UserResponse> {
-                    override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-                        if (response.isSuccessful) {
-                            println("CREATE USER HTTP 성공: ${response.code()}")
-                        } else {
-                            println("CREATE USER HTTP 오류: ${response.code()}")
-                        }
-                    }
-                    override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                        t.printStackTrace()
-                        println("CREATE USER 통신 실패")
-                    }
-                })
-            }
-        }
     }
 }
