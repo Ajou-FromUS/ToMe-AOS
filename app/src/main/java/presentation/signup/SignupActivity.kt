@@ -5,8 +5,10 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import application.ApplicationClass
+import com.example.tome_aos.R
 import com.example.tome_aos.databinding.ActivitySignupBinding
 import com.google.gson.GsonBuilder
 import data.dto.request.UserRequest
@@ -21,15 +23,43 @@ import presentation.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import util.CommonTextWatcher
 import util.hideKeyboard
 
 class SignupActivity: AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
+    private var nick = false
+    private var birth = false
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         signup()
+        binding.etNickname.addTextChangedListener(CommonTextWatcher(
+            onChanged = { source, _, _, _ ->
+                nick = !source.isNullOrEmpty()
+                checkCondition()
+            }
+        ))
+        binding.etBirthdate.addTextChangedListener(CommonTextWatcher(
+            onChanged = { source, _, _, _ ->
+                birth = !source.isNullOrEmpty()
+                checkCondition()
+            }
+        ))
+    }
+    private fun checkCondition() {
+        if (nick && birth) {
+            binding.btnSignUp.setBackgroundResource(R.drawable.btn_basic_8dp)
+            binding.btnSignUp.setTextColor(ContextCompat.getColorStateList(this, R.color.color_font4))
+            binding.btnSignUp.isEnabled = true
+            binding.btnSignUp.backgroundTintList = ContextCompat.getColorStateList(this, R.color.color_main)
+        } else {
+            binding.btnSignUp.setBackgroundResource(R.drawable.btn_basic_8dp_noripple)
+            binding.btnSignUp.setTextColor(ContextCompat.getColorStateList(this, R.color.color_font3))
+            binding.btnSignUp.isEnabled = false
+            binding.btnSignUp.backgroundTintList = ContextCompat.getColorStateList(this, R.color.color_disabled1)
+        }
     }
     private fun signup() {
         binding.btnSignUp.setOnClickListener {
