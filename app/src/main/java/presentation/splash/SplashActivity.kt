@@ -13,6 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import presentation.MainActivity
 import presentation.landing.LandingActiviy
 import presentation.login.LoginActivity
 
@@ -26,10 +27,17 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         CoroutineScope(Dispatchers.Main).launch {
-            val intent = if (ApplicationClass.getInstance().getDataStore().landingFlag.first()) {
-                Intent(this@SplashActivity, LoginActivity::class.java)
-            } else {
-                Intent(this@SplashActivity, LandingActiviy::class.java)
+            val accessToken = ApplicationClass.getInstance().getDataStore().accessToken.first()
+            val intent = when {
+                !accessToken.isNullOrEmpty() -> {
+                    Intent(this@SplashActivity, MainActivity::class.java)
+                }
+                ApplicationClass.getInstance().getDataStore().landingFlag.first() -> {
+                    Intent(this@SplashActivity, LoginActivity::class.java)
+                }
+                else -> {
+                    Intent(this@SplashActivity, LandingActiviy::class.java)
+                }
             }
             moveNext(intent)
         }
