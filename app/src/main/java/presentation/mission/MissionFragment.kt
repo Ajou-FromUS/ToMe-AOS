@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,15 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import application.ApplicationClass
 import com.example.tome_aos.R
 import com.example.tome_aos.databinding.FragmentMissionBinding
-import com.example.tome_aos.databinding.ItemMissionBoxBinding
-import com.example.tome_aos.databinding.ItemMissionCheckBinding
 import data.dto.response.MissionResponse
 import data.service.ApiClient
 import data.service.MissionService
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import presentation.MainActivity
-import presentation.home.HomeFragment
 import presentation.mission.adapter.MissionAdapter
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,7 +27,6 @@ import java.time.LocalDate
 
 class MissionFragment : Fragment() {
     private lateinit var binding: FragmentMissionBinding
-    private lateinit var includeBinding: ItemMissionCheckBinding
     private lateinit var recyclerView: RecyclerView
     private val missionDetailFragment = MissionDetailFragment()
 
@@ -57,15 +51,20 @@ class MissionFragment : Fragment() {
         return binding.root
     }
 
+    private fun completeImageView(completeList: BooleanArray){
+        if(completeList[0])
+            binding.complete3.setImageResource(R.drawable.ic_mission_complete)
+        if(completeList[1])
+            binding.complete2.setImageResource(R.drawable.ic_mission_complete)
+        if(completeList[2])
+            binding.complete1.setImageResource(R.drawable.ic_mission_complete)
+    }
+
 
     private fun setMissionList(response: List<MissionResponse.Data>?){
         if (response != null) {
-//            for(i in response){
-//                if(i.is_completed == true){
-//                    completeCount += 1
-//                }
-//            }
-
+            val completelist: BooleanArray = booleanArrayOf(response[0].is_completed?: false, response[1].is_completed?:false, response[2].is_completed?:false)
+            completeImageView(completelist)
             recyclerView = binding.missionListLayout
             val missionAdapter = MissionAdapter(response)
             recyclerView.adapter = missionAdapter
@@ -76,6 +75,7 @@ class MissionFragment : Fragment() {
                         bundle.putInt("missionType", response[position].mission?.type!!)
                         bundle.putString("missionTitle", response[position].mission?.title)
                         bundle.putInt("missionID", response[position].id!!)
+                        bundle.putBooleanArray("completeList", completelist)
                         missionDetailFragment.arguments = bundle
                         val transaction = parentFragmentManager.beginTransaction()
                         transaction.replace(R.id.main_frameLayout, missionDetailFragment, "MISSION")

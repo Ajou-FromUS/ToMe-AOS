@@ -9,6 +9,34 @@
                                                    android:paddingHorizontal="27dp">
 
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today_mission" android:id="@+id/today_mission_text3"
+            android:textAppearance="@style/text_body2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="135dp"
+            android:textColor="@color/color_font1"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/mission_complete_layout" app:layout_constraintTop_toBottomOf="@+id/today_mission_text3"
+            android:layout_marginTop="12dp">
+        <ImageView
+                android:src="@drawable/ic_mission_uncomplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/complete1" android:layout_weight="1"/>
+        <ImageView
+                android:src="@drawable/ic_mission_uncomplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/complete2" android:layout_weight="1"/>
+        <ImageView
+                android:src="@drawable/ic_mission_uncomplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/complete3" android:layout_weight="1"/>
+    </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -30,10 +58,6 @@
                 android:layout_marginTop="16dp"
                 android:textColor="@color/color_font1"/>
     </LinearLayout>
-    <include layout="@layout/item_mission_check"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toTopOf="parent"
-             app:layout_constraintEnd_toEndOf="parent"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"

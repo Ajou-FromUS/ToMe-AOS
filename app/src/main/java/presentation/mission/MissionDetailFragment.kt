@@ -44,6 +44,7 @@ class MissionDetailFragment : Fragment() {
         var missionDetail = arguments?.getString("missionTitle")
         val missionType = arguments?.getInt("missionType")
         val missionID = arguments?.getInt("missionID")
+        val completeList = arguments?.getBooleanArray("completeList")
 
         val missionTextFragment = MissionTextFragment()
         val missionDecibelFragment = MissionDecibelFragment()
@@ -56,6 +57,10 @@ class MissionDetailFragment : Fragment() {
         missionDecibelFragment.arguments = bundle
         missionTextFragment.arguments = bundle
         missionPhotoFragment.arguments = bundle
+
+        if (completeList != null) {
+            completeImageView(completeList)
+        }
 
         detailText.text = missionDetail
 
@@ -94,4 +99,13 @@ class MissionDetailFragment : Fragment() {
          transaction.addToBackStack(null);
          transaction.commit()
      }
+
+    private fun completeImageView(completeList: BooleanArray){
+        if(completeList[0])
+            binding.complete3.setImageResource(R.drawable.ic_mission_complete)
+        if(completeList[1])
+            binding.complete2.setImageResource(R.drawable.ic_mission_complete)
+        if(completeList[2])
+            binding.complete1.setImageResource(R.drawable.ic_mission_complete)
+    }
 }
